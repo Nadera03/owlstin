@@ -13,10 +13,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #DC143Caa);
+  filter: drop-shadow(0 0 2em #5D3E8Daa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #D4AF37aa);
+  filter: drop-shadow(0 0 2em #9b87f5aa);
 }
 
 @keyframes logo-spin {
@@ -36,18 +36,18 @@
 
 .card {
   padding: 2em;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  background-color: rgba(139, 0, 0, 0.7);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  background-color: rgba(42, 27, 61, 0.7);
 }
 
 .read-the-docs {
-  color: #F8F4E3;
+  color: #CCCCFF;
 }
 
-/* Wizardry specific elements */
+/* Gothic specific elements */
 .magical-border {
-  border: 1px solid #D4AF37;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  border: 1px solid #5D3E8D;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
 }
 
 .magical-window {
@@ -55,7 +55,7 @@
 }
 
 .sparkle-light {
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle at center, rgba(138, 43, 226, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
   animation: pulse 3s infinite alternate;
 }
 
@@ -70,7 +70,7 @@
   position: absolute;
   width: 3px;
   height: 3px;
-  background: #D4AF37;
+  background: #5D3E8D;
   border-radius: 50%;
   animation: float-particles 4s infinite;
 }
@@ -81,37 +81,37 @@
   100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
 }
 
-/* Enhanced Magical Card */
+/* Enhanced Gothic Card */
 .magical-card {
-  @apply relative border border-wizardry-gold/30 p-6 rounded-md bg-gradient-to-b from-wizardry-deep-crimson/90 to-wizardry-deep-crimson overflow-hidden transition-all duration-300 backdrop-blur-md;
-  box-shadow: 0 4px 20px rgba(139, 0, 0, 0.3), inset 0 0 20px rgba(212, 175, 55, 0.1);
+  @apply relative border border-wizardry-purple/30 p-6 rounded-md bg-gradient-to-b from-black/90 to-wizardry-navy/90 overflow-hidden transition-all duration-300 backdrop-blur-md;
+  box-shadow: 0 4px 20px rgba(42, 27, 61, 0.3), inset 0 0 20px rgba(138, 43, 226, 0.1);
 }
 
 .magical-card:before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-br from-wizardry-crimson/20 to-transparent pointer-events-none opacity-50;
+  @apply absolute inset-0 bg-gradient-to-br from-wizardry-purple/20 to-transparent pointer-events-none opacity-50;
 }
 
 .magical-card::after {
   content: '';
-  @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-wizardry-gold/50 to-transparent;
+  @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-wizardry-purple/50 to-transparent;
 }
 
 .magical-card:hover {
-  @apply border-wizardry-gold/60;
+  @apply border-wizardry-purple/60;
   transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(139, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 30px rgba(42, 27, 61, 0.4), 0 0 15px rgba(138, 43, 226, 0.3);
 }
 
-/* Enhanced Magical Button Style */
+/* Enhanced Gothic Button Style */
 .magical-btn {
-  @apply relative bg-gradient-to-r from-wizardry-crimson to-wizardry-deep-crimson text-wizardry-parchment overflow-hidden transition-all duration-300 border border-wizardry-gold/30 rounded-md;
-  box-shadow: 0 0 10px rgba(139, 0, 0, 0.4), 0 0 5px rgba(212, 175, 55, 0.3);
+  @apply relative bg-gradient-to-r from-wizardry-purple to-wizardry-navy text-wizardry-parchment overflow-hidden transition-all duration-300 border border-wizardry-purple/30 rounded-md;
+  box-shadow: 0 0 10px rgba(42, 27, 61, 0.4), 0 0 5px rgba(138, 43, 226, 0.3);
 }
 
 .magical-btn:hover, .magical-btn:focus {
-  @apply border-wizardry-gold/50;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 0 10px rgba(139, 0, 0, 0.6);
+  @apply border-wizardry-purple/50;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4), 0 0 10px rgba(42, 27, 61, 0.6);
 }
 
 .magical-btn:active {
@@ -121,41 +121,41 @@
 /* Enhanced Floating Orb */
 .magical-orb {
   @apply absolute rounded-full animate-float;
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.6) 0%, rgba(139, 0, 0, 0.4) 70%);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 0 40px rgba(139, 0, 0, 0.2);
+  background: radial-gradient(circle at center, rgba(138, 43, 226, 0.6) 0%, rgba(42, 27, 61, 0.4) 70%);
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.3), 0 0 40px rgba(42, 27, 61, 0.2);
 }
 
 /* Enhanced Magical Glow Effect */
 .magical-glow-text {
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.7), 0 0 20px rgba(212, 175, 55, 0.4);
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.7), 0 0 20px rgba(138, 43, 226, 0.4);
   animation: glow-pulse 4s infinite alternate;
 }
 
 @keyframes glow-pulse {
-  0%, 100% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.7), 0 0 5px rgba(220, 20, 60, 0.5); }
-  50% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.9), 0 0 10px rgba(220, 20, 60, 0.7); }
+  0%, 100% { text-shadow: 0 0 10px rgba(138, 43, 226, 0.7), 0 0 5px rgba(93, 62, 141, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(138, 43, 226, 0.9), 0 0 10px rgba(93, 62, 141, 0.7); }
 }
 
 /* Enhanced Star Orbs */
 .star-orb {
-  @apply rounded-full bg-gradient-to-br from-wizardry-gold to-wizardry-crimson animate-float;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5), 0 0 30px rgba(220, 20, 60, 0.3), 0 0 45px rgba(139, 0, 0, 0.2);
+  @apply rounded-full bg-gradient-to-br from-wizardry-purple to-wizardry-navy animate-float;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.5), 0 0 30px rgba(93, 62, 141, 0.3), 0 0 45px rgba(42, 27, 61, 0.2);
 }
 
 /* Enhanced Sparkle Animation */
 .sparkle {
-  @apply inline-block w-4 h-4 bg-gradient-radial from-wizardry-gold to-wizardry-gold/50 rounded-full animate-pulse mr-2;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.7), 0 0 20px rgba(212, 175, 55, 0.3);
+  @apply inline-block w-4 h-4 bg-gradient-radial from-wizardry-purple to-wizardry-purple/50 rounded-full animate-pulse mr-2;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.7), 0 0 20px rgba(138, 43, 226, 0.3);
 }
 
-/* Castlevania-enhanced elements */
+/* Gothic enhanced elements */
 .gothic-window {
   @apply relative;
-  background: linear-gradient(to bottom, rgba(139, 0, 0, 0.6), rgba(80, 0, 0, 0.8));
-  border: 2px solid #D4AF37;
+  background: linear-gradient(to bottom, rgba(42, 27, 61, 0.6), rgba(21, 18, 44, 0.8));
+  border: 2px solid #5D3E8D;
   border-top-left-radius: 40%;
   border-top-right-radius: 40%;
-  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.3), 0 0 15px rgba(139, 0, 0, 0.5);
+  box-shadow: inset 0 0 20px rgba(138, 43, 226, 0.3), 0 0 15px rgba(42, 27, 61, 0.5);
   overflow: hidden;
 }
 
@@ -167,7 +167,7 @@
   transform: translateX(-50%);
   width: 2px;
   height: 100%;
-  background: linear-gradient(to bottom, #D4AF37, rgba(212, 175, 55, 0.3));
+  background: linear-gradient(to bottom, #5D3E8D, rgba(138, 43, 226, 0.3));
 }
 
 .gothic-window:after {
@@ -177,7 +177,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, rgba(212, 175, 55, 0.3), #D4AF37, rgba(212, 175, 55, 0.3));
+  background: linear-gradient(to right, rgba(138, 43, 226, 0.3), #5D3E8D, rgba(138, 43, 226, 0.3));
 }
 
 /* Enhanced Chandelier */
@@ -186,18 +186,18 @@
 }
 
 .chandelier-base {
-  @apply absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-radial from-wizardry-gold to-wizardry-gold/70 rounded-full;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5), 0 0 30px rgba(212, 175, 55, 0.3);
+  @apply absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-radial from-wizardry-purple to-wizardry-purple/70 rounded-full;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.5), 0 0 30px rgba(138, 43, 226, 0.3);
 }
 
 .chandelier-chain {
   @apply absolute top-8 left-1/2 transform -translate-x-1/2 w-2 h-10;
-  background: linear-gradient(to bottom, #D4AF37, #B3901E);
+  background: linear-gradient(to bottom, #5D3E8D, #2A1B3D);
 }
 
 .chandelier-ring {
-  @apply absolute top-16 left-1/2 transform -translate-x-1/2 w-24 h-24 border-4 border-wizardry-gold rounded-full;
-  box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.3), 0 0 10px rgba(212, 175, 55, 0.5);
+  @apply absolute top-16 left-1/2 transform -translate-x-1/2 w-24 h-24 border-4 border-wizardry-purple rounded-full;
+  box-shadow: inset 0 0 15px rgba(138, 43, 226, 0.3), 0 0 10px rgba(138, 43, 226, 0.5);
 }
 
 .chandelier-candle {
@@ -205,21 +205,21 @@
 }
 
 .chandelier-flame {
-  @apply absolute w-3 h-4 bg-gradient-to-t from-wizardry-gold to-white rounded-full animate-candle-flicker;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.7), 0 0 30px rgba(212, 175, 55, 0.4);
+  @apply absolute w-3 h-4 bg-gradient-to-t from-wizardry-purple to-white rounded-full animate-candle-flicker;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.7), 0 0 30px rgba(138, 43, 226, 0.4);
   filter: blur(1px);
 }
 
 /* Enhanced Bookshelf */
 .bookshelf {
   @apply relative w-full h-40 rounded-sm p-1;
-  background: linear-gradient(to bottom, #3c1502, #2a0e01);
+  background: linear-gradient(to bottom, #2A1B3D, #15122C);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .bookshelf-shelf {
   @apply absolute left-0 w-full h-2;
-  background: linear-gradient(to right, #2a0e01, #3c1502, #2a0e01);
+  background: linear-gradient(to right, #15122C, #2A1B3D, #15122C);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -229,8 +229,8 @@
 
 /* Enhanced Stone wall background */
 .stone-wall {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to bottom, #8B0000, #500000);
-  background-color: #600000;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235D3E8D' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to bottom, #2A1B3D, #15122C);
+  background-color: #1A1B3D;
 }
 
 /* Enhanced Floating elements */
@@ -239,13 +239,13 @@
   animation: float 8s infinite ease-in-out;
 }
 
-/* Enhanced Wizardry card */
+/* Enhanced Gothic card */
 .wizardry-card {
-  @apply relative bg-gradient-to-b from-[rgba(139,0,0,0.7)] to-[rgba(80,0,0,0.9)] border border-wizardry-gold/30 rounded-md shadow-lg overflow-hidden backdrop-blur-sm;
-  box-shadow: 0 4px 20px rgba(139, 0, 0, 0.3), inset 0 0 20px rgba(212, 175, 55, 0.1);
+  @apply relative bg-gradient-to-b from-[rgba(42,27,61,0.7)] to-[rgba(21,18,44,0.9)] border border-wizardry-purple/30 rounded-md shadow-lg overflow-hidden backdrop-blur-sm;
+  box-shadow: 0 4px 20px rgba(42, 27, 61, 0.3), inset 0 0 20px rgba(138, 43, 226, 0.1);
 }
 
 .wizardry-card::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-br from-wizardry-crimson/10 to-wizardry-deep-crimson/20 opacity-30 pointer-events-none;
+  @apply absolute inset-0 bg-gradient-to-br from-wizardry-purple/10 to-wizardry-navy/20 opacity-30 pointer-events-none;
 }
