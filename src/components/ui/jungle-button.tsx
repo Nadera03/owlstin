@@ -51,10 +51,11 @@ const JungleButton = React.forwardRef<HTMLButtonElement, JungleButtonProps>(
     const { currentBiome } = useBiome();
     const buttonBiome = biomeType || currentBiome;
     
-    // Use the biome type as variant if it matches a variant name
-    const biomeVariant = (buttonBiome && jungleButtonVariants.variants.variant.hasOwnProperty(buttonBiome))
-      ? buttonBiome as any 
-      : variant;
+    // Check if the biome type matches any of our variant names
+    let biomeVariant = variant;
+    if (buttonBiome && ['tropical', 'savanna', 'tundra', 'desert', 'forest'].includes(buttonBiome)) {
+      biomeVariant = buttonBiome as any;
+    }
     
     const Comp = asChild ? Slot : "button"
     return (

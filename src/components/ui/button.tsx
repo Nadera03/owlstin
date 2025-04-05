@@ -48,15 +48,14 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, biomeType, ...props }, ref) => {
-    const biomeContext = React.useContext(
-      React.createContext({ currentBiome: 'tropical' as const })
-    );
-    const buttonBiome = biomeType || biomeContext.currentBiome;
-
-    // Use the biome type as variant if it matches a variant name
-    const biomeVariant = (buttonBiome && buttonVariants.variants.variant.hasOwnProperty(buttonBiome))
-      ? buttonBiome as any 
-      : variant;
+    const { currentBiome } = useBiome();
+    const buttonBiome = biomeType || currentBiome;
+    
+    // Check if the biome type matches any of our variant names
+    let biomeVariant = variant;
+    if (buttonBiome && ['tropical', 'savanna', 'tundra', 'desert', 'forest'].includes(buttonBiome)) {
+      biomeVariant = buttonBiome as any;
+    }
     
     const Comp = asChild ? Slot : "button"
     return (
