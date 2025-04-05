@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   const [animateIn, setAnimateIn] = useState(false);
@@ -13,6 +14,13 @@ export default function Hero() {
     
     return () => clearTimeout(timer);
   }, []);
+  
+  const scrollToFeatures = () => {
+    const featuresSection = document.querySelector('#features-section');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center pt-20 px-4">
@@ -56,13 +64,17 @@ export default function Hero() {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="magical-button group text-lg">
-              <span>Start Your Journey</span>
-              <div className="absolute inset-0 bg-magical-glowing-teal/10 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-            </Button>
-            <Button variant="outline" size="lg" className="border-magical-glowing-teal/50 hover:border-magical-glowing-teal/80 text-magical-starlight hover:bg-magical-glowing-teal/5 text-lg">
-              For Recruiters
-            </Button>
+            <Link to="/job-seeker">
+              <Button size="lg" className="magical-button group text-lg">
+                <span>Start Your Journey</span>
+                <div className="absolute inset-0 bg-magical-glowing-teal/10 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+              </Button>
+            </Link>
+            <Link to="/recruiter">
+              <Button variant="outline" size="lg" className="border-magical-glowing-teal/50 hover:border-magical-glowing-teal/80 text-magical-starlight hover:bg-magical-glowing-teal/5 text-lg">
+                For Recruiters
+              </Button>
+            </Link>
           </div>
           
           {/* Magic Orbs */}
@@ -72,7 +84,9 @@ export default function Hero() {
         
         {/* Scroll Down Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="text-magical-glowing-teal w-6 h-6" />
+          <button onClick={scrollToFeatures} aria-label="Scroll down">
+            <ArrowDown className="text-magical-glowing-teal w-6 h-6" />
+          </button>
         </div>
       </div>
     </section>

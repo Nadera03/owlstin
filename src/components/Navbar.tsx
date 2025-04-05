@@ -1,12 +1,13 @@
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -49,27 +50,32 @@ export default function Navbar() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/pricing">Pricing</NavLink>
-          <NavLink to="/testimonials">Testimonials</NavLink>
-          <NavLink to="/faq">FAQ</NavLink>
+          <NavLink to="/" currentPath={location.pathname}>Home</NavLink>
+          <NavLink to="/about" currentPath={location.pathname}>About</NavLink>
+          <NavLink to="/pricing" currentPath={location.pathname}>Pricing</NavLink>
+          <NavLink to="/testimonials" currentPath={location.pathname}>Testimonials</NavLink>
+          <NavLink to="/faq" currentPath={location.pathname}>FAQ</NavLink>
         </nav>
         
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="outline" className="border-magical-glowing-teal/50 hover:border-magical-glowing-teal/80 hover:bg-magical-glowing-teal/5">
-            Login
-          </Button>
-          <Button className="magical-button">
-            Get Started
-          </Button>
+          <Link to="/dashboard">
+            <Button variant="outline" className="border-magical-glowing-teal/50 hover:border-magical-glowing-teal/80 hover:bg-magical-glowing-teal/5">
+              Login
+            </Button>
+          </Link>
+          <Link to="/job-seeker">
+            <Button className="magical-button">
+              Get Started
+            </Button>
+          </Link>
         </div>
         
         {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-magical-glowing-teal"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -86,12 +92,16 @@ export default function Navbar() {
             <MobileNavLink to="/faq" onClick={() => setIsMenuOpen(false)}>FAQ</MobileNavLink>
             
             <div className="flex flex-col gap-4 mt-6">
-              <Button variant="outline" className="border-magical-glowing-teal/50 w-full">
-                Login
-              </Button>
-              <Button className="magical-button w-full">
-                Get Started
-              </Button>
+              <Link to="/dashboard" onClick={() => setIsMenuOpen(false)}>
+                <Button variant="outline" className="border-magical-glowing-teal/50 w-full">
+                  Login
+                </Button>
+              </Link>
+              <Link to="/job-seeker" onClick={() => setIsMenuOpen(false)}>
+                <Button className="magical-button w-full">
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </nav>
         </div>
@@ -100,14 +110,18 @@ export default function Navbar() {
   );
 }
 
-const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
-  <Link 
-    to={to}
-    className="text-magical-starlight/80 hover:text-magical-glowing-teal transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-magical-glowing-teal after:scale-x-0 after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left"
-  >
-    {children}
-  </Link>
-);
+const NavLink = ({ to, children, currentPath }: { to: string; children: React.ReactNode; currentPath: string }) => {
+  const isActive = currentPath === to;
+  
+  return (
+    <Link 
+      to={to}
+      className={`text-magical-starlight/80 hover:text-magical-glowing-teal transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-magical-glowing-teal ${isActive ? 'text-magical-glowing-teal after:scale-x-100' : 'after:scale-x-0'} after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left`}
+    >
+      {children}
+    </Link>
+  );
+};
 
 const MobileNavLink = ({ to, children, onClick }: { to: string; children: React.ReactNode; onClick: () => void }) => (
   <Link 
