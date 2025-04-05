@@ -20,10 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Montserrat', 'sans-serif'],
-				display: ['Montserrat', 'sans-serif'],
-				headline: ['Montserrat', 'sans-serif'],
-				mono: ['"Space Mono"', 'monospace'],
+				cinzel: ['Cinzel', 'serif'],
+				sans: ['Inter', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -69,26 +67,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				archive: {
-					'base': '#121212',
-					'text': '#F5F5F5',
-					'accent': '#9b87f5', // Primary Purple
-					'secondary': '#292929',
-					'border': '#333333',
-					'muted': '#757575',
+				magical: {
+					'deep-purple': '#2A1B3D',
+					'midnight': '#151226',
+					'glowing-teal': '#44DDDD',
+					'starlight': '#E0E0E0',
+					'purple-light': '#8265A7',
+					'purple-dark': '#1D1135',
+					'enchanted': '#5B247A',
 				},
-				wizardry: {
-					'primary': '#9b87f5',      // Primary Purple
-					'secondary': '#7E69AB',    // Secondary Purple
-					'tertiary': '#6E59A5',     // Tertiary Purple
-					'dark': '#1A1F2C',         // Dark Purple
-					'light': '#D6BCFA',        // Light Purple
-					'gold': '#D4AF37',         // Gold accent
-					'parchment': '#F5F5F5',    // Light text
-					'midnight': '#121212',     // Dark background
-					'deep-purple': '#4c2a85',  // Deeper purple for accents
-					'mystical': '#8b5cf6',     // Vibrant mystical purple
-				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -108,41 +95,37 @@ export default {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
 				},
-				'sway': {
-					'0%, 100%': { transform: 'rotate(-3deg)' },
-					'50%': { transform: 'rotate(3deg)' }
-				},
-				'text-slide': {
-					'0%, 100%': { transform: 'translateX(0)' },
-					'50%': { transform: 'translateX(-5%)' }
-				},
-				'marquee': {
-					'0%': { transform: 'translateX(0)' },
-					'100%': { transform: 'translateX(-100%)' }
+				'glow': {
+					'0%, 100%': { filter: 'drop-shadow(0 0 5px rgba(68, 221, 221, 0.5))' },
+					'50%': { filter: 'drop-shadow(0 0 15px rgba(68, 221, 221, 0.8))' }
 				},
 				'spin-slow': {
 					'0%': { transform: 'rotate(0deg)' },
 					'100%': { transform: 'rotate(360deg)' }
 				},
-				'glow': {
+				'shimmer': {
+					'0%': { backgroundPosition: '-40rem 0' },
+					'100%': { backgroundPosition: '40rem 0' }
+				},
+				'stars-twinkle': {
 					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.7' }
+					'50%': { opacity: '0.5' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 6s ease-in-out infinite',
-				'sway': 'sway 6s ease-in-out infinite',
-				'text-slide': 'text-slide 10s infinite linear',
-				'marquee': 'marquee 25s infinite linear',
+				'glow': 'glow 2s ease-in-out infinite',
 				'spin-slow': 'spin-slow 10s linear infinite',
-				'glow': 'glow 2s ease-in-out infinite'
+				'shimmer': 'shimmer 3s infinite linear',
+				'stars-twinkle': 'stars-twinkle 3s ease-in-out infinite'
 			},
 			backgroundImage: {
-				'noise': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='a' x='0' y='0'%3E%3CfeTurbulence baseFrequency='.005' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.15'/%3E%3C/svg%3E\")",
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'purple-gradient': 'linear-gradient(to bottom right, #9b87f5, #6E59A5)'
+				'magical-gradient': 'linear-gradient(to right bottom, rgb(42, 27, 61), rgb(29, 17, 53))',
+				'glow-border': 'linear-gradient(90deg, #44DDDD, #8265A7, #44DDDD)',
+				'enchanted-card': 'linear-gradient(to bottom, rgba(42, 27, 61, 0.8), rgba(29, 17, 53, 0.9))',
+				'starfield': 'radial-gradient(circle, transparent 20%, rgba(29, 17, 53, 0.9) 70%)'
 			}
 		}
 	},

@@ -1,15 +1,13 @@
+
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
 import MagicCursor from "@/components/MagicCursor";
-import BiomeBackground from "@/components/BiomeBackground";
-import VineHeading from "@/components/VineHeading";
-import { JungleButton } from "@/components/ui/jungle-button";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { UploadCloud, BookOpen, CheckCircle2, FileText, ArrowRight, Book, CheckCheck, Star, Palmtree, Mountain, Sprout, TreePine } from "lucide-react";
+import { UploadCloud, BookOpen, CheckCircle2, FileText, ArrowRight, Book, CheckCheck, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface Skill {
@@ -26,6 +24,7 @@ interface Recommendation {
 }
 
 export default function JobSeekerPage() {
+  // Set dark mode and scroll to top on mount
   useEffect(() => {
     document.documentElement.classList.add("dark");
     window.scrollTo(0, 0);
@@ -45,7 +44,6 @@ export default function JobSeekerPage() {
   const [missingSkills, setMissingSkills] = useState<Skill[]>([]);
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
   const [spellbookOpen, setSpellbookOpen] = useState(false);
-  const [currentBiome, setCurrentBiome] = useState<'tropical' | 'savanna' | 'tundra' | 'desert'>('tropical');
   const spellbookRef = useRef<HTMLDivElement>(null);
   
   const { toast } = useToast();
@@ -87,7 +85,9 @@ export default function JobSeekerPage() {
     setIsAnalyzing(true);
     setSpellbookOpen(true);
     
+    // Mock analysis process with magical animation
     setTimeout(() => {
+      // Mock data - in a real app this would come from the backend
       const mockMatchedSkills: Skill[] = [
         { name: "JavaScript", matched: true },
         { name: "React", matched: true },
@@ -150,10 +150,12 @@ export default function JobSeekerPage() {
       setMissingSkills(mockMissingSkills);
       setRecommendations(mockRecommendations);
       
+      // Calculate match percentage
       const totalSkills = mockMatchedSkills.length + mockMissingSkills.length;
       const matchedCount = mockMatchedSkills.length;
       const initialPercentage = Math.round((matchedCount / totalSkills) * 100);
       
+      // Animate the percentage
       let count = 0;
       const interval = setInterval(() => {
         count += 1;
@@ -182,6 +184,7 @@ export default function JobSeekerPage() {
       const updated = [...prev];
       updated[index].completed = !updated[index].completed;
       
+      // Recalculate match percentage
       const totalSkills = matchedSkills.length + missingSkills.length;
       const completedSkills = matchedSkills.length + updated.filter(r => r.completed).length;
       const newPercentage = Math.round((completedSkills / totalSkills) * 100);
@@ -196,6 +199,7 @@ export default function JobSeekerPage() {
     });
   };
   
+  // Spellbook animation effect
   useEffect(() => {
     if (spellbookOpen && spellbookRef.current) {
       spellbookRef.current.style.transform = "scale(1)";
@@ -205,23 +209,19 @@ export default function JobSeekerPage() {
   }, [spellbookOpen]);
   
   return (
-    <div className="min-h-screen text-archive-text relative">
-      <BiomeBackground biomeType={currentBiome} />
-      
+    <div className="min-h-screen bg-magical-midnight text-magical-starlight">
       <Starfield />
       <MagicCursor />
       <Navbar />
       
-      <main className="pt-20 pb-12 relative z-10">
-        <section className="py-12 md:py-20 px-4 relative" onMouseEnter={() => setCurrentBiome('tropical')}>
+      <main className="pt-20 pb-12">
+        {/* Page Header */}
+        <section className="py-12 md:py-20 px-4 relative">
           <div className="container mx-auto max-w-6xl">
-            <div className="flex items-center mb-6">
-              <Palmtree className="text-biome-tropical mr-3 h-6 w-6" />
-              <VineHeading level={1} className="text-4xl md:text-5xl font-bold text-center" biomeType="tropical">
-                Your Magical Career Journey
-              </VineHeading>
-            </div>
-            <p className="text-archive-text/80 text-lg md:text-xl max-w-2xl mx-auto text-center mb-8 backdrop-blur-sm bg-archive-base/30 p-4 rounded-md">
+            <h1 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-6 bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
+              Your Magical Career Journey
+            </h1>
+            <p className="text-magical-starlight/80 text-lg md:text-xl max-w-2xl mx-auto text-center mb-8">
               Upload your resume and a job description to reveal your skill match and personalized learning path.
             </p>
           </div>
@@ -229,25 +229,21 @@ export default function JobSeekerPage() {
         
         <div className="container mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div 
-              className={`lg:col-span-1 ${analysisComplete ? 'lg:block' : ''}`}
-              onMouseEnter={() => setCurrentBiome('desert')}
-            >
-              <div className="bg-archive-secondary/70 backdrop-blur-sm rounded-md border border-archive-border p-6 shadow-lg sticky top-24">
-                <div className="flex items-center mb-4">
-                  <Sprout className="text-biome-desert mr-3 h-5 w-5" />
-                  <VineHeading className="text-2xl font-bold" biomeType="desert">
-                    Prepare Your Journey
-                  </VineHeading>
-                </div>
+            {/* Left Column - Upload Section */}
+            <div className={`lg:col-span-1 ${analysisComplete ? 'lg:block' : ''}`}>
+              <div className="magical-card p-6 sticky top-24">
+                <h2 className="font-cinzel text-2xl font-bold mb-6 text-center bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
+                  Enchant Your Resume
+                </h2>
                 
                 <div className="space-y-6">
+                  {/* Resume Upload */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-archive-text/80">Your Resume</label>
-                    <div className="border-2 border-dashed border-biome-desert/40 rounded-lg p-6 flex flex-col items-center justify-center hover:border-biome-desert/70 transition-colors bg-archive-base/30">
-                      <UploadCloud className="h-10 w-10 text-biome-desert mb-2" />
-                      <p className="text-archive-text/70 text-sm mb-2">Upload your resume</p>
-                      <p className="text-archive-text/50 text-xs mb-4">PDF or DOCX format</p>
+                    <label className="block text-sm font-medium text-magical-starlight/80">Your Resume</label>
+                    <div className="border-2 border-dashed border-magical-glowing-teal/30 rounded-lg p-6 flex flex-col items-center justify-center hover:border-magical-glowing-teal/50 transition-colors">
+                      <UploadCloud className="h-10 w-10 text-magical-glowing-teal/70 mb-2" />
+                      <p className="text-magical-starlight/70 text-sm mb-2">Upload your resume</p>
+                      <p className="text-magical-starlight/50 text-xs mb-4">PDF or DOCX format</p>
                       <input
                         type="file"
                         accept=".pdf,.docx,.txt"
@@ -255,13 +251,11 @@ export default function JobSeekerPage() {
                         className="hidden"
                         id="resume-upload"
                       />
-                      <label htmlFor="resume-upload" className="cursor-pointer">
-                        <Button variant="default" size="sm">
-                          Choose File
-                        </Button>
+                      <label htmlFor="resume-upload" className="magical-button text-sm py-2 px-4 cursor-pointer">
+                        Choose File
                       </label>
                       {resumeFile && (
-                        <div className="mt-4 text-archive-text/70 text-sm flex items-center">
+                        <div className="mt-4 text-magical-starlight/70 text-sm flex items-center">
                           <FileText className="h-4 w-4 mr-2" />
                           {resumeFile.name}
                         </div>
@@ -269,12 +263,13 @@ export default function JobSeekerPage() {
                     </div>
                   </div>
                   
+                  {/* Job Description Upload */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-archive-text/80">Job Description</label>
-                    <div className="border-2 border-dashed border-biome-desert/40 rounded-lg p-6 flex flex-col items-center justify-center hover:border-biome-desert/70 transition-colors bg-archive-base/30">
-                      <UploadCloud className="h-10 w-10 text-biome-desert mb-2" />
-                      <p className="text-archive-text/70 text-sm mb-2">Upload job description</p>
-                      <p className="text-archive-text/50 text-xs mb-4">PDF, DOCX, or TXT format</p>
+                    <label className="block text-sm font-medium text-magical-starlight/80">Job Description</label>
+                    <div className="border-2 border-dashed border-magical-glowing-teal/30 rounded-lg p-6 flex flex-col items-center justify-center hover:border-magical-glowing-teal/50 transition-colors">
+                      <UploadCloud className="h-10 w-10 text-magical-glowing-teal/70 mb-2" />
+                      <p className="text-magical-starlight/70 text-sm mb-2">Upload job description</p>
+                      <p className="text-magical-starlight/50 text-xs mb-4">PDF, DOCX, or TXT format</p>
                       <input
                         type="file"
                         accept=".pdf,.docx,.txt"
@@ -282,13 +277,11 @@ export default function JobSeekerPage() {
                         className="hidden"
                         id="jd-upload"
                       />
-                      <label htmlFor="jd-upload" className="cursor-pointer">
-                        <Button variant="default" size="sm">
-                          Choose File
-                        </Button>
+                      <label htmlFor="jd-upload" className="magical-button text-sm py-2 px-4 cursor-pointer">
+                        Choose File
                       </label>
                       {jobDescFile && (
-                        <div className="mt-4 text-archive-text/70 text-sm flex items-center">
+                        <div className="mt-4 text-magical-starlight/70 text-sm flex items-center">
                           <FileText className="h-4 w-4 mr-2" />
                           {jobDescFile.name}
                         </div>
@@ -296,58 +289,72 @@ export default function JobSeekerPage() {
                     </div>
                   </div>
                   
+                  {/* Text Input Alternative */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-archive-text/80">Or paste job description</label>
+                    <label className="block text-sm font-medium text-magical-starlight/80">Or paste job description</label>
                     <textarea
-                      className="w-full h-32 bg-archive-base/50 border border-biome-desert/40 rounded-md p-3 text-archive-text/90 focus:outline-none focus:border-biome-desert/70 focus:ring-1 focus:ring-biome-desert/50"
+                      className="w-full h-32 bg-magical-deep-purple/50 border border-magical-glowing-teal/30 rounded-md p-3 text-magical-starlight/90 focus:outline-none focus:border-magical-glowing-teal/70 focus:ring-1 focus:ring-magical-glowing-teal/50"
                       placeholder="Paste job description text here..."
                       value={jobDescText}
                       onChange={handleJobDescTextChange}
                     ></textarea>
                   </div>
                   
-                  <JungleButton
-                    className="w-full py-6 text-lg"
+                  {/* Analyze Button */}
+                  <Button
+                    className="magical-button w-full py-6 text-lg"
                     disabled={isAnalyzing}
                     onClick={analyzeSkills}
                   >
-                    {isAnalyzing ? "Analyzing..." : "Begin Your Journey"}
+                    {isAnalyzing ? "Analyzing..." : "Analyze Skills"}
                     <div className="ml-2">✨</div>
-                  </JungleButton>
+                  </Button>
                 </div>
               </div>
             </div>
             
+            {/* Spellbook Animation (conditional) */}
             {isAnalyzing && (
-              <div className="fixed inset-0 bg-archive-base/90 flex items-center justify-center z-50">
+              <div className="fixed inset-0 bg-magical-midnight/90 flex items-center justify-center z-50">
                 <div 
                   ref={spellbookRef} 
                   className="relative w-80 h-96 transform scale-0 transition-transform duration-1000"
                 >
-                  <div className="absolute inset-0 bg-biome-wood rounded-lg border-4 border-biome-soil flex flex-col items-center justify-center">
-                    <div className="absolute inset-0 opacity-20 bg-repeat mix-blend-overlay pointer-events-none" 
-                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0c5 0 10 10 15 10s10-10 15-10 10 10 15 10 10-10 15-10 10 10 15 10' stroke='%23ffffff' stroke-width='2' fill='none' /%3E%3C/svg%3E\")" }}>
+                  {/* Spellbook */}
+                  <div className="absolute inset-0 bg-magical-deep-purple rounded-lg border-4 border-magical-enchanted flex flex-col items-center justify-center">
+                    {/* Magical runes and symbols */}
+                    <div className="absolute inset-0 overflow-hidden">
+                      <div className="absolute top-0 left-0 w-full h-full opacity-30">
+                        <svg width="100%" height="100%" viewBox="0 0 100 100">
+                          <circle cx="50" cy="50" r="30" stroke="#44DDDD" strokeWidth="0.5" fill="none" className="animate-spin-slow" />
+                          <circle cx="50" cy="50" r="20" stroke="#8265A7" strokeWidth="0.5" fill="none" className="animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+                          <polygon points="50,20 55,35 70,35 60,45 65,60 50,50 35,60 40,45 30,35 45,35" stroke="#44DDDD" strokeWidth="0.3" fill="none" />
+                        </svg>
+                      </div>
                     </div>
                     
+                    {/* Content */}
                     <div className="text-center p-6 z-10">
-                      <h3 className="font-headline text-2xl mb-4 text-biome-jungle-dark">Analyzing Skills</h3>
+                      <h3 className="font-cinzel text-2xl mb-4 text-magical-glowing-teal">Analyzing Skills</h3>
                       <div className="relative w-40 h-40 mx-auto mb-4">
-                        <div className="absolute inset-0 bg-biome-jungle-dark/20 rounded-full animate-pulse"></div>
+                        <div className="absolute inset-0 bg-magical-glowing-teal/20 rounded-full animate-pulse"></div>
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-32 h-32 rounded-full bg-gradient-to-br from-biome-tropical/70 to-biome-jungle-dark/50 border border-biome-vine/30 relative overflow-hidden">
+                          {/* Crystal ball with spinning particles */}
+                          <div className="w-32 h-32 rounded-full bg-gradient-to-br from-magical-deep-purple/70 to-magical-enchanted/50 border border-magical-glowing-teal/30 relative overflow-hidden">
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="w-24 h-24 rounded-full bg-archive-base/50 flex items-center justify-center">
-                                <div className="text-4xl text-biome-tropical animate-pulse">
+                              <div className="w-24 h-24 rounded-full bg-magical-midnight/50 flex items-center justify-center">
+                                <div className="text-4xl text-magical-glowing-teal animate-pulse">
                                   {matchPercentage}%
                                 </div>
                               </div>
                             </div>
                             
+                            {/* Particle effects */}
                             <div className="absolute inset-0">
                               {Array.from({ length: 10 }).map((_, i) => (
                                 <div 
                                   key={i}
-                                  className="absolute w-2 h-2 bg-biome-tropical/70 rounded-full animate-ping"
+                                  className="absolute w-2 h-2 bg-magical-glowing-teal/70 rounded-full animate-ping"
                                   style={{
                                     left: `${Math.random() * 100}%`,
                                     top: `${Math.random() * 100}%`,
@@ -360,8 +367,8 @@ export default function JobSeekerPage() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-archive-text/80">
-                        Analyzing your skills and blazing your career trail...
+                      <p className="text-magical-starlight/80">
+                        Casting spells to analyze your magical abilities...
                       </p>
                     </div>
                   </div>
@@ -369,33 +376,32 @@ export default function JobSeekerPage() {
               </div>
             )}
             
+            {/* Right Column - Analysis Results (conditional) */}
             {analysisComplete && (
               <div className="lg:col-span-2 space-y-8">
-                <div 
-                  className="bg-archive-secondary/70 backdrop-blur-sm rounded-md border border-archive-border p-6 shadow-lg"
-                  onMouseEnter={() => setCurrentBiome('savanna')}
-                >
-                  <div className="flex items-center mb-4">
-                    <Mountain className="text-biome-savanna mr-3 h-5 w-5" />
-                    <VineHeading className="text-2xl font-bold" biomeType="savanna">
-                      Your Skills Journey Map
-                    </VineHeading>
-                  </div>
+                {/* Match Percentage */}
+                <div className="magical-card p-6">
+                  <h2 className="font-cinzel text-2xl font-bold mb-4 bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
+                    Your Magical Match
+                  </h2>
                   
+                  {/* Orb with percentage */}
                   <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
                     <div className="relative w-40 h-40">
-                      <div className="absolute inset-0 bg-biome-savanna/20 rounded-full animate-pulse"></div>
+                      <div className="absolute inset-0 bg-magical-glowing-teal/20 rounded-full animate-pulse"></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-36 h-36 rounded-full bg-gradient-to-br from-archive-secondary/90 to-biome-savanna/30 border border-biome-savanna/30 relative overflow-hidden flex items-center justify-center">
-                          <div className="text-4xl font-bold text-archive-text">
+                        {/* Crystal ball with match percentage */}
+                        <div className="w-36 h-36 rounded-full bg-gradient-to-br from-magical-deep-purple/90 to-magical-enchanted/70 border border-magical-glowing-teal/30 relative overflow-hidden flex items-center justify-center">
+                          <div className="text-4xl font-bold text-magical-starlight">
                             {matchPercentage}%
                           </div>
                           
+                          {/* Particle effects */}
                           <div className="absolute inset-0">
                             {Array.from({ length: 6 }).map((_, i) => (
                               <div 
                                 key={i}
-                                className="absolute w-1 h-1 bg-biome-savanna/70 rounded-full animate-ping"
+                                className="absolute w-1 h-1 bg-magical-glowing-teal/70 rounded-full animate-ping"
                                 style={{
                                   left: `${Math.random() * 100}%`,
                                   top: `${Math.random() * 100}%`,
@@ -410,59 +416,56 @@ export default function JobSeekerPage() {
                     </div>
                     
                     <div className="flex-1">
-                      <h3 className="text-lg font-headline mb-2 text-archive-text">
+                      <h3 className="text-lg font-cinzel mb-2 text-magical-starlight">
                         Current Skill Match
                       </h3>
-                      <Progress value={matchPercentage} className="h-2 mb-4 bg-archive-secondary" indicatorClassName="bg-biome-savanna" />
+                      <Progress value={matchPercentage} className="h-2 mb-4 bg-magical-deep-purple" indicatorClassName="bg-magical-glowing-teal" />
                       
-                      <h3 className="text-lg font-headline mb-2 text-archive-text">
+                      <h3 className="text-lg font-cinzel mb-2 text-magical-starlight">
                         Potential Match After Learning
                       </h3>
-                      <Progress value={100} className="h-2 bg-archive-secondary" indicatorClassName="bg-gradient-to-r from-biome-savanna to-biome-jungle-dark" />
+                      <Progress value={100} className="h-2 bg-magical-deep-purple" indicatorClassName="bg-gradient-to-r from-magical-glowing-teal to-magical-purple-light" />
                       
-                      <p className="mt-4 text-archive-text/70">
+                      <p className="mt-4 text-magical-starlight/70">
                         Complete the recommended learning path to achieve a perfect match!
                       </p>
                     </div>
                   </div>
                 </div>
                 
-                <div 
-                  className="bg-archive-secondary/70 backdrop-blur-sm rounded-md border border-archive-border p-6 shadow-lg"
-                  onMouseEnter={() => setCurrentBiome('tundra')}
-                >
-                  <div className="flex items-center mb-4">
-                    <TreePine className="text-biome-tundra mr-3 h-5 w-5" />
-                    <VineHeading className="text-2xl font-bold" biomeType="tundra">
-                      Skill Exploration
-                    </VineHeading>
-                  </div>
+                {/* Skill Analysis */}
+                <div className="magical-card p-6">
+                  <h2 className="font-cinzel text-2xl font-bold mb-6 bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
+                    Skill Analysis Scroll
+                  </h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-archive-base/30 p-4 rounded-md border border-biome-tundra/30">
-                      <h3 className="text-xl font-headline mb-4 text-biome-tundra flex items-center">
+                    {/* Matched Skills */}
+                    <div className="magic-scroll">
+                      <h3 className="text-xl font-cinzel mb-4 text-magical-glowing-teal flex items-center">
                         <CheckCircle2 className="mr-2 h-5 w-5" />
                         Matched Skills
                       </h3>
-                      <div className="space-y-3 max-h-60 overflow-y-auto pr-2">
+                      <div className="space-y-3 max-h-60 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-magical-glowing-teal/30 scrollbar-track-magical-deep-purple/30">
                         {matchedSkills.map((skill, index) => (
-                          <div key={index} className="flex items-center bg-archive-secondary/50 p-3 rounded-md border border-biome-tundra/20">
-                            <div className="h-3 w-3 rounded-full bg-biome-tundra mr-3"></div>
+                          <div key={index} className="flex items-center bg-magical-deep-purple/50 p-3 rounded-md border border-magical-glowing-teal/20">
+                            <div className="h-3 w-3 rounded-full bg-magical-glowing-teal mr-3"></div>
                             <span>{skill.name}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                     
-                    <div className="bg-archive-base/30 p-4 rounded-md border border-biome-tundra/30">
-                      <h3 className="text-xl font-headline mb-4 text-biome-tundra flex items-center">
+                    {/* Missing Skills */}
+                    <div className="magic-scroll">
+                      <h3 className="text-xl font-cinzel mb-4 text-magical-glowing-teal flex items-center">
                         <BookOpen className="mr-2 h-5 w-5" />
                         Skills to Learn
                       </h3>
-                      <div className="space-y-3 max-h-60 overflow-y-auto pr-2">
+                      <div className="space-y-3 max-h-60 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-magical-glowing-teal/30 scrollbar-track-magical-deep-purple/30">
                         {missingSkills.map((skill, index) => (
-                          <div key={index} className="flex items-center bg-archive-secondary/70 p-3 rounded-md border border-biome-tundra/20">
-                            <div className="h-3 w-3 rounded-full bg-biome-tundra/50 mr-3"></div>
+                          <div key={index} className="flex items-center bg-magical-purple-dark/70 p-3 rounded-md border border-magical-purple-light/20">
+                            <div className="h-3 w-3 rounded-full bg-magical-purple-light mr-3"></div>
                             <span>{skill.name}</span>
                           </div>
                         ))}
@@ -471,35 +474,33 @@ export default function JobSeekerPage() {
                   </div>
                 </div>
                 
-                <div 
-                  className="bg-archive-secondary/70 backdrop-blur-sm rounded-md border border-archive-border p-6 shadow-lg relative overflow-hidden"
-                  onMouseEnter={() => setCurrentBiome('tropical')}
-                >
-                  <div className="absolute -right-20 -top-20 w-60 h-60 rounded-full bg-biome-tropical/5 filter blur-3xl"></div>
+                {/* AI Orb Advice */}
+                <div className="magical-card p-6 relative overflow-hidden">
+                  <div className="absolute -right-20 -top-20 w-60 h-60 rounded-full bg-magical-glowing-teal/5 filter blur-3xl"></div>
                   
                   <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
+                    {/* Floating orb */}
                     <div className="relative w-32 h-32 shrink-0">
-                      <div className="absolute inset-0 bg-biome-tropical/20 rounded-full animate-pulse"></div>
+                      <div className="absolute inset-0 bg-magical-glowing-teal/20 rounded-full animate-pulse"></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-28 h-28 rounded-full bg-gradient-to-br from-archive-secondary to-biome-jungle-dark border border-biome-tropical/30 animate-float flex items-center justify-center">
-                          <div className="text-biome-tropical text-3xl">AI</div>
+                        {/* AI orb */}
+                        <div className="w-28 h-28 rounded-full bg-gradient-to-br from-magical-deep-purple to-magical-enchanted border border-magical-glowing-teal/30 animate-float flex items-center justify-center">
+                          <div className="text-magical-glowing-teal text-3xl">AI</div>
                         </div>
                       </div>
-                      
-                      <div className="absolute -top-4 -right-4 w-8 h-20 bg-biome-vine/30 rounded-full rotate-45"></div>
-                      <div className="absolute -bottom-4 -left-4 w-6 h-16 bg-biome-vine/20 rounded-full -rotate-45"></div>
                     </div>
                     
+                    {/* Advice content */}
                     <div className="flex-1">
-                      <VineHeading className="text-xl mb-3" biomeType="tropical">
-                        Jungle Path Guidance
-                      </VineHeading>
-                      <p className="text-archive-text/80 mb-4">
+                      <h3 className="text-xl font-cinzel mb-3 bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
+                        Magical Career Advice
+                      </h3>
+                      <p className="text-magical-starlight/80 mb-4">
                         Based on your profile and the job requirements, focus on learning Node.js and PostgreSQL first. 
                         These skills will complement your strong JavaScript and React foundation, making you a more 
                         versatile full-stack developer.
                       </p>
-                      <p className="text-archive-text/80">
+                      <p className="text-magical-starlight/80">
                         Consider creating a personal project that demonstrates these skills together, 
                         such as a simple web application with a database. This will serve as a powerful 
                         portfolio piece in your next interview.
@@ -508,46 +509,45 @@ export default function JobSeekerPage() {
                   </div>
                 </div>
                 
+                {/* Learning Recommendations */}
                 <div className="space-y-6">
-                  <VineHeading className="text-2xl font-bold" biomeType="tropical">
-                    Your Jungle Learning Path
-                  </VineHeading>
+                  <h2 className="font-cinzel text-2xl font-bold bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
+                    Your Magical Learning Path
+                  </h2>
                   
                   {recommendations.map((rec, index) => (
-                    <Card 
-                      key={index} 
-                      className={`backdrop-blur-sm bg-archive-secondary/70 border-archive-border shadow-lg transition-all duration-300 ${rec.completed ? 'border-biome-tropical/50' : ''}`}
-                      onMouseEnter={() => setCurrentBiome(index % 2 === 0 ? 'tropical' : (index % 3 === 0 ? 'tundra' : 'desert'))}
-                    >
+                    <Card key={index} className={`magical-card transition-all duration-300 ${rec.completed ? 'border-magical-glowing-teal/50' : ''}`}>
                       <CardContent className="p-6">
                         <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-xl font-headline text-archive-text flex items-center">
-                            {rec.completed && <CheckCheck className="mr-2 h-5 w-5 text-biome-tropical" />}
+                          <h3 className="text-xl font-cinzel text-magical-starlight flex items-center">
+                            {rec.completed && <CheckCheck className="mr-2 h-5 w-5 text-magical-glowing-teal" />}
                             {rec.skill}
                           </h3>
-                          <JungleButton 
+                          <Button 
                             variant={rec.completed ? "outline" : "default"}
                             size="sm"
+                            className={rec.completed ? "border-magical-glowing-teal text-magical-glowing-teal" : "magical-button"}
                             onClick={() => toggleSkillCompletion(index)}
                           >
                             {rec.completed ? "Completed" : "Mark Complete"}
-                          </JungleButton>
+                          </Button>
                         </div>
                         
-                        <p className="text-archive-text/80 mb-6">
+                        <p className="text-magical-starlight/80 mb-6">
                           {rec.description}
                         </p>
                         
+                        {/* Resources */}
                         <div className="mb-4">
-                          <h4 className="font-headline text-biome-tropical mb-2 flex items-center">
+                          <h4 className="font-cinzel text-magical-glowing-teal mb-2 flex items-center">
                             <Book className="h-4 w-4 mr-2" />
                             Learning Resources
                           </h4>
                           <ul className="space-y-2">
                             {rec.resources.map((resource, i) => (
                               <li key={i} className="flex items-center">
-                                <Star className="h-3 w-3 text-biome-tropical mr-2" />
-                                <a href="#" className="text-archive-text/80 hover:text-biome-tropical transition-colors">
+                                <Star className="h-3 w-3 text-magical-glowing-teal mr-2" />
+                                <a href="#" className="text-magical-starlight/80 hover:text-magical-glowing-teal transition-colors">
                                   {resource}
                                 </a>
                               </li>
@@ -555,9 +555,10 @@ export default function JobSeekerPage() {
                           </ul>
                         </div>
                         
+                        {/* Project Idea */}
                         <div>
-                          <h4 className="font-headline text-biome-tropical mb-2">Project Idea</h4>
-                          <p className="text-archive-text/80">
+                          <h4 className="font-cinzel text-magical-glowing-teal mb-2">Project Idea</h4>
+                          <p className="text-magical-starlight/80">
                             {rec.project}
                           </p>
                         </div>
@@ -565,14 +566,15 @@ export default function JobSeekerPage() {
                     </Card>
                   ))}
                   
-                  <div className="backdrop-blur-sm bg-archive-secondary/70 border border-archive-border rounded-md p-6 text-center shadow-lg">
-                    <VineHeading className="text-xl mb-4" biomeType="tropical">
-                      Ready to Explore Further?
-                    </VineHeading>
-                    <JungleButton size="lg">
+                  {/* Call to Action */}
+                  <div className="magical-card p-6 text-center">
+                    <h3 className="text-xl font-cinzel mb-4 bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
+                      Ready to Chart Your Course?
+                    </h3>
+                    <Button className="magical-button" size="lg">
                       <span>View Full Learning Roadmap</span>
                       <ArrowRight className="ml-2 h-5 w-5" />
-                    </JungleButton>
+                    </Button>
                   </div>
                 </div>
               </div>

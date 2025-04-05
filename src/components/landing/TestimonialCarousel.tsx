@@ -18,7 +18,7 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Emma Belmont",
+    name: "Emma Watson",
     role: "Software Developer",
     company: "Spellbound Tech",
     text: "Owlstin helped me identify key skills I was missing and provided a magical roadmap to land my dream job. The AI recommendations were spot-on!",
@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 2,
-    name: "Daniel Morris",
+    name: "Daniel Radcliffe",
     role: "UX Designer",
     company: "Wizardry Interfaces",
     text: "The skill gap analysis was incredibly accurate. I followed the learning path and secured 3 job interviews within a month. Simply magical!",
@@ -36,7 +36,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 3,
-    name: "Hermione Graves",
+    name: "Hermione Granger",
     role: "Product Manager",
     company: "Enchanted Products Inc.",
     text: "As someone switching careers, Owlstin made the transition seamless. The AI understood exactly what skills I needed to develop.",
@@ -45,7 +45,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 4,
-    name: "Ron Williams",
+    name: "Ron Weasley",
     role: "Data Analyst",
     company: "Crystal Ball Analytics",
     text: "The personalized learning resources were incredibly helpful. I went from rejection letters to multiple offers in just 8 weeks.",
@@ -54,7 +54,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 5,
-    name: "Luna Tepes",
+    name: "Luna Lovegood",
     role: "AI Researcher",
     company: "Magical Algorithms Ltd",
     text: "Owlstin's recommendations were like having a career mentor who truly understood my strengths and aspirations. Truly enchanting!",
@@ -87,8 +87,8 @@ export default function TestimonialCarousel() {
   return (
     <section className="py-20 px-4 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-16 text-wizardry-gold">
-          Enchanted Testimonials
+        <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-16 bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
+          Voices of Enchantment
         </h2>
         
         <div className="relative">
@@ -96,7 +96,7 @@ export default function TestimonialCarousel() {
           <div className="absolute top-1/2 -translate-y-1/2 left-0 z-10 hidden md:block">
             <button
               onClick={scrollPrev}
-              className="bg-wizardry-purple text-wizardry-parchment p-2 rounded-full hover:bg-wizardry-gold hover:text-wizardry-navy transition-colors"
+              className="magical-button p-2 rounded-full"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -106,7 +106,7 @@ export default function TestimonialCarousel() {
           <div className="absolute top-1/2 -translate-y-1/2 right-0 z-10 hidden md:block">
             <button
               onClick={scrollNext}
-              className="bg-wizardry-purple text-wizardry-parchment p-2 rounded-full hover:bg-wizardry-gold hover:text-wizardry-navy transition-colors"
+              className="magical-button p-2 rounded-full"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6" />
@@ -118,37 +118,35 @@ export default function TestimonialCarousel() {
             <CarouselContent>
               {testimonials.map((testimonial) => (
                 <CarouselItem key={testimonial.id} className={`${isMobile ? "basis-full" : "basis-1/3"} pl-4 md:pl-6`}>
-                  <Card className="glassmorphism h-full">
+                  <Card className="magical-card border-magical-glowing-teal/20 h-full bg-magical-midnight">
                     <CardContent className="p-6">
-                      {/* Magical sparkles */}
-                      <div className="absolute top-3 left-3 w-2 h-2 bg-wizardry-gold/50 rounded-full animate-pulse"></div>
-                      <div className="absolute top-5 right-5 w-1.5 h-1.5 bg-wizardry-gold/50 rounded-full animate-pulse" style={{animationDelay: "1s"}}></div>
-                      
                       {/* Stars */}
                       <div className="flex mb-4">
                         {Array.from({ length: 5 }).map((_, i) => (
                           <Star 
                             key={i}
-                            className={`w-5 h-5 ${i < testimonial.rating ? "text-wizardry-gold fill-wizardry-gold" : "text-wizardry-navy"}`}
+                            className={`w-5 h-5 ${i < testimonial.rating ? "text-magical-glowing-teal fill-magical-glowing-teal" : "text-gray-400"}`}
                           />
                         ))}
                       </div>
                       
                       {/* Testimonial Text */}
-                      <p className="text-wizardry-parchment/90 mb-6 h-32 overflow-hidden">"{testimonial.text}"</p>
+                      <p className="text-magical-starlight/90 mb-6 h-32 overflow-hidden">"{testimonial.text}"</p>
                       
                       {/* Author */}
                       <div className="flex items-center">
-                        <div className="mr-4 relative magical-border rounded-full overflow-hidden">
-                          <img 
-                            src={testimonial.avatar}
-                            alt={testimonial.name}
-                            className="w-12 h-12 rounded-full object-cover"
-                          />
+                        <div className="mr-4 relative">
+                          <div className="badge-glow">
+                            <img 
+                              src={testimonial.avatar}
+                              alt={testimonial.name}
+                              className="w-12 h-12 rounded-full object-cover border-2 border-magical-glowing-teal/30"
+                            />
+                          </div>
                         </div>
                         <div>
-                          <h4 className="text-wizardry-gold font-cinzel font-bold">{testimonial.name}</h4>
-                          <p className="text-wizardry-parchment/70 text-sm">{testimonial.role}, {testimonial.company}</p>
+                          <h4 className="text-magical-starlight font-bold">{testimonial.name}</h4>
+                          <p className="text-magical-starlight/70 text-sm">{testimonial.role}, {testimonial.company}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -166,8 +164,8 @@ export default function TestimonialCarousel() {
                 onClick={() => api?.scrollTo(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
                   current === index 
-                    ? "bg-wizardry-gold w-8" 
-                    : "bg-wizardry-parchment/30 hover:bg-wizardry-parchment/50"
+                    ? "bg-magical-glowing-teal w-8" 
+                    : "bg-magical-starlight/30 hover:bg-magical-starlight/50"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

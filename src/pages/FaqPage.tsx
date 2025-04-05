@@ -1,8 +1,7 @@
 
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
-import BiomeBackground from "@/components/BiomeBackground";
-import VineHeading from "@/components/VineHeading";
+import Starfield from "@/components/Starfield";
 import {
   Accordion,
   AccordionContent,
@@ -11,19 +10,15 @@ import {
 } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import { useBiome } from "@/contexts/BiomeContext";
 
 export default function FaqPage() {
-  const { setCurrentBiome } = useBiome();
-  
   useEffect(() => {
     document.documentElement.classList.add("dark");
     window.scrollTo(0, 0);
-    setCurrentBiome('tundra');
     return () => {
       document.documentElement.classList.remove("dark");
     };
-  }, [setCurrentBiome]);
+  }, []);
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -87,27 +82,27 @@ export default function FaqPage() {
   );
 
   return (
-    <div className="min-h-screen text-archive-text">
-      <BiomeBackground biomeType="tundra" />
+    <div className="min-h-screen bg-magical-midnight text-magical-starlight">
+      <Starfield />
       <Navbar />
       
-      <div className="container mx-auto px-4 py-24 sm:py-32 relative z-10">
+      <div className="container mx-auto px-4 py-24 sm:py-32">
         <div className="mx-auto max-w-3xl text-center mb-12">
-          <VineHeading level={1} biomeType="tundra" className="text-4xl md:text-5xl font-headline mb-6">
+          <h1 className="text-4xl md:text-5xl font-cinzel font-bold bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent mb-6">
             Frequently Asked Questions
-          </VineHeading>
-          <p className="text-archive-text/80 text-lg max-w-xl mx-auto backdrop-blur-sm bg-archive-base/30 p-4 rounded-md">
+          </h1>
+          <p className="text-magical-starlight/70 text-lg max-w-xl mx-auto">
             Find answers to common questions about Owlstin's magical career guidance.
           </p>
         </div>
         
-        <div className="bg-archive-secondary/70 backdrop-blur-sm rounded-md border border-biome-tundra/30 p-8 mb-10 max-w-2xl mx-auto">
+        <div className="magical-card p-8 rounded-xl mb-10 max-w-2xl mx-auto">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-archive-text/50" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-magical-starlight/50" />
             <Input
               type="text"
               placeholder="Search frequently asked questions..."
-              className="pl-10 bg-archive-base/50 border-biome-tundra/30 focus:border-biome-tundra/70"
+              className="pl-10 bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -117,19 +112,19 @@ export default function FaqPage() {
         <div className="max-w-2xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {filteredFaqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="bg-archive-secondary/70 backdrop-blur-sm border border-biome-tundra/30 rounded-md">
+              <AccordionItem key={index} value={`item-${index}`} className="magical-card rounded-xl border-none">
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
-                  <span className="font-medium text-archive-text">{faq.question}</span>
+                  <span className="font-medium text-magical-starlight">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-archive-text/80">
+                <AccordionContent className="px-6 pb-4 text-magical-starlight/80">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
             
             {filteredFaqs.length === 0 && (
-              <div className="text-center py-8 bg-archive-secondary/70 backdrop-blur-sm border border-biome-tundra/30 rounded-md">
-                <p className="text-archive-text/70">No results found for "{searchQuery}"</p>
+              <div className="text-center py-8 magical-card rounded-xl">
+                <p className="text-magical-starlight/70">No results found for "{searchQuery}"</p>
               </div>
             )}
           </Accordion>
