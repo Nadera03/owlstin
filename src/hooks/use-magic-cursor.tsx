@@ -15,11 +15,11 @@ interface MagicCursorOptions {
 export function useMagicCursor({
   trailCount = 8,
   trailSize = 8,
-  trailColor = "rgba(68, 221, 221, 0.5)",
-  cursorSize = 8,
+  trailColor = "rgba(139, 0, 0, 0.7)",
+  cursorSize = 12,
   cursorRingSize = 40,
-  cursorColor = "#44DDDD",
-  ringColor = "rgba(68, 221, 221, 0.5)",
+  cursorColor = "#8B0000",
+  ringColor = "rgba(139, 0, 0, 0.7)",
   disableOnMobile = true
 }: MagicCursorOptions = {}) {
   const [position, setPosition] = useState({ x: -100, y: -100 });
@@ -141,9 +141,9 @@ export function useMagicCursor({
         
         {/* Trail particles */}
         <div className="magic-trail">
-          {trails.map(trail => (
+          {trails.map((trail) => (
             <div 
-              key={trail.id}
+              key={`trail-${trail.id}`}
               className="magic-trail-particle"
               style={{
                 left: `${trail.x}px`,

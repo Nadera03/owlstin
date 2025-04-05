@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -86,7 +87,7 @@
 
 /* Archive Button Style */
 .archive-btn {
-  @apply relative bg-archive-secondary text-archive-text overflow-hidden transition-all duration-300 border border-archive-border rounded-sm uppercase font-display tracking-wider;
+  @apply relative bg-archive-secondary text-archive-text overflow-hidden transition-all duration-300 border border-archive-border rounded-sm uppercase tracking-wider;
 }
 
 .archive-btn::after {
@@ -110,7 +111,7 @@
 }
 
 .archive-headline {
-  @apply uppercase font-headline tracking-wider text-4xl sm:text-5xl md:text-6xl;
+  @apply uppercase tracking-wider text-4xl sm:text-5xl md:text-6xl;
   letter-spacing: 0.05em;
 }
 
@@ -169,9 +170,10 @@
 .ticker-item {
   display: inline-block;
   padding: 0 2rem;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 @keyframes ticker {
