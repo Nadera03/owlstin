@@ -1,73 +1,143 @@
-
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
-import Starfield from "@/components/Starfield";
 import MagicCursor from "@/components/MagicCursor";
-import Hero from "@/components/landing/Hero";
-import TestimonialCarousel from "@/components/landing/TestimonialCarousel";
 import Particles from "@/components/Particles";
 import { Button } from "@/components/ui/button";
+import { JungleButton } from "@/components/ui/jungle-button";
 import { ArrowRight, BookOpen, Users, Award, Map, Calendar, CheckCircle, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import BiomeBackground from "@/components/BiomeBackground";
+import VineHeading from "@/components/VineHeading";
+import { useBiome } from "@/contexts/BiomeContext";
+
 export default function Landing() {
+  const { setCurrentBiome } = useBiome();
+
   // Set dark mode and scroll to top on mount
   useEffect(() => {
     document.documentElement.classList.add("dark");
     window.scrollTo(0, 0);
+    setCurrentBiome('tropical');
     return () => {
       document.documentElement.classList.remove("dark");
     };
-  }, []);
-  return <div className="min-h-screen bg-wizardry-deep-blue text-wizardry-parchment overflow-hidden">
-      {/* Background magical elements */}
-      <div className="fixed inset-0 bg-parchment opacity-5 pointer-events-none"></div>
-      <Particles />
+  }, [setCurrentBiome]);
+
+  return (
+    <div className="min-h-screen overflow-hidden relative">
+      <BiomeBackground biomeType="tropical" />
       <MagicCursor />
       <Navbar />
       
       {/* Hero Section */}
-      <Hero />
+      <section className="pt-32 pb-20 px-4 relative">
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="text-center mb-12">
+            <VineHeading level={1} className="text-5xl md:text-7xl mb-6" biomeType="tropical">
+              Discover Your Career Path
+            </VineHeading>
+            <p className="text-archive-text/90 text-lg md:text-xl max-w-2xl mx-auto mb-8 backdrop-blur-sm bg-archive-base/30 p-4 rounded-md">
+              Navigate your professional journey with our AI-powered career guidance platform, designed to help you thrive in any environment.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link to="/job-seeker">
+                <JungleButton size="lg" biomeType="tropical">
+                  Start Your Journey
+                  <ArrowRight className="ml-2" />
+                </JungleButton>
+              </Link>
+              <Link to="/about">
+                <Button variant="outline" size="lg" className="border-biome-tropical/50 hover:border-biome-tropical hover:bg-archive-secondary/30">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          </div>
+          
+          <div className="relative mx-auto max-w-2xl h-80 mt-12">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-full h-full relative">
+                <div className="absolute inset-0 bg-archive-secondary/40 backdrop-blur-md rounded-xl border border-biome-tropical/30 overflow-hidden">
+                  {/* Vines */}
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <div 
+                      key={i} 
+                      className="absolute w-1 bg-biome-vine animate-vine-grow" 
+                      style={{ 
+                        height: '90%', 
+                        left: `${10 + i * 20}%`,
+                        animationDelay: `${i * 0.3}s`
+                      }}
+                    >
+                      <div className="absolute -left-1 bottom-0 w-3 h-3 bg-biome-vine rounded-full"></div>
+                      {i % 2 === 0 && (
+                        <div className="absolute left-0 top-1/3 w-12 h-8 bg-biome-tropical/60 rounded-full -translate-x-1/2 transform rotate-45 animate-leaf-sway"></div>
+                      )}
+                      {i % 2 === 1 && (
+                        <div className="absolute right-0 top-1/2 w-10 h-6 bg-biome-tropical/60 rounded-full translate-x-1/2 transform -rotate-45 animate-leaf-sway" style={{ animationDelay: '1s' }}></div>
+                      )}
+                    </div>
+                  ))}
+                  
+                  {/* Journey Path Visualization */}
+                  <div className="absolute bottom-8 left-8 right-8 h-1 bg-biome-tropical/50 rounded-full">
+                    <div className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-biome-tropical animate-pulse"></div>
+                    <div className="absolute -top-3 left-1/4 -translate-x-1/2 w-7 h-7 rounded-full bg-biome-tropical/70 border border-white/20 animate-float"></div>
+                    <div className="absolute -top-4 left-2/3 -translate-x-1/2 w-9 h-9 rounded-full bg-biome-tropical/80 border-2 border-white/30 animate-float" style={{ animationDelay: '1.5s' }}></div>
+                    <div className="absolute -top-2 right-0 translate-x-1/2 w-5 h-5 rounded-full bg-biome-tropical/90 animate-pulse"></div>
+                  </div>
+                  
+                  <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                    <h3 className="text-biome-tropical text-2xl font-headline mb-2">Your Career Expedition</h3>
+                    <p className="text-archive-text/80">Discover new skills and opportunities in our lush digital ecosystem</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
-      {/* Features Section - How It Works */}
+      {/* Features Section */}
       <section id="features-section" className="py-20 px-4 relative">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-4 text-wizardry-gold">
-            Sophisticated Career Alignment
-          </h2>
-          <p className="text-wizardry-parchment/90 text-center max-w-2xl mx-auto mb-16">
+          <VineHeading level={2} className="text-4xl md:text-5xl font-headline text-center mb-4" biomeType="tropical">
+            Navigate Your Professional Journey
+          </VineHeading>
+          <p className="text-archive-text/90 text-center max-w-2xl mx-auto mb-16 backdrop-blur-sm bg-archive-base/30 p-4 rounded-md">
             Our proprietary AI system meticulously analyzes your professional profile against industry demands, revealing optimal career paths tailored to your unique constellation of skills and aspirations.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <div className="wizardry-card p-6 transform transition-transform hover:scale-105">
-              <div className="w-12 h-12 bg-magical-glowing-purple/20 rounded-lg flex items-center justify-center mb-4">
-                <BookOpen className="text-wizardry-gold" />
+            {/* Feature 1 */}
+            <div className="bg-archive-secondary/40 backdrop-blur-md rounded-xl border border-biome-tropical/30 p-6 transform transition-transform hover:scale-105">
+              <div className="w-12 h-12 bg-biome-tropical/20 rounded-lg flex items-center justify-center mb-4">
+                <BookOpen className="text-biome-tropical" />
               </div>
-              <h3 className="text-xl font-cinzel font-bold mb-2 text-wizardry-gold">Comprehensive Analysis</h3>
-              <p className="text-wizardry-parchment/90">
+              <h3 className="text-xl font-headline mb-2 text-biome-tropical">Comprehensive Analysis</h3>
+              <p className="text-archive-text/80">
                 Our advanced algorithm conducts a multi-dimensional assessment of your professional profile, identifying core competencies and hidden strengths that align with your career aspirations.
               </p>
             </div>
             
-            {/* Step 2 */}
-            <div className="wizardry-card p-6 transform transition-transform hover:scale-105">
-              <div className="w-12 h-12 bg-magical-glowing-purple/20 rounded-lg flex items-center justify-center mb-4">
-                <Map className="text-wizardry-gold" />
+            {/* Feature 2 */}
+            <div className="bg-archive-secondary/40 backdrop-blur-md rounded-xl border border-biome-tropical/30 p-6 transform transition-transform hover:scale-105">
+              <div className="w-12 h-12 bg-biome-tropical/20 rounded-lg flex items-center justify-center mb-4">
+                <Map className="text-biome-tropical" />
               </div>
-              <h3 className="text-xl font-cinzel font-bold mb-2 text-wizardry-gold">Strategic Development</h3>
-              <p className="text-wizardry-parchment/90">
+              <h3 className="text-xl font-headline mb-2 text-biome-tropical">Strategic Development</h3>
+              <p className="text-archive-text/80">
                 Receive a bespoke professional development framework with curated learning resources, skill-building opportunities, and targeted projects designed to elevate your market position.
               </p>
             </div>
             
-            {/* Step 3 */}
-            <div className="wizardry-card p-6 transform transition-transform hover:scale-105">
-              <div className="w-12 h-12 bg-magical-glowing-purple/20 rounded-lg flex items-center justify-center mb-4">
-                <Users className="text-wizardry-gold" />
+            {/* Feature 3 */}
+            <div className="bg-archive-secondary/40 backdrop-blur-md rounded-xl border border-biome-tropical/30 p-6 transform transition-transform hover:scale-105">
+              <div className="w-12 h-12 bg-biome-tropical/20 rounded-lg flex items-center justify-center mb-4">
+                <Users className="text-biome-tropical" />
               </div>
-              <h3 className="text-xl font-cinzel font-bold mb-2 text-wizardry-gold">Optimal Placement</h3>
-              <p className="text-wizardry-parchment/90">
+              <h3 className="text-xl font-headline mb-2 text-biome-tropical">Optimal Placement</h3>
+              <p className="text-archive-text/80">
                 Our sophisticated matching algorithm identifies your ideal professional opportunities and provides comprehensive preparation for successful interviews and negotiations.
               </p>
             </div>
@@ -75,179 +145,28 @@ export default function Landing() {
         </div>
       </section>
       
-      {/* Testimonials */}
-      <TestimonialCarousel />
-      
-      {/* Pricing Section */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-4 text-wizardry-gold">
-            Premium Service Tiers
-          </h2>
-          <p className="text-wizardry-parchment/90 text-center max-w-2xl mx-auto mb-16">
-            Select the membership tier that best aligns with your professional advancement objectives
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Basic Plan */}
-            <div className="wizardry-card p-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-wizardry-navy px-4 py-1 text-wizardry-gold text-sm font-gothic">
-                SEEKER
-              </div>
-              <h3 className="text-2xl font-cinzel text-wizardry-gold mt-4 mb-2">Apprentice</h3>
-              <div className="flex items-end gap-2 mb-4">
-                <span className="text-4xl font-bold text-wizardry-parchment">$9</span>
-                <span className="text-wizardry-parchment/70 mb-1">/month</span>
-              </div>
-              <div className="border-t border-wizardry-gold/30 my-4"></div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Foundational skills assessment</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>3 position recommendations monthly</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Essential learning resources</span>
-                </li>
-                <li className="flex items-center gap-2 text-wizardry-parchment/50">
-                  <div className="sparkle opacity-30"></div>
-                  <span>Priority support</span>
-                </li>
-                <li className="flex items-center gap-2 text-wizardry-parchment/50">
-                  <div className="sparkle opacity-30"></div>
-                  <span>Interview preparation</span>
-                </li>
-              </ul>
-              <Button variant="outline" className="w-full border-wizardry-gold/50 hover:border-wizardry-gold text-wizardry-parchment hover:bg-magical-glowing-purple/10">
-                Get Started
-              </Button>
-            </div>
-            
-            {/* Pro Plan */}
-            <div className="wizardry-card p-6 relative overflow-hidden border-wizardry-gold/50 before:opacity-50">
-              <div className="absolute -top-5 -right-5 w-20 h-20 bg-wizardry-purple rotate-12"></div>
-              <div className="absolute top-0 right-0 bg-wizardry-purple px-4 py-1 text-wizardry-parchment text-sm font-gothic z-10">
-                POPULAR
-              </div>
-              <h3 className="text-2xl font-cinzel text-wizardry-gold mt-4 mb-2">Enchanter</h3>
-              <div className="flex items-end gap-2 mb-4">
-                <span className="text-4xl font-bold text-wizardry-parchment">$19</span>
-                <span className="text-wizardry-parchment/70 mb-1">/month</span>
-              </div>
-              <div className="border-t border-wizardry-gold/30 my-4"></div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Advanced competency analysis</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Unlimited position matches</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Comprehensive learning resources</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Priority support</span>
-                </li>
-                <li className="flex items-center gap-2 text-wizardry-parchment/50">
-                  <div className="sparkle opacity-30"></div>
-                  <span>Interview preparation</span>
-                </li>
-              </ul>
-              <Button className="w-full magical-button">
-                Get Started
-              </Button>
-            </div>
-            
-            {/* Premium Plan */}
-            <div className="wizardry-card p-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-wizardry-gold/80 px-4 py-1 text-wizardry-midnight text-sm font-gothic">
-                ULTIMATE
-              </div>
-              <h3 className="text-2xl font-cinzel text-wizardry-gold mt-4 mb-2">Archmage</h3>
-              <div className="flex items-end gap-2 mb-4">
-                <span className="text-4xl font-bold text-wizardry-parchment">$39</span>
-                <span className="text-wizardry-parchment/70 mb-1">/month</span>
-              </div>
-              <div className="border-t border-wizardry-gold/30 my-4"></div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Elite skill assessment</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Unlimited position matches</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Premium development resources</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Priority executive support</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="sparkle"></div>
-                  <span>Advanced interview preparation</span>
-                </li>
-              </ul>
-              <Button variant="outline" className="w-full border-wizardry-gold/50 hover:border-wizardry-gold text-wizardry-parchment hover:bg-magical-glowing-purple/10">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* FAQ Section */}
-      <section className="py-20 px-4 relative">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-4 text-wizardry-gold">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-wizardry-parchment/90 text-center max-w-2xl mx-auto mb-16">
-            Discover the intricacies of Owlstin's sophisticated career alignment system
-          </p>
-          
-          <div className="space-y-6">
-            {faqItems.map((item, index) => <div key={index} className="wizard-scroll">
-                <h3 className="text-xl font-cinzel text-wizardry-gold mb-3">{item.question}</h3>
-                <p className="text-wizardry-parchment/90">{item.answer}</p>
-              </div>)}
-          </div>
-        </div>
-      </section>
-      
       {/* CTA Section */}
       <section className="py-20 px-4 relative">
         <div className="container mx-auto max-w-5xl">
-          <div className="wizardry-card p-8 md:p-12 relative overflow-hidden">
+          <div className="bg-archive-secondary/40 backdrop-blur-md rounded-xl border border-biome-tropical/30 p-8 md:p-12 relative overflow-hidden">
             {/* Content */}
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="max-w-xl">
-                <h2 className="text-3xl md:text-4xl font-cinzel font-bold mb-4 text-wizardry-gold">
-                  Initiate Your Professional Transformation
-                </h2>
-                <p className="text-wizardry-parchment/90 mb-6">
+                <VineHeading level={2} className="text-3xl md:text-4xl font-headline mb-4" biomeType="tropical">
+                  Start Your Professional Expedition
+                </VineHeading>
+                <p className="text-archive-text/80 mb-6">
                   Join a distinguished community of professionals who have elevated their careers through Owlstin's sophisticated guidance and strategic insight.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/job-seeker">
-                    <Button className="magical-button" size="lg">
+                    <JungleButton biomeType="tropical" size="lg">
                       <span>For Job Seekers</span>
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    </JungleButton>
                   </Link>
                   <Link to="/recruiter">
-                    <Button variant="outline" className="border-wizardry-gold/50 hover:border-wizardry-gold/80 text-wizardry-parchment hover:bg-magical-glowing-purple/10" size="lg">
+                    <Button variant="outline" className="border-biome-tropical/50 hover:border-biome-tropical hover:bg-archive-secondary/30" size="lg">
                       <span>For Recruiters</span>
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -255,22 +174,26 @@ export default function Landing() {
                 </div>
               </div>
               
-              {/* Floating Magical Orb */}
+              {/* Floating Tropical Elements */}
               <div className="w-40 h-40 md:w-60 md:h-60 relative">
-                <div className="w-full h-full rounded-full magical-orb flex items-center justify-center">
-                  <img alt="Owlstin" className="w-2/3 h-2/3" onError={e => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOWI4N2Y1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtb3dsIj48cGF0aCBkPSJNNCA5DjwvcGF0aD48cGF0aCBkPSJNOCAxMTQ0Ijy8L3BhdGg+PHBhdGggZD0iTTE0IDExNiI+PC9wYXRoPjxjaXJjbGUgY3g9IjkiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PHBhdGggZD0iTTggNGM0LTMgOC0zIDEyIDAibXA9InRyYW5zZm9ybSI+PC9wYXRoPjwvc3ZnPg==";
-                }} src="/lovable-uploads/bbd45bae-a179-407f-98dd-47260870a75f.png" />
+                <div className="absolute inset-0 bg-biome-tropical/20 rounded-full animate-pulse"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-36 h-36 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-biome-tropical to-biome-jungle-dark border border-biome-tropical/30 animate-float flex items-center justify-center">
+                    <img 
+                      alt="Owlstin" 
+                      className="w-2/3 h-2/3" 
+                      onError={e => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOWI4N2Y1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtb3dsIj48cGF0aCBkPSJNNCA5DjwvcGF0aD48cGF0aCBkPSJNOCAxMTQ0Ijy8L3BhdGg+PHBhdGggZD0iTTE0IDExNiI+PC9wYXRoPjxjaXJjbGUgY3g9IjkiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PHBhdGggZD0iTTggNGM0LTMgOC0zIDEyIDAibXA9InRyYW5zZm9ybSI+PC9wYXRoPjwvc3ZnPg==";
+                      }} 
+                      src="/lovable-uploads/bbd45bae-a179-407f-98dd-47260870a75f.png" 
+                    />
+                  </div>
                 </div>
-                {/* Add floating sparkles */}
-                <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-wizardry-gold rounded-full animate-pulse"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-wizardry-gold rounded-full animate-pulse" style={{
-                animationDelay: "1s"
-              }}></div>
-                <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-wizardry-gold rounded-full animate-pulse" style={{
-                animationDelay: "1.5s"
-              }}></div>
+                {/* Add floating leaves */}
+                <div className="absolute top-1/4 left-0 w-8 h-5 bg-biome-tropical/70 rounded-full -translate-x-1/2 transform rotate-45 animate-leaf-sway"></div>
+                <div className="absolute bottom-1/4 right-0 w-10 h-6 bg-biome-vine/70 rounded-full translate-x-1/2 transform -rotate-45 animate-leaf-sway" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-0 right-1/4 w-6 h-4 bg-biome-jungle-dark/70 rounded-full translate-y-1/2 transform rotate-30 animate-leaf-sway" style={{ animationDelay: '1.5s' }}></div>
               </div>
             </div>
           </div>
@@ -278,7 +201,7 @@ export default function Landing() {
       </section>
       
       {/* Footer */}
-      <footer className="bg-wizardry-navy border-t border-wizardry-gold/20 py-12 px-4">
+      <footer className="bg-archive-secondary/70 backdrop-blur-md border-t border-biome-tropical/20 py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
@@ -340,7 +263,7 @@ export default function Landing() {
             </div>
           </div>
           
-          <div className="border-t border-wizardry-gold/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="border-t border-biome-tropical/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-wizardry-parchment/60 text-sm">
               © {new Date().getFullYear()} Owlstin. All rights reserved.
             </p>
@@ -367,23 +290,30 @@ export default function Landing() {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 }
 
 // Update FAQ items with more professional descriptions
-const faqItems = [{
-  question: "How does Owlstin's algorithm match candidates with positions?",
-  answer: "Our proprietary multi-dimensional analysis engine evaluates your professional profile against comprehensive industry data, identifying optimal alignments between your skill portfolio and position requirements. The system employs advanced pattern recognition to reveal career trajectories that maximize your potential."
-}, {
-  question: "What distinguishes Owlstin from conventional career platforms?",
-  answer: "Unlike traditional job boards, Owlstin employs sophisticated skills gap analysis and provides targeted development pathways to strategically position you for aspirational roles, rather than limiting recommendations to positions matching your current qualifications."
-}, {
-  question: "How frequently is the position database updated?",
-  answer: "Our extensive position database undergoes continuous refinement through our extensive employer partnerships and advanced data acquisition systems, ensuring you receive the most current and relevant opportunities in your field."
-}, {
-  question: "Can Owlstin assist professionals with undefined career objectives?",
-  answer: "Absolutely. Our career discovery protocol employs psychometric assessment and skills analysis to identify latent professional strengths and align them with fulfilling career trajectories that might otherwise remain undiscovered."
-}, {
-  question: "How is candidate privacy managed within the Owlstin ecosystem?",
-  answer: "Your professional profile remains securely protected within our system until you explicitly authorize visibility to specific organizations or apply for positions. You maintain complete sovereignty over your professional information throughout the process."
-}];
+const faqItems = [
+  {
+    question: "How does Owlstin's algorithm match candidates with positions?",
+    answer: "Our proprietary multi-dimensional analysis engine evaluates your professional profile against comprehensive industry data, identifying optimal alignments between your skill portfolio and position requirements. The system employs advanced pattern recognition to reveal career trajectories that maximize your potential."
+  },
+  {
+    question: "What distinguishes Owlstin from conventional career platforms?",
+    answer: "Unlike traditional job boards, Owlstin employs sophisticated skills gap analysis and provides targeted development pathways to strategically position you for aspirational roles, rather than limiting recommendations to positions matching your current qualifications."
+  },
+  {
+    question: "How frequently is the position database updated?",
+    answer: "Our extensive position database undergoes continuous refinement through our extensive employer partnerships and advanced data acquisition systems, ensuring you receive the most current and relevant opportunities in your field."
+  },
+  {
+    question: "Can Owlstin assist professionals with undefined career objectives?",
+    answer: "Absolutely. Our career discovery protocol employs psychometric assessment and skills analysis to identify latent professional strengths and align them with fulfilling career trajectories that might otherwise remain undiscovered."
+  },
+  {
+    question: "How is candidate privacy managed within the Owlstin ecosystem?",
+    answer: "Your professional profile remains securely protected within our system until you explicitly authorize visibility to specific organizations or apply for positions. You maintain complete sovereignty over your professional information throughout the process."
+  }
+];

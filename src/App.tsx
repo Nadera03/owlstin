@@ -16,31 +16,34 @@ import AboutPage from "./pages/AboutPage";
 import TestimonialsPage from "./pages/TestimonialsPage";
 import FaqPage from "./pages/FaqPage";
 import SupportPage from "./pages/SupportPage";
+import { BiomeProvider } from "./contexts/BiomeContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <MagicCursor />
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/job-seeker" element={<JobSeekerPage />} />
-          <Route path="/recruiter" element={<RecruiterPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/demo" element={<DemoPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
-          <Route path="/faq" element={<FaqPage />} />
-          <Route path="/support" element={<SupportPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <BiomeProvider>
+      <TooltipProvider>
+        <MagicCursor />
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/job-seeker" element={<JobSeekerPage />} />
+            <Route path="/recruiter" element={<RecruiterPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/demo" element={<DemoPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/faq" element={<FaqPage />} />
+            <Route path="/support" element={<SupportPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </BiomeProvider>
   </QueryClientProvider>
 );
 

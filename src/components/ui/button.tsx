@@ -2,8 +2,8 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-
 import { cn } from "@/lib/utils"
+import { useBiome } from "@/contexts/BiomeContext"
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-archive-accent focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 uppercase tracking-wider [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 relative overflow-hidden",
@@ -19,6 +19,11 @@ const buttonVariants = cva(
           "bg-archive-secondary text-archive-text hover:bg-archive-accent border border-archive-border",
         ghost: "hover:bg-archive-secondary hover:text-archive-accent",
         link: "text-archive-accent underline-offset-4 hover:underline",
+        tropical: "bg-biome-tropical text-white hover:bg-biome-tropical/80 border-2 border-biome-tropical/60 shadow-md",
+        savanna: "bg-biome-savanna text-archive-text hover:bg-biome-savanna/80 border-2 border-biome-savanna/60 shadow-md",
+        tundra: "bg-biome-tundra text-archive-base hover:bg-biome-tundra/80 border-2 border-biome-tundra/60 shadow-md",
+        desert: "bg-biome-desert text-archive-base hover:bg-biome-desert/80 border-2 border-biome-desert/60 shadow-md",
+        forest: "bg-biome-forest text-white hover:bg-biome-forest/80 border-2 border-biome-forest/60 shadow-md",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -38,14 +43,25 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  biomeType?: 'tropical' | 'savanna' | 'tundra' | 'desert' | 'forest';
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, biomeType, ...props }, ref) => {
+    const biomeContext = React.useContext(
+      React.createContext({ currentBiome: 'tropical' as const })
+    );
+    const buttonBiome = biomeType || biomeContext.currentBiome;
+
+    // Use the biome type as variant if it matches a variant name
+    const biomeVariant = (buttonBiome && buttonVariants.variants.variant.hasOwnProperty(buttonBiome))
+      ? buttonBiome as any 
+      : variant;
+    
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant: biomeVariant, size, className }))}
         ref={ref}
         {...props}
       >

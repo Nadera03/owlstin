@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { JungleButton } from "@/components/ui/jungle-button";
+import { useBiome } from "@/contexts/BiomeContext";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { currentBiome } = useBiome();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +23,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glassmorphism py-3 shadow-lg border-b border-wizardry-gold/20" : "bg-transparent py-5"}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-archive-base/70 backdrop-blur-md py-3 shadow-lg border-b border-archive-border" : "bg-transparent py-5"}`}>
       <div className="container px-4 mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
@@ -36,37 +39,37 @@ export default function Navbar() {
               src="/lovable-uploads/088dd482-9cad-422a-9d2c-6d3132c3dfe4.png" 
             />
           </div>
-          <span className="font-cinzel text-2xl font-bold text-wizardry-gold">
+          <span className={`font-headline text-2xl font-bold ${getBiomeTextClass(currentBiome)}`}>
             Owlstin
           </span>
         </Link>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <NavLink to="/" currentPath={location.pathname}>Home</NavLink>
-          <NavLink to="/about" currentPath={location.pathname}>About</NavLink>
-          <NavLink to="/pricing" currentPath={location.pathname}>Pricing</NavLink>
-          <NavLink to="/testimonials" currentPath={location.pathname}>Testimonials</NavLink>
-          <NavLink to="/faq" currentPath={location.pathname}>FAQ</NavLink>
+          <NavLink to="/" currentPath={location.pathname} biome={currentBiome}>Home</NavLink>
+          <NavLink to="/about" currentPath={location.pathname} biome={currentBiome}>About</NavLink>
+          <NavLink to="/pricing" currentPath={location.pathname} biome={currentBiome}>Pricing</NavLink>
+          <NavLink to="/testimonials" currentPath={location.pathname} biome={currentBiome}>Testimonials</NavLink>
+          <NavLink to="/faq" currentPath={location.pathname} biome={currentBiome}>FAQ</NavLink>
         </nav>
         
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-4">
           <Link to="/dashboard">
-            <Button variant="outline" className="border-wizardry-gold/50 hover:border-wizardry-gold hover:bg-magical-glowing-purple/10 text-wizardry-parchment">
+            <Button variant="outline" className={`border-${getBiomeClass(currentBiome)}/50 hover:border-${getBiomeClass(currentBiome)} hover:bg-archive-secondary/30 text-archive-text`}>
               Login
             </Button>
           </Link>
           <Link to="/job-seeker">
-            <Button className="magical-button">
+            <JungleButton biomeType={currentBiome}>
               Get Started
-            </Button>
+            </JungleButton>
           </Link>
         </div>
         
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-wizardry-gold" 
+          className="md:hidden text-archive-text" 
           onClick={() => setIsMenuOpen(!isMenuOpen)} 
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -76,24 +79,24 @@ export default function Navbar() {
       
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[60px] glassmorphism z-40 flex flex-col">
+        <div className="md:hidden fixed inset-0 top-[60px] bg-archive-base/90 backdrop-blur-md z-40 flex flex-col">
           <nav className="container px-4 py-8 flex flex-col gap-6">
-            <MobileNavLink to="/" onClick={() => setIsMenuOpen(false)}>Home</MobileNavLink>
-            <MobileNavLink to="/about" onClick={() => setIsMenuOpen(false)}>About</MobileNavLink>
-            <MobileNavLink to="/pricing" onClick={() => setIsMenuOpen(false)}>Pricing</MobileNavLink>
-            <MobileNavLink to="/testimonials" onClick={() => setIsMenuOpen(false)}>Testimonials</MobileNavLink>
-            <MobileNavLink to="/faq" onClick={() => setIsMenuOpen(false)}>FAQ</MobileNavLink>
+            <MobileNavLink to="/" biome={currentBiome} onClick={() => setIsMenuOpen(false)}>Home</MobileNavLink>
+            <MobileNavLink to="/about" biome={currentBiome} onClick={() => setIsMenuOpen(false)}>About</MobileNavLink>
+            <MobileNavLink to="/pricing" biome={currentBiome} onClick={() => setIsMenuOpen(false)}>Pricing</MobileNavLink>
+            <MobileNavLink to="/testimonials" biome={currentBiome} onClick={() => setIsMenuOpen(false)}>Testimonials</MobileNavLink>
+            <MobileNavLink to="/faq" biome={currentBiome} onClick={() => setIsMenuOpen(false)}>FAQ</MobileNavLink>
             
             <div className="flex flex-col gap-4 mt-6">
               <Link to="/dashboard" onClick={() => setIsMenuOpen(false)}>
-                <Button variant="outline" className="border-wizardry-gold/50 w-full text-wizardry-parchment">
+                <Button variant="outline" className={`border-${getBiomeClass(currentBiome)}/50 w-full text-archive-text`}>
                   Login
                 </Button>
               </Link>
               <Link to="/job-seeker" onClick={() => setIsMenuOpen(false)}>
-                <Button className="magical-button w-full">
+                <JungleButton biomeType={currentBiome} className="w-full">
                   Get Started
-                </Button>
+                </JungleButton>
               </Link>
             </div>
           </nav>
@@ -103,20 +106,46 @@ export default function Navbar() {
   );
 }
 
+function getBiomeClass(biome: string): string {
+  switch (biome) {
+    case 'tropical': return 'biome-tropical';
+    case 'savanna': return 'biome-savanna';
+    case 'tundra': return 'biome-tundra';
+    case 'desert': return 'biome-desert';
+    case 'forest': return 'biome-forest';
+    default: return 'archive-accent';
+  }
+}
+
+function getBiomeTextClass(biome: string): string {
+  switch (biome) {
+    case 'tropical': return 'text-biome-tropical';
+    case 'savanna': return 'text-biome-savanna';
+    case 'tundra': return 'text-biome-tundra';
+    case 'desert': return 'text-biome-desert';
+    case 'forest': return 'text-biome-forest';
+    default: return 'text-archive-accent';
+  }
+}
+
 const NavLink = ({
   to,
   children,
-  currentPath
+  currentPath,
+  biome
 }: {
   to: string;
   children: React.ReactNode;
   currentPath: string;
+  biome: string;
 }) => {
   const isActive = currentPath === to;
+  const biomeColorClass = getBiomeTextClass(biome);
+  
   return (
     <Link 
       to={to} 
-      className={`text-wizardry-parchment/80 hover:text-wizardry-gold transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-wizardry-gold ${isActive ? 'text-wizardry-gold after:scale-x-100' : 'after:scale-x-0'} after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left`}
+      className={`text-archive-text/80 hover:${biomeColorClass} transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:${biomeColorClass.replace('text', 'bg')} ${isActive ? biomeColorClass + ' after:scale-x-100' : 'after:scale-x-0'} after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left`}
     >
       {children}
     </Link>
@@ -126,17 +155,23 @@ const NavLink = ({
 const MobileNavLink = ({
   to,
   children,
-  onClick
+  onClick,
+  biome
 }: {
   to: string;
   children: React.ReactNode;
   onClick: () => void;
-}) => (
-  <Link 
-    to={to} 
-    className="text-wizardry-parchment text-2xl font-cinzel hover:text-wizardry-gold transition-colors duration-300" 
-    onClick={onClick}
-  >
-    {children}
-  </Link>
-);
+  biome: string;
+}) => {
+  const biomeColorClass = getBiomeTextClass(biome);
+  
+  return (
+    <Link 
+      to={to} 
+      className={`text-archive-text text-2xl font-headline hover:${biomeColorClass} transition-colors duration-300`}
+      onClick={onClick}
+    >
+      {children}
+    </Link>
+  );
+};

@@ -1,19 +1,25 @@
 
 import React from 'react';
+import { useBiome } from '@/contexts/BiomeContext';
 
 interface VineHeadingProps {
   children: React.ReactNode;
   className?: string;
-  biomeType?: 'tropical' | 'savanna' | 'tundra' | 'desert';
+  biomeType?: 'tropical' | 'savanna' | 'tundra' | 'desert' | 'forest';
   level?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
 const VineHeading: React.FC<VineHeadingProps> = ({ 
   children, 
   className = "", 
-  biomeType = "tropical",
+  biomeType: propBiomeType,
   level = 2
 }) => {
+  const biomeContext = useBiome();
+  
+  // Use prop biomeType if provided, otherwise use context
+  const biomeType = propBiomeType || biomeContext.currentBiome;
+  
   const getBiomeClasses = () => {
     switch (biomeType) {
       case 'tropical':
@@ -24,6 +30,8 @@ const VineHeading: React.FC<VineHeadingProps> = ({
         return 'text-biome-tundra border-biome-tundra after:bg-biome-tundra';
       case 'desert':
         return 'text-biome-desert border-biome-desert after:bg-biome-desert';
+      case 'forest':
+        return 'text-biome-forest border-biome-forest after:bg-biome-forest';
       default:
         return 'text-biome-tropical border-biome-vine after:bg-biome-vine';
     }
@@ -105,6 +113,24 @@ const VineHeading: React.FC<VineHeadingProps> = ({
                   left: `${4 + i * 12}%`,
                   bottom: `${-1 - i % 3}px`,
                   opacity: 0.6
+                }}>
+              </div>
+            ))}
+          </div>
+        )}
+        
+        {/* Forest leaves */}
+        {biomeType === 'forest' && (
+          <div className="absolute left-0 -bottom-6 w-full overflow-hidden">
+            {[...Array(4)].map((_, i) => (
+              <div 
+                key={`leaf-${i}`} 
+                className="absolute h-4 w-6 bg-biome-forest rounded-full" 
+                style={{
+                  left: `${10 + i * 25}%`,
+                  bottom: `-4px`,
+                  opacity: 0.7,
+                  transform: `rotate(${45 + i * 20}deg)`
                 }}>
               </div>
             ))}
