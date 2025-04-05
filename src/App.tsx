@@ -9,12 +9,14 @@ import JobSeekerPage from "./pages/JobSeekerPage";
 import RecruiterPage from "./pages/RecruiterPage";
 import DashboardPage from "./pages/DashboardPage";
 import NotFound from "./pages/NotFound";
+import MagicCursor from "./components/MagicCursor";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <MagicCursor />
       <Toaster />
       <Sonner />
       <BrowserRouter>
