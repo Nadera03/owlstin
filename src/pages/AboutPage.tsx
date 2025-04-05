@@ -1,8 +1,6 @@
-
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
-
 export default function AboutPage() {
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -11,9 +9,7 @@ export default function AboutPage() {
       document.documentElement.classList.remove("dark");
     };
   }, []);
-
-  return (
-    <div className="min-h-screen bg-magical-midnight text-magical-starlight">
+  return <div className="min-h-screen bg-magical-midnight text-magical-starlight">
       <Starfield />
       <Navbar />
       
@@ -56,37 +52,18 @@ export default function AboutPage() {
               <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-3xl">👩‍💻</span>
               </div>
-              <h3 className="font-cinzel font-bold text-xl mb-2">Aria Chen</h3>
+              <h3 className="font-cinzel font-bold text-xl mb-2">Nadera. AI</h3>
               <p className="text-magical-starlight/70">Founder & CEO</p>
               <p className="text-magical-starlight/70 mt-3">
                 Former AI lead at LinkedIn with a passion for career development
               </p>
             </div>
             
-            <div className="magical-card p-6 rounded-xl text-center">
-              <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-3xl">🧙‍♂️</span>
-              </div>
-              <h3 className="font-cinzel font-bold text-xl mb-2">Marcus Wells</h3>
-              <p className="text-magical-starlight/70">CTO</p>
-              <p className="text-magical-starlight/70 mt-3">
-                AI researcher with expertise in NLP and skills taxonomy
-              </p>
-            </div>
             
-            <div className="magical-card p-6 rounded-xl text-center">
-              <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-3xl">👨‍🎓</span>
-              </div>
-              <h3 className="font-cinzel font-bold text-xl mb-2">Elena Torres</h3>
-              <p className="text-magical-starlight/70">Head of Learning</p>
-              <p className="text-magical-starlight/70 mt-3">
-                Former educational director with 15+ years in L&D
-              </p>
-            </div>
+            
+            
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
