@@ -13,7 +13,7 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #9b87f5aa);
+  filter: drop-shadow(0 0 2em #DC143Caa);
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #D4AF37aa);
@@ -37,7 +37,7 @@
 .card {
   padding: 2em;
   border: 1px solid rgba(212, 175, 55, 0.3);
-  background-color: rgba(42, 27, 61, 0.7);
+  background-color: rgba(139, 0, 0, 0.7);
 }
 
 .read-the-docs {
@@ -46,8 +46,8 @@
 
 /* Wizardry specific elements */
 .magical-border {
-  border: 1px solid #9b87f5;
-  box-shadow: 0 0 10px rgba(155, 135, 245, 0.3);
+  border: 1px solid #D4AF37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .magical-window {
@@ -55,7 +55,7 @@
 }
 
 .sparkle-light {
-  background: radial-gradient(circle at center, rgba(155, 135, 245, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
   animation: pulse 3s infinite alternate;
 }
 
@@ -70,7 +70,7 @@
   position: absolute;
   width: 3px;
   height: 3px;
-  background: #9b87f5;
+  background: #D4AF37;
   border-radius: 50%;
   animation: float-particles 4s infinite;
 }
@@ -84,29 +84,29 @@
 /* Magical Card */
 .magical-card {
   @apply relative border border-wizardry-gold/20 p-6 rounded-md bg-mystical-card overflow-hidden transition-all duration-300 backdrop-blur-md;
-  box-shadow: 0 4px 15px rgba(155, 135, 245, 0.2);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 }
 
 .magical-card:before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-br from-magical-glowing-purple/5 to-transparent pointer-events-none opacity-50;
+  @apply absolute inset-0 bg-gradient-to-br from-wizardry-crimson/5 to-transparent pointer-events-none opacity-50;
 }
 
 .magical-card:hover {
   @apply border-wizardry-gold/40;
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(155, 135, 245, 0.3);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
 }
 
 /* Magical Button Style */
 .magical-btn {
-  @apply relative bg-gradient-to-r from-wizardry-purple to-magical-enchanted text-wizardry-parchment overflow-hidden transition-all duration-300 border border-wizardry-gold/20 rounded-md;
-  box-shadow: 0 0 10px rgba(155, 135, 245, 0.4);
+  @apply relative bg-gradient-to-r from-wizardry-crimson to-wizardry-deep-crimson text-wizardry-parchment overflow-hidden transition-all duration-300 border border-wizardry-gold/20 rounded-md;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 
 .magical-btn:hover, .magical-btn:focus {
   @apply border-wizardry-gold/40;
-  box-shadow: 0 0 15px rgba(155, 135, 245, 0.6), 0 0 5px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 0 0 5px rgba(212, 175, 55, 0.3);
 }
 
 .magical-btn:active {
@@ -116,29 +116,126 @@
 /* Floating Orb */
 .magical-orb {
   @apply absolute rounded-full animate-float;
-  background: radial-gradient(circle at center, rgba(155, 135, 245, 0.6) 0%, rgba(26, 31, 60, 0.4) 70%);
-  box-shadow: 0 0 20px rgba(155, 135, 245, 0.3);
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.6) 0%, rgba(139, 0, 0, 0.4) 70%);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
 /* Magical Glow Effect */
 .magical-glow-text {
-  text-shadow: 0 0 10px rgba(155, 135, 245, 0.7);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
   animation: glow-pulse 4s infinite alternate;
 }
 
 @keyframes glow-pulse {
-  0%, 100% { text-shadow: 0 0 10px rgba(155, 135, 245, 0.7); }
-  50% { text-shadow: 0 0 20px rgba(155, 135, 245, 0.9); }
+  0%, 100% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.7); }
+  50% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.9); }
 }
 
 /* Star Orbs */
 .star-orb {
-  @apply rounded-full bg-gradient-to-br from-wizardry-gold to-wizardry-purple animate-float;
-  box-shadow: 0 0 15px rgba(155, 135, 245, 0.5), 0 0 30px rgba(155, 135, 245, 0.3);
+  @apply rounded-full bg-gradient-to-br from-wizardry-gold to-wizardry-crimson animate-float;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5), 0 0 30px rgba(212, 175, 55, 0.3);
 }
 
 /* Sparkle Animation */
 .sparkle {
   @apply inline-block w-4 h-4 bg-wizardry-gold rounded-full animate-pulse mr-2;
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+}
+
+/* Castlevania-specific elements */
+.gothic-window {
+  @apply relative;
+  background: linear-gradient(to bottom, rgba(139, 0, 0, 0.6), rgba(80, 0, 0, 0.8));
+  border: 2px solid #D4AF37;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 40%;
+  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.3);
+  overflow: hidden;
+}
+
+.gothic-window:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: #D4AF37;
+}
+
+.gothic-window:after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #D4AF37;
+}
+
+/* Chandelier */
+.chandelier {
+  @apply relative w-40 h-60;
+}
+
+.chandelier-base {
+  @apply absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-wizardry-gold rounded-full;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.chandelier-chain {
+  @apply absolute top-8 left-1/2 transform -translate-x-1/2 w-2 h-10 bg-wizardry-gold;
+}
+
+.chandelier-ring {
+  @apply absolute top-16 left-1/2 transform -translate-x-1/2 w-24 h-24 border-4 border-wizardry-gold rounded-full;
+}
+
+.chandelier-candle {
+  @apply absolute w-3 h-10 bg-wizardry-parchment rounded-sm;
+}
+
+.chandelier-flame {
+  @apply absolute w-3 h-4 bg-gradient-to-t from-wizardry-gold to-white rounded-full animate-candle-flicker;
+  filter: blur(1px);
+}
+
+/* Bookshelf */
+.bookshelf {
+  @apply relative w-full h-40 bg-gradient-to-b from-[#3c1502] to-[#2a0e01] rounded-sm p-1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.bookshelf-shelf {
+  @apply absolute left-0 w-full h-2 bg-[#3c1502];
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.book {
+  @apply absolute bottom-1 h-[calc(100%-8px)] w-6 rounded-sm;
+}
+
+/* Stone wall background */
+.stone-wall {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-color: #500000;
+}
+
+/* Floating elements */
+.floating-element {
+  @apply absolute pointer-events-none;
+  animation: float 8s infinite ease-in-out;
+}
+
+/* Wizardry card */
+.wizardry-card {
+  @apply relative bg-mystical-card border border-wizardry-gold/30 rounded-md shadow-lg overflow-hidden backdrop-blur-sm;
+  box-shadow: 0 4px 20px rgba(139, 0, 0, 0.2), inset 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.wizardry-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-wizardry-crimson/10 to-wizardry-deep-crimson/20 opacity-30 pointer-events-none;
 }
