@@ -1,8 +1,7 @@
 
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
-import Starfield from "@/components/Starfield";
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 
 export default function TestimonialsPage() {
   useEffect(() => {
@@ -65,50 +64,55 @@ export default function TestimonialsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-magical-midnight text-magical-starlight">
-      <Starfield />
+    <div className="min-h-screen bg-archive-base text-archive-text relative overflow-hidden">
+      <div className="archive-noise"></div>
       <Navbar />
       
-      <div className="container mx-auto px-4 py-24 sm:py-32">
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-cinzel font-bold bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent mb-6">
-            Professional Transformation Stories
+      <div className="container mx-auto px-4 py-24 sm:py-32 relative z-10">
+        <div className="mx-auto max-w-4xl text-center mb-16">
+          <div className="barcode mb-4 inline-block">ARCHIVE_TESTIMONY_00456</div>
+          <h1 className="text-5xl md:text-7xl font-headline uppercase tracking-wider mb-6">
+            <span className="text-archive-accent">OWLSTIN</span> RESULTS
           </h1>
-          <p className="text-magical-starlight/70 text-lg">
-            Discover how distinguished professionals have elevated their careers through Owlstin's strategic guidance and analytical insight.
+          <div className="h-1 w-24 bg-archive-accent mx-auto mb-6"></div>
+          <p className="text-archive-muted text-lg mt-4">
+            Verified outcomes from distinguished professionals who leveraged Owlstin's strategic guidance.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="magical-card p-6 rounded-xl overflow-hidden relative">
-              <Quote className="absolute top-4 right-4 text-magical-glowing-teal/20 h-12 w-12" />
+            <div key={index} className="archive-card p-6 rounded-sm overflow-hidden relative">
+              <div className="absolute top-0 right-0 bg-archive-accent text-archive-base text-xs font-mono py-1 px-2">
+                #{(index + 1).toString().padStart(3, '0')}
+              </div>
+              
               <div className="flex items-center mb-4">
                 <img 
                   src={testimonial.image} 
                   alt={testimonial.name} 
-                  className="w-14 h-14 rounded-full object-cover mr-4 border-2 border-magical-glowing-teal/30"
+                  className="w-14 h-14 object-cover mr-4 border border-archive-border duotone"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDREREREIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtdXNlciI+PGNpcmNsZSBjeD0iMTIiIGN5PSI4IiByPSI1Ii8+PHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRIOGE0IDQgMCAwIDAtNCA0djIiLz48L3N2Zz4=";
+                    e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkY0RDAwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtdXNlciI+PGNpcmNsZSBjeD0iMTIiIGN5PSI4IiByPSI1Ii8+PHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRIOGE0IDQgMCAwIDAtNCA0djIiLz48L3N2Zz4=";
                   }}
                 />
                 <div>
-                  <h3 className="font-medium">{testimonial.name}</h3>
-                  <p className="text-sm text-magical-starlight/70">{testimonial.position}, {testimonial.company}</p>
+                  <h3 className="font-display text-lg uppercase">{testimonial.name}</h3>
+                  <p className="text-xs text-archive-muted">{testimonial.position}, {testimonial.company}</p>
                 </div>
               </div>
               
               <div className="flex mb-4">
                 {Array.from({ length: testimonial.stars }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-magical-glowing-teal text-magical-glowing-teal" />
+                  <Star key={i} className="h-4 w-4 fill-archive-accent text-archive-accent" />
                 ))}
                 {Array.from({ length: 5 - testimonial.stars }).map((_, i) => (
-                  <Star key={i + testimonial.stars} className="h-4 w-4 text-magical-starlight/30" />
+                  <Star key={i + testimonial.stars} className="h-4 w-4 text-archive-muted" />
                 ))}
               </div>
               
-              <p className="text-magical-starlight/90 italic relative z-10">
+              <p className="text-archive-text/90 text-sm relative z-10 border-l-2 border-archive-accent pl-3">
                 "{testimonial.text}"
               </p>
             </div>

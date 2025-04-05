@@ -13,18 +13,22 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-magical-midnight text-magical-starlight">
-      <Starfield />
+    <div className="min-h-screen bg-archive-base text-archive-text relative overflow-hidden">
+      <div className="archive-noise"></div>
       <Navbar />
       
-      <div className="container mx-auto px-4 py-24 sm:py-32">
+      <div className="container mx-auto px-4 py-24 sm:py-32 relative z-10">
         <div className="mx-auto max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-cinzel font-bold bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent mb-6 text-center">
-            About Owlstin
-          </h1>
+          <div className="mb-12">
+            <div className="barcode mb-4 inline-block">ARCHIVE_ABOUT_00123</div>
+            <h1 className="text-5xl md:text-7xl font-headline uppercase tracking-wider mb-6">
+              <span className="text-archive-accent">OWL</span>STIN
+            </h1>
+            <div className="h-1 w-24 bg-archive-accent mx-auto mb-6"></div>
+          </div>
           
-          <div className="magical-card p-8 rounded-xl mb-12">
-            <p className="text-lg mb-6">
+          <div className="archive-card p-8 rounded-sm mb-12">
+            <p className="text-lg mb-6 font-mono">
               Founded in 2023, Owlstin emerges from the convergence of advanced artificial intelligence and career development expertise, creating a powerful nexus that transforms how talent and opportunity connect in the modern professional landscape.
             </p>
             
@@ -37,50 +41,61 @@ export default function AboutPage() {
             </p>
           </div>
           
-          <h2 className="text-3xl font-cinzel font-bold bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent mb-6 text-center">
-            Our Mission
+          <h2 className="text-3xl font-headline uppercase tracking-wider mb-6 text-archive-accent">
+            MISSION STATEMENT
           </h2>
           
-          <div className="magical-card p-8 rounded-xl mb-12">
-            <p className="text-lg text-center italic">
+          <div className="archive-card p-8 rounded-sm mb-12">
+            <p className="text-lg italic border-l-2 border-archive-accent pl-4">
               "To harness the transformative power of AI to forge connections between exceptional talent and ideal opportunities, empowering professionals to thrive in an evolving landscape while enabling organizations to discover their perfect match."
             </p>
           </div>
           
-          <h2 className="text-3xl font-cinzel font-bold bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent mb-6 text-center">
-            The Team Behind Owlstin
+          <div className="ticker-wrap mb-12">
+            <div className="ticker">
+              <div className="ticker-item">TALENT DISCOVERY</div>
+              <div className="ticker-item">CAREER ADVANCEMENT</div>
+              <div className="ticker-item">SKILL ALIGNMENT</div>
+              <div className="ticker-item">PROFESSIONAL DEVELOPMENT</div>
+              <div className="ticker-item">TALENT DISCOVERY</div>
+              <div className="ticker-item">CAREER ADVANCEMENT</div>
+            </div>
+          </div>
+          
+          <h2 className="text-3xl font-headline uppercase tracking-wider mb-6 text-archive-accent">
+            THE TEAM
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="magical-card p-6 rounded-xl text-center">
-              <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <div className="archive-card p-6 rounded-sm text-center">
+              <div className="w-24 h-24 bg-archive-accent/10 rounded-sm mx-auto mb-4 flex items-center justify-center">
                 <span className="text-3xl">👩‍💻</span>
               </div>
-              <h3 className="font-cinzel font-bold text-xl mb-2">Aria Chen</h3>
-              <p className="text-magical-starlight/70">Founder & CEO</p>
-              <p className="text-magical-starlight/70 mt-3">
+              <h3 className="font-headline text-xl mb-2 uppercase">Aria Chen</h3>
+              <p className="text-archive-muted">Founder & CEO</p>
+              <p className="text-archive-text/70 mt-3 text-sm">
                 Former AI Research Director at LinkedIn with expertise in neural networks and career trajectory optimization
               </p>
             </div>
             
-            <div className="magical-card p-6 rounded-xl text-center">
-              <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <div className="archive-card p-6 rounded-sm text-center">
+              <div className="w-24 h-24 bg-archive-accent/10 rounded-sm mx-auto mb-4 flex items-center justify-center">
                 <span className="text-3xl">🧙‍♂️</span>
               </div>
-              <h3 className="font-cinzel font-bold text-xl mb-2">Marcus Wells</h3>
-              <p className="text-magical-starlight/70">CTO</p>
-              <p className="text-magical-starlight/70 mt-3">
+              <h3 className="font-headline text-xl mb-2 uppercase">Marcus Wells</h3>
+              <p className="text-archive-muted">CTO</p>
+              <p className="text-archive-text/70 mt-3 text-sm">
                 Distinguished AI researcher specializing in advanced natural language processing and comprehensive skills taxonomy architecture
               </p>
             </div>
             
-            <div className="magical-card p-6 rounded-xl text-center">
-              <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <div className="archive-card p-6 rounded-sm text-center">
+              <div className="w-24 h-24 bg-archive-accent/10 rounded-sm mx-auto mb-4 flex items-center justify-center">
                 <span className="text-3xl">👨‍🎓</span>
               </div>
-              <h3 className="font-cinzel font-bold text-xl mb-2">Elena Torres</h3>
-              <p className="text-magical-starlight/70">Head of Learning</p>
-              <p className="text-magical-starlight/70 mt-3">
+              <h3 className="font-headline text-xl mb-2 uppercase">Elena Torres</h3>
+              <p className="text-archive-muted">Head of Learning</p>
+              <p className="text-archive-text/70 mt-3 text-sm">
                 Former Director of Educational Innovation with 15+ years pioneering adaptive learning systems and professional development frameworks
               </p>
             </div>
