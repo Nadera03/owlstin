@@ -1,6 +1,8 @@
+
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
+
 export default function AboutPage() {
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -9,6 +11,7 @@ export default function AboutPage() {
       document.documentElement.classList.remove("dark");
     };
   }, []);
+  
   return <div className="min-h-screen bg-magical-midnight text-magical-starlight">
       <Starfield />
       <Navbar />
@@ -42,6 +45,19 @@ export default function AboutPage() {
               "To empower individuals with the insights and resources they need to thrive in an ever-evolving job market, while helping organizations find their perfect talent match."
             </p>
           </div>
+
+          <h2 className="text-3xl font-cinzel font-bold bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent mb-6 text-center">
+            Our AI Assistant
+          </h2>
+          
+          <div className="magical-card p-8 rounded-xl mb-12">
+            <p className="text-lg text-center mb-6">
+              Meet our state-of-the-art AI career assistant, ready to help you navigate your career journey 24/7. Ask about skills, jobs, or career advice anytime.
+            </p>
+            <p className="text-lg text-center">
+              The AI assistant uses advanced natural language processing to provide personalized career guidance based on your unique profile and goals.
+            </p>
+          </div>
           
           <h2 className="text-3xl font-cinzel font-bold bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent mb-6 text-center">
             The Team Behind Owlstin
@@ -59,9 +75,27 @@ export default function AboutPage() {
               </p>
             </div>
             
+            <div className="magical-card p-6 rounded-xl text-center">
+              <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span className="text-3xl">🧠</span>
+              </div>
+              <h3 className="font-cinzel font-bold text-xl mb-2">Dr. Morgan Lee</h3>
+              <p className="text-magical-starlight/70">Chief Data Scientist</p>
+              <p className="text-magical-starlight/70 mt-3">
+                PhD in Machine Learning with expertise in skill-matching algorithms
+              </p>
+            </div>
             
-            
-            
+            <div className="magical-card p-6 rounded-xl text-center">
+              <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span className="text-3xl">👨‍🎓</span>
+              </div>
+              <h3 className="font-cinzel font-bold text-xl mb-2">Jamie Rivera</h3>
+              <p className="text-magical-starlight/70">Career Development Lead</p>
+              <p className="text-magical-starlight/70 mt-3">
+                15+ years experience in career coaching and recruitment
+              </p>
+            </div>
           </div>
         </div>
       </div>
