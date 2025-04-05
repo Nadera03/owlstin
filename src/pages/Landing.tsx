@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
@@ -31,10 +32,10 @@ export default function Landing() {
       <section id="features-section" className="py-20 px-4 relative">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-4 text-wizardry-gold">
-            Magical Job Matching
+            Sophisticated Career Alignment
           </h2>
           <p className="text-wizardry-parchment/90 text-center max-w-2xl mx-auto mb-16">
-            Our enchanted AI analyzes your skills and matches them with job requirements, revealing the perfect path to your dream career.
+            Our proprietary AI system meticulously analyzes your professional profile against industry demands, revealing optimal career paths tailored to your unique constellation of skills and aspirations.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -43,9 +44,9 @@ export default function Landing() {
               <div className="w-12 h-12 bg-magical-glowing-purple/20 rounded-lg flex items-center justify-center mb-4">
                 <BookOpen className="text-wizardry-gold" />
               </div>
-              <h3 className="text-xl font-cinzel font-bold mb-2 text-wizardry-gold">Skills Analysis</h3>
+              <h3 className="text-xl font-cinzel font-bold mb-2 text-wizardry-gold">Comprehensive Analysis</h3>
               <p className="text-wizardry-parchment/90">
-                Our magical AI analyzes your resume and identifies key skills that align with your dream job.
+                Our advanced algorithm conducts a multi-dimensional assessment of your professional profile, identifying core competencies and hidden strengths that align with your career aspirations.
               </p>
             </div>
             
@@ -54,9 +55,9 @@ export default function Landing() {
               <div className="w-12 h-12 bg-magical-glowing-purple/20 rounded-lg flex items-center justify-center mb-4">
                 <Map className="text-wizardry-gold" />
               </div>
-              <h3 className="text-xl font-cinzel font-bold mb-2 text-wizardry-gold">Learning Roadmap</h3>
+              <h3 className="text-xl font-cinzel font-bold mb-2 text-wizardry-gold">Strategic Development</h3>
               <p className="text-wizardry-parchment/90">
-                Get a personalized magical roadmap to acquire missing skills with curated resources and project ideas.
+                Receive a bespoke professional development framework with curated learning resources, skill-building opportunities, and targeted projects designed to elevate your market position.
               </p>
             </div>
             
@@ -65,9 +66,9 @@ export default function Landing() {
               <div className="w-12 h-12 bg-magical-glowing-purple/20 rounded-lg flex items-center justify-center mb-4">
                 <Users className="text-wizardry-gold" />
               </div>
-              <h3 className="text-xl font-cinzel font-bold mb-2 text-wizardry-gold">Perfect Match</h3>
+              <h3 className="text-xl font-cinzel font-bold mb-2 text-wizardry-gold">Optimal Placement</h3>
               <p className="text-wizardry-parchment/90">
-                Find the perfect job match with our magical algorithms and receive guidance for interviews and negotiations.
+                Our sophisticated matching algorithm identifies your ideal professional opportunities and provides comprehensive preparation for successful interviews and negotiations.
               </p>
             </div>
           </div>
@@ -81,10 +82,10 @@ export default function Landing() {
       <section className="py-20 px-4 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-4 text-wizardry-gold">
-            Enchanted Pricing Plans
+            Premium Service Tiers
           </h2>
           <p className="text-wizardry-parchment/90 text-center max-w-2xl mx-auto mb-16">
-            Choose the plan that best fits your journey to career enchantment
+            Select the membership tier that best aligns with your professional advancement objectives
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -102,15 +103,15 @@ export default function Landing() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Basic skill analysis</span>
+                  <span>Foundational skills assessment</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>3 job matches per month</span>
+                  <span>3 position recommendations monthly</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Limited learning resources</span>
+                  <span>Essential learning resources</span>
                 </li>
                 <li className="flex items-center gap-2 text-wizardry-parchment/50">
                   <div className="sparkle opacity-30"></div>
@@ -141,15 +142,15 @@ export default function Landing() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Advanced skill analysis</span>
+                  <span>Advanced competency analysis</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Unlimited job matches</span>
+                  <span>Unlimited position matches</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Full learning resources</span>
+                  <span>Comprehensive learning resources</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
@@ -179,23 +180,23 @@ export default function Landing() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Master skill analysis</span>
+                  <span>Elite skill assessment</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Unlimited job matches</span>
+                  <span>Unlimited position matches</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Premium learning resources</span>
+                  <span>Premium development resources</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Priority support</span>
+                  <span>Priority executive support</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="sparkle"></div>
-                  <span>Interview preparation</span>
+                  <span>Advanced interview preparation</span>
                 </li>
               </ul>
               <Button variant="outline" className="w-full border-wizardry-gold/50 hover:border-wizardry-gold text-wizardry-parchment hover:bg-magical-glowing-purple/10">
@@ -213,7 +214,7 @@ export default function Landing() {
             Frequently Asked Questions
           </h2>
           <p className="text-wizardry-parchment/90 text-center max-w-2xl mx-auto mb-16">
-            Discover the secrets of Owlstin's magical career guidance
+            Discover the intricacies of Owlstin's sophisticated career alignment system
           </p>
           
           <div className="space-y-6">
@@ -233,10 +234,10 @@ export default function Landing() {
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="max-w-xl">
                 <h2 className="text-3xl md:text-4xl font-cinzel font-bold mb-4 text-wizardry-gold">
-                  Begin Your Magical Career Journey Today
+                  Initiate Your Professional Transformation
                 </h2>
                 <p className="text-wizardry-parchment/90 mb-6">
-                  Join thousands of enchanted professionals who have transformed their careers with Owlstin's magical guidance.
+                  Join a distinguished community of professionals who have elevated their careers through Owlstin's sophisticated guidance and strategic insight.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/job-seeker">
@@ -369,20 +370,20 @@ export default function Landing() {
     </div>;
 }
 
-// FAQ Data
+// Update FAQ items with more professional descriptions
 const faqItems = [{
-  question: "How does Owlstin match me with jobs?",
-  answer: "Our advanced magical algorithms analyze your skills, experience, and preferences to find the perfect career matches in our vast job network. The AI compares your profile against thousands of job requirements to reveal your ideal path."
+  question: "How does Owlstin's algorithm match candidates with positions?",
+  answer: "Our proprietary multi-dimensional analysis engine evaluates your professional profile against comprehensive industry data, identifying optimal alignments between your skill portfolio and position requirements. The system employs advanced pattern recognition to reveal career trajectories that maximize your potential."
 }, {
-  question: "What makes Owlstin different from other job platforms?",
-  answer: "Unlike conventional job boards, Owlstin's magic lies in its ability to identify skill gaps and provide personalized learning paths to help you qualify for your dream job, not just show you listings you're already qualified for."
+  question: "What distinguishes Owlstin from conventional career platforms?",
+  answer: "Unlike traditional job boards, Owlstin employs sophisticated skills gap analysis and provides targeted development pathways to strategically position you for aspirational roles, rather than limiting recommendations to positions matching your current qualifications."
 }, {
-  question: "How often is the job database updated?",
-  answer: "Our mystical job database is continuously updated through our network of employer partnerships and automated web scraping enchantments, ensuring you always have access to the freshest opportunities."
+  question: "How frequently is the position database updated?",
+  answer: "Our extensive position database undergoes continuous refinement through our extensive employer partnerships and advanced data acquisition systems, ensuring you receive the most current and relevant opportunities in your field."
 }, {
-  question: "Can I use Owlstin if I'm not sure what career I want?",
-  answer: "Absolutely! Our career discovery ritual is designed to help uncertain seekers identify their natural talents and align them with fulfilling career paths they might never have considered."
+  question: "Can Owlstin assist professionals with undefined career objectives?",
+  answer: "Absolutely. Our career discovery protocol employs psychometric assessment and skills analysis to identify latent professional strengths and align them with fulfilling career trajectories that might otherwise remain undiscovered."
 }, {
-  question: "Do employers see my profile on Owlstin?",
-  answer: "Your profile remains hidden behind magical protection until you expressly permit visibility to specific employers or apply to positions. You maintain complete control over who sees your professional information."
+  question: "How is candidate privacy managed within the Owlstin ecosystem?",
+  answer: "Your professional profile remains securely protected within our system until you explicitly authorize visibility to specific organizations or apply for positions. You maintain complete sovereignty over your professional information throughout the process."
 }];

@@ -25,15 +25,15 @@ export default function AboutPage() {
           
           <div className="magical-card p-8 rounded-xl mb-12">
             <p className="text-lg mb-6">
-              Owlstin was founded in 2023 with a singular vision: to bridge the gap between job seekers' skills and employers' needs through the power of AI and data science.
+              Founded in 2023, Owlstin emerges from the convergence of advanced artificial intelligence and career development expertise, creating a powerful nexus that transforms how talent and opportunity connect in the modern professional landscape.
             </p>
             
             <p className="text-lg mb-6">
-              Our team of AI specialists, career coaches, and recruitment experts came together to create a platform that not only identifies skill gaps but provides actionable pathways to close those gaps.
+              Our distinguished team of AI researchers, career strategists, and industry veterans have crafted a sophisticated platform that transcends traditional job matching by identifying crucial skill alignments and providing strategic pathways for professional advancement.
             </p>
             
             <p className="text-lg">
-              We believe that everyone deserves a fulfilling career, and with the right guidance, anyone can transform their professional journey. Owlstin is that magical guide, illuminating the path to career success.
+              At Owlstin, we hold the conviction that every professional deserves a career trajectory that resonates with their innate talents. Through our proprietary algorithms and insightful guidance, we illuminate the path toward exceptional career fulfillment.
             </p>
           </div>
           
@@ -43,7 +43,7 @@ export default function AboutPage() {
           
           <div className="magical-card p-8 rounded-xl mb-12">
             <p className="text-lg text-center italic">
-              "To empower individuals with the insights and resources they need to thrive in an ever-evolving job market, while helping organizations find their perfect talent match."
+              "To harness the transformative power of AI to forge connections between exceptional talent and ideal opportunities, empowering professionals to thrive in an evolving landscape while enabling organizations to discover their perfect match."
             </p>
           </div>
           
@@ -59,7 +59,7 @@ export default function AboutPage() {
               <h3 className="font-cinzel font-bold text-xl mb-2">Aria Chen</h3>
               <p className="text-magical-starlight/70">Founder & CEO</p>
               <p className="text-magical-starlight/70 mt-3">
-                Former AI lead at LinkedIn with a passion for career development
+                Former AI Research Director at LinkedIn with expertise in neural networks and career trajectory optimization
               </p>
             </div>
             
@@ -70,7 +70,7 @@ export default function AboutPage() {
               <h3 className="font-cinzel font-bold text-xl mb-2">Marcus Wells</h3>
               <p className="text-magical-starlight/70">CTO</p>
               <p className="text-magical-starlight/70 mt-3">
-                AI researcher with expertise in NLP and skills taxonomy
+                Distinguished AI researcher specializing in advanced natural language processing and comprehensive skills taxonomy architecture
               </p>
             </div>
             
@@ -81,7 +81,7 @@ export default function AboutPage() {
               <h3 className="font-cinzel font-bold text-xl mb-2">Elena Torres</h3>
               <p className="text-magical-starlight/70">Head of Learning</p>
               <p className="text-magical-starlight/70 mt-3">
-                Former educational director with 15+ years in L&D
+                Former Director of Educational Innovation with 15+ years pioneering adaptive learning systems and professional development frameworks
               </p>
             </div>
           </div>

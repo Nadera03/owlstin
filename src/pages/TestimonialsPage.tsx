@@ -16,51 +16,51 @@ export default function TestimonialsPage() {
   const testimonials = [
     {
       name: "Sarah Johnson",
-      position: "Software Developer",
+      position: "Software Development Lead",
       company: "Tech Innovations Inc.",
       image: "https://i.pravatar.cc/150?img=32",
       stars: 5,
-      text: "Owlstin completely transformed my job search. I was struggling to get interviews for senior developer positions despite having years of experience. The skill gap analysis pinpointed exactly what I was missing, and after following the learning path for just 2 months, I landed my dream job!",
+      text: "Owlstin's sophisticated analysis transformed my professional trajectory. Despite extensive experience, I struggled to secure senior development positions. Their precise competency assessment identified critical skill gaps, and following their tailored development path for just 8 weeks led to multiple offers at tier-one organizations.",
     },
     {
       name: "Michael Rodriguez",
-      position: "Data Scientist",
+      position: "Principal Data Scientist",
       company: "DataMind Analytics",
       image: "https://i.pravatar.cc/150?img=11",
       stars: 5,
-      text: "As someone transitioning from academia to industry, I had no idea what skills employers were actually looking for. Owlstin broke it down for me and created a personalized learning roadmap. The skill visualizations were particularly helpful in tracking my progress.",
+      text: "Transitioning from academia to industry presented significant challenges in understanding market requirements. Owlstin provided exceptional clarity through their detailed skills analysis and customized development framework. Their visual competency progression mapping proved invaluable for tracking my professional evolution.",
     },
     {
       name: "Jennifer Wu",
-      position: "UX Designer",
+      position: "Senior UX Strategist",
       company: "Creative Solutions",
       image: "https://i.pravatar.cc/150?img=5",
       stars: 4,
-      text: "The skill gap analysis was eye-opening. I discovered that while my design skills were strong, I was missing key collaboration tools that employers in my field valued. Thanks to Owlstin, I was able to focus my learning effectively.",
+      text: "The comprehensive analysis illuminated unexpected insights into my professional profile. While my design competencies were substantial, Owlstin identified critical gaps in collaboration tools and methodologies valued by premier employers. This focused perspective allowed for highly targeted skill development.",
     },
     {
       name: "David Okafor",
-      position: "Product Manager",
+      position: "Director of Product Strategy",
       company: "InnovateCorp",
       image: "https://i.pravatar.cc/150?img=15",
       stars: 5,
-      text: "I've tried numerous career development tools, but none come close to Owlstin's magical approach. The AI recommendations were surprisingly accurate, and the resource suggestions were top-notch. I've recommended it to my entire professional network!",
+      text: "After evaluating numerous professional development platforms, Owlstin stands unparalleled in its analytical depth and strategic insight. The AI-driven recommendations demonstrated remarkable precision, and the curated resource selection exceeded all expectations. I've advocated for its implementation across our entire executive team.",
     },
     {
       name: "Emma Lawson",
-      position: "HR Director",
+      position: "Chief Human Resources Officer",
       company: "Global Enterprises",
       image: "https://i.pravatar.cc/150?img=23",
       stars: 5,
-      text: "From a recruiter's perspective, Owlstin has been a game-changer. We can now quickly identify the best candidates for positions based on actual skill alignment rather than keyword matching. Our hiring efficiency has improved by 40%!",
+      text: "From a talent acquisition perspective, Owlstin has revolutionized our recruitment methodology. We can now efficiently identify optimal candidates based on substantive competency alignment rather than superficial keyword matching. Our hiring effectiveness metrics have improved by 40% since implementation.",
     },
     {
       name: "Rajiv Patel",
-      position: "Full Stack Developer",
+      position: "Full Stack Development Architect",
       company: "Web Solutions Plus",
       image: "https://i.pravatar.cc/150?img=70",
       stars: 4,
-      text: "The platform identified gaps in my backend skills that I wasn't aware of. The suggested projects were practical and helped me build a portfolio that showcased my new abilities. Within weeks of completing the recommendations, I received three job offers!",
+      text: "The platform identified critical gaps in my backend architecture expertise that remained undetected through conventional assessment. The recommended project portfolio was exceptionally well-calibrated and enabled me to demonstrate my newly acquired capabilities. Within weeks of completing the prescribed development path, I received multiple competitive offers.",
     },
   ];
 
@@ -72,10 +72,10 @@ export default function TestimonialsPage() {
       <div className="container mx-auto px-4 py-24 sm:py-32">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-cinzel font-bold bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent mb-6">
-            Success Stories
+            Professional Transformation Stories
           </h1>
           <p className="text-magical-starlight/70 text-lg">
-            Hear from professionals who transformed their careers with Owlstin's magical guidance.
+            Discover how distinguished professionals have elevated their careers through Owlstin's strategic guidance and analytical insight.
           </p>
         </div>
         
