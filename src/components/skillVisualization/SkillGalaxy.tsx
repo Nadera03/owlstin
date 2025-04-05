@@ -12,18 +12,23 @@ interface Skill {
   level: number;
   category: string;
   color: string;
+  description?: string;
+  resources?: string[];
+  projectIdea?: string;
 }
 
 interface SkillGalaxyProps {
   skills: Skill[];
   title?: string;
   description?: string;
+  onSkillClick?: (skill: Skill) => void;
 }
 
 export default function SkillGalaxy({ 
   skills, 
   title = "Your Skill Galaxy",
-  description = "Explore your magical abilities in this interactive skill visualization"
+  description = "Explore your magical abilities in this interactive skill visualization",
+  onSkillClick
 }: SkillGalaxyProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [galaxyLayout, setGalaxyLayout] = useState<"orbit" | "cluster" | "grid">("orbit");
@@ -86,6 +91,13 @@ export default function SkillGalaxy({
       transition: { staggerChildren: 0.03 }
     }
   };
+
+  // Handle skill click
+  const handleSkillClick = (skill: Skill) => {
+    if (onSkillClick) {
+      onSkillClick(skill);
+    }
+  };
   
   return (
     <section className="py-16 px-4 relative overflow-hidden">
@@ -110,7 +122,7 @@ export default function SkillGalaxy({
           </div>
           
           {/* Layout controls */}
-          <div className="mt-4 flex justify-center items-center gap-4">
+          <div className="mt-4 flex justify-center items-center gap-4 flex-wrap">
             <span className="text-magical-starlight/60 text-sm">Layout:</span>
             <Button 
               variant={galaxyLayout === "orbit" ? "default" : "outline"} 
@@ -153,7 +165,7 @@ export default function SkillGalaxy({
         
         {/* Skill orbs display area */}
         <div 
-          className={`relative min-h-[600px] ${galaxyLayout === "grid" ? "grid grid-cols-2 md:grid-cols-4 gap-10" : "h-[600px]"}`}
+          className={`relative min-h-[600px] ${galaxyLayout === "grid" ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10" : "h-[600px]"}`}
         >
           <motion.div 
             variants={containerVariants}
@@ -175,12 +187,14 @@ export default function SkillGalaxy({
                   duration: 0.6
                 }}
               >
-                <SkillOrb 
-                  skill={skill.name} 
-                  level={skill.level} 
-                  color={skill.color} 
-                  size={galaxyLayout === "grid" ? "sm" : (index % 3 === 0 ? "lg" : "md")}
-                />
+                <div onClick={() => handleSkillClick(skill)}>
+                  <SkillOrb 
+                    skill={skill.name} 
+                    level={skill.level} 
+                    color={skill.color} 
+                    size={galaxyLayout === "grid" ? "sm" : (index % 3 === 0 ? "lg" : "md")}
+                  />
+                </div>
               </motion.div>
             ))}
           </motion.div>

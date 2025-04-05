@@ -81,6 +81,7 @@ export default function SkillOrb({
           borderColor: `${color}40`  // 40 is hex for 25% opacity
         }}
         whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         animate={isHovered ? { rotate: 360 } : {}}
         transition={{ duration: isHovered ? 20 : 0, ease: "linear", repeat: Infinity }}
       >
@@ -103,7 +104,7 @@ export default function SkillOrb({
           value={level} 
           className="h-1 bg-black bg-opacity-50" 
           indicatorClassName="bg-opacity-80"
-          style={{ backgroundColor: `${color}20`, color }}
+          style={{ backgroundColor: `${color}20` }}
         />
         <div className="flex justify-between text-xs mt-1">
           <span style={{ color }} className="opacity-70">Novice</span>
