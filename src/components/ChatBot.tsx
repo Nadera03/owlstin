@@ -23,9 +23,6 @@ type Message = {
   timestamp: Date;
 };
 
-// Default API key - this should be treated as an environment variable in production
-const DEFAULT_API_KEY = "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";
-
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -38,6 +35,9 @@ export default function ChatBot() {
   ]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [apiKey, setApiKey] = useState<string>(
+    localStorage.getItem("openai_api_key") || ""
+  );
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -56,9 +56,25 @@ export default function ChatBot() {
     }
   }, [open]);
 
+  // Save API key to localStorage when it changes
+  useEffect(() => {
+    if (apiKey) {
+      localStorage.setItem("openai_api_key", apiKey);
+    }
+  }, [apiKey]);
+
   const handleSubmit = async (e?: React.FormEvent) => {
     e?.preventDefault();
     if (!inputValue.trim() || isLoading) return;
+    
+    if (!apiKey) {
+      toast({
+        title: "API Key Required",
+        description: "Please enter your OpenAI API key in the settings",
+        variant: "destructive",
+      });
+      return;
+    }
     
     // Add user message
     const userMessage: Message = {
@@ -73,12 +89,12 @@ export default function ChatBot() {
     setIsLoading(true);
     
     try {
-      // Make API call to OpenAI using the default API key
+      // Make API call to OpenAI
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${DEFAULT_API_KEY}`,
+          "Authorization": `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
           model: "gpt-4o-mini",
@@ -99,7 +115,9 @@ export default function ChatBot() {
       });
       
       if (!response.ok) {
-        throw new Error(`API Error: ${response.status}`);
+        const errorData = await response.json().catch(() => ({}));
+        console.error("API Error:", response.status, errorData);
+        throw new Error(`API Error: ${response.status} - ${errorData.error?.message || response.statusText}`);
       }
       
       const data = await response.json();
@@ -118,14 +136,14 @@ export default function ChatBot() {
       console.error("Error calling OpenAI API:", error);
       toast({
         title: "Error",
-        description: "Failed to get a response from the AI. Please try again later.",
+        description: error instanceof Error ? error.message : "Failed to get a response from the AI. Please check your API key and try again.",
         variant: "destructive",
       });
       
       // Add error message
       const errorMessage: Message = {
         id: Date.now().toString(),
-        content: "Sorry, I encountered an error. Please try again later.",
+        content: "Sorry, I encountered an error. Please check your API key is valid or try again later.",
         role: "assistant",
         timestamp: new Date(),
       };
@@ -190,7 +208,29 @@ export default function ChatBot() {
               </div>
             </ScrollArea>
             
-            <DrawerFooter className="p-0 pt-4">
+            <div className="pb-2 pt-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-muted-foreground">OpenAI API Key</span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="text-xs"
+                  onClick={() => setApiKey("")}
+                  disabled={!apiKey}
+                >
+                  Clear Key
+                </Button>
+              </div>
+              <Input
+                type="password"
+                value={apiKey}
+                onChange={(e) => setApiKey(e.target.value)}
+                placeholder="Enter your OpenAI API key"
+                className="mb-4 font-mono text-xs"
+              />
+            </div>
+            
+            <DrawerFooter className="p-0">
               <form onSubmit={handleSubmit} className="flex space-x-2">
                 <Input
                   ref={inputRef}
@@ -203,7 +243,7 @@ export default function ChatBot() {
                 <Button 
                   type="submit" 
                   size="icon" 
-                  disabled={!inputValue.trim() || isLoading}
+                  disabled={!inputValue.trim() || isLoading || !apiKey}
                 >
                   <Send size={18} />
                   <span className="sr-only">Send</span>
