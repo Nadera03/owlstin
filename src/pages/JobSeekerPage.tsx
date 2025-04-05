@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import { UploadCloud, BookOpen, CheckCircle2, FileText, ArrowRight, Book, CheckCheck, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -18,7 +19,7 @@ interface Skill {
 interface Recommendation {
   skill: string;
   description: string;
-  resources: string[];
+  resources: Array<{name: string, url: string}>;
   project: string;
   completed: boolean;
 }
@@ -112,35 +113,50 @@ export default function JobSeekerPage() {
         {
           skill: "Node.js",
           description: "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine that allows developers to run JavaScript code on the server side.",
-          resources: ["NodeJS Official Documentation", "freeCodeCamp's Node.js Course"],
+          resources: [
+            {name: "NodeJS Official Documentation", url: "https://nodejs.org/en/docs/"},
+            {name: "freeCodeCamp's Node.js Course", url: "https://www.freecodecamp.org/learn/apis-and-microservices/"}
+          ],
           project: "Build a simple REST API with Express.js and connect it to a database",
           completed: false
         },
         {
           skill: "PostgreSQL",
           description: "PostgreSQL is a powerful, open-source object-relational database system with over 30 years of active development.",
-          resources: ["PostgreSQL Tutorial", "SQL for Web Developers on YouTube"],
+          resources: [
+            {name: "PostgreSQL Tutorial", url: "https://www.postgresqltutorial.com/"},
+            {name: "SQL for Web Developers on YouTube", url: "https://www.youtube.com/results?search_query=sql+for+web+developers"}
+          ],
           project: "Create a database design for a blog platform with users, posts, and comments",
           completed: false
         },
         {
           skill: "Docker",
           description: "Docker is a platform for developing, shipping, and running applications in containers.",
-          resources: ["Docker Official Documentation", "Docker for Beginners Workshop"],
+          resources: [
+            {name: "Docker Official Documentation", url: "https://docs.docker.com/get-started/"},
+            {name: "Docker for Beginners Workshop", url: "https://docker-curriculum.com/"}
+          ],
           project: "Containerize a simple web application using Docker",
           completed: false
         },
         {
           skill: "AWS",
           description: "Amazon Web Services offers reliable, scalable, and inexpensive cloud computing services.",
-          resources: ["AWS Free Tier Tutorials", "AWS Certified Cloud Practitioner Training"],
+          resources: [
+            {name: "AWS Free Tier Tutorials", url: "https://aws.amazon.com/getting-started/hands-on/"},
+            {name: "AWS Certified Cloud Practitioner Training", url: "https://aws.amazon.com/certification/certified-cloud-practitioner/"}
+          ],
           project: "Deploy a static website to AWS S3 and set up CloudFront distribution",
           completed: false
         },
         {
           skill: "GraphQL",
           description: "GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.",
-          resources: ["GraphQL.org Tutorials", "How to GraphQL Course"],
+          resources: [
+            {name: "GraphQL.org Tutorials", url: "https://graphql.org/learn/"},
+            {name: "How to GraphQL Course", url: "https://www.howtographql.com/"}
+          ],
           project: "Convert a small REST API to GraphQL and implement queries and mutations",
           completed: false
         }
@@ -547,8 +563,13 @@ export default function JobSeekerPage() {
                             {rec.resources.map((resource, i) => (
                               <li key={i} className="flex items-center">
                                 <Star className="h-3 w-3 text-magical-glowing-teal mr-2" />
-                                <a href="#" className="text-magical-starlight/80 hover:text-magical-glowing-teal transition-colors">
-                                  {resource}
+                                <a 
+                                  href={resource.url} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-magical-starlight/80 hover:text-magical-glowing-teal transition-colors"
+                                >
+                                  {resource.name}
                                 </a>
                               </li>
                             ))}
@@ -571,10 +592,12 @@ export default function JobSeekerPage() {
                     <h3 className="text-xl font-cinzel mb-4 bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
                       Ready to Chart Your Course?
                     </h3>
-                    <Button className="magical-button" size="lg">
-                      <span>View Full Learning Roadmap</span>
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
+                    <Link to="/dashboard">
+                      <Button className="magical-button" size="lg">
+                        <span>View Full Learning Roadmap</span>
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
