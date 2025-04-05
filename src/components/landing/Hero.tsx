@@ -100,7 +100,7 @@ export default function Hero() {
           
           {/* Subtitle with improved styling */}
           <p className="text-wizardry-parchment text-lg md:text-xl max-w-2xl mx-auto mb-12 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">
-            <span className="text-wizardry-gold font-medium">Owlstin</span> harnesses the power of AI to match your skills with job requirements, revealing your path to professional enchantment.
+            <span className="text-wizardry-gold font-medium">Owlstin</span> delves into the shadows of your potential, summoning dark powers to unveil the career path that awaits in your destiny.
           </p>
           
           {/* CTA Buttons with improved styling */}
