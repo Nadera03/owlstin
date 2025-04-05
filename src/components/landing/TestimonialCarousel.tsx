@@ -87,8 +87,8 @@ export default function TestimonialCarousel() {
   return (
     <section className="py-20 px-4 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-vampire font-bold text-center mb-16 text-castlevania-blood">
-          Voices from the Shadows
+        <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-16 text-wizardry-gold">
+          Enchanted Testimonials
         </h2>
         
         <div className="relative">
@@ -96,7 +96,7 @@ export default function TestimonialCarousel() {
           <div className="absolute top-1/2 -translate-y-1/2 left-0 z-10 hidden md:block">
             <button
               onClick={scrollPrev}
-              className="bg-castlevania-blood text-castlevania-parchment p-2 rounded-full hover:bg-castlevania-gold hover:text-castlevania-shadow transition-colors"
+              className="bg-wizardry-purple text-wizardry-parchment p-2 rounded-full hover:bg-wizardry-gold hover:text-wizardry-navy transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -106,7 +106,7 @@ export default function TestimonialCarousel() {
           <div className="absolute top-1/2 -translate-y-1/2 right-0 z-10 hidden md:block">
             <button
               onClick={scrollNext}
-              className="bg-castlevania-blood text-castlevania-parchment p-2 rounded-full hover:bg-castlevania-gold hover:text-castlevania-shadow transition-colors"
+              className="bg-wizardry-purple text-wizardry-parchment p-2 rounded-full hover:bg-wizardry-gold hover:text-wizardry-navy transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6" />
@@ -118,28 +118,28 @@ export default function TestimonialCarousel() {
             <CarouselContent>
               {testimonials.map((testimonial) => (
                 <CarouselItem key={testimonial.id} className={`${isMobile ? "basis-full" : "basis-1/3"} pl-4 md:pl-6`}>
-                  <Card className="castlevania-card h-full">
+                  <Card className="glassmorphism h-full">
                     <CardContent className="p-6">
-                      {/* Blood drops at corners */}
-                      <div className="absolute top-0 left-0 w-2 h-8 blood-drip" style={{animationDelay: "0.2s"}}></div>
-                      <div className="absolute top-0 right-0 w-2 h-6 blood-drip" style={{animationDelay: "1.3s"}}></div>
+                      {/* Magical sparkles */}
+                      <div className="absolute top-3 left-3 w-2 h-2 bg-wizardry-gold/50 rounded-full animate-pulse"></div>
+                      <div className="absolute top-5 right-5 w-1.5 h-1.5 bg-wizardry-gold/50 rounded-full animate-pulse" style={{animationDelay: "1s"}}></div>
                       
                       {/* Stars */}
                       <div className="flex mb-4">
                         {Array.from({ length: 5 }).map((_, i) => (
                           <Star 
                             key={i}
-                            className={`w-5 h-5 ${i < testimonial.rating ? "text-castlevania-gold fill-castlevania-gold" : "text-castlevania-stone"}`}
+                            className={`w-5 h-5 ${i < testimonial.rating ? "text-wizardry-gold fill-wizardry-gold" : "text-wizardry-navy"}`}
                           />
                         ))}
                       </div>
                       
                       {/* Testimonial Text */}
-                      <p className="text-castlevania-parchment/90 mb-6 h-32 overflow-hidden">"{testimonial.text}"</p>
+                      <p className="text-wizardry-parchment/90 mb-6 h-32 overflow-hidden">"{testimonial.text}"</p>
                       
                       {/* Author */}
                       <div className="flex items-center">
-                        <div className="mr-4 relative gothic-border rounded-full overflow-hidden">
+                        <div className="mr-4 relative magical-border rounded-full overflow-hidden">
                           <img 
                             src={testimonial.avatar}
                             alt={testimonial.name}
@@ -147,8 +147,8 @@ export default function TestimonialCarousel() {
                           />
                         </div>
                         <div>
-                          <h4 className="text-castlevania-gold font-gothic font-bold">{testimonial.name}</h4>
-                          <p className="text-castlevania-parchment/70 text-sm">{testimonial.role}, {testimonial.company}</p>
+                          <h4 className="text-wizardry-gold font-cinzel font-bold">{testimonial.name}</h4>
+                          <p className="text-wizardry-parchment/70 text-sm">{testimonial.role}, {testimonial.company}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -166,8 +166,8 @@ export default function TestimonialCarousel() {
                 onClick={() => api?.scrollTo(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
                   current === index 
-                    ? "bg-castlevania-blood w-8" 
-                    : "bg-castlevania-parchment/30 hover:bg-castlevania-parchment/50"
+                    ? "bg-wizardry-gold w-8" 
+                    : "bg-wizardry-parchment/30 hover:bg-wizardry-parchment/50"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

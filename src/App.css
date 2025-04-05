@@ -13,7 +13,7 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #8B0000aa);
+  filter: drop-shadow(0 0 2em #9b87f5aa);
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #D4AF37aa);
@@ -37,106 +37,108 @@
 .card {
   padding: 2em;
   border: 1px solid rgba(212, 175, 55, 0.3);
-  background-color: rgba(26, 31, 44, 0.7);
+  background-color: rgba(42, 27, 61, 0.7);
 }
 
 .read-the-docs {
-  color: #F5F5DC;
+  color: #F8F4E3;
 }
 
-/* Castlevania specific elements */
-.gothic-border {
-  border: 1px solid #8B0000;
-  box-shadow: 0 0 10px rgba(139, 0, 0, 0.3);
+/* Wizardry specific elements */
+.magical-border {
+  border: 1px solid #9b87f5;
+  box-shadow: 0 0 10px rgba(155, 135, 245, 0.3);
 }
 
-.castle-window {
+.magical-window {
   clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
 }
 
-.torch-light {
-  background: radial-gradient(circle at center, rgba(255, 69, 0, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
-  animation: flicker 3s infinite alternate;
+.sparkle-light {
+  background: radial-gradient(circle at center, rgba(155, 135, 245, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+  animation: pulse 3s infinite alternate;
 }
 
-@keyframes flicker {
+@keyframes pulse {
   0%, 100% { opacity: 1; }
   25% { opacity: 0.8; }
   50% { opacity: 0.6; }
   75% { opacity: 0.9; }
 }
 
-.blood-drip {
-  background: linear-gradient(to bottom, transparent, #8B0000);
+.magical-particles {
   position: absolute;
-  width: 2px;
-  animation: drip 4s infinite;
+  width: 3px;
+  height: 3px;
+  background: #9b87f5;
+  border-radius: 50%;
+  animation: float-particles 4s infinite;
 }
 
-@keyframes drip {
-  0% { height: 0; opacity: 0; }
+@keyframes float-particles {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
   20% { opacity: 1; }
-  100% { height: 100px; opacity: 0; transform: translateY(100%); }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
 }
 
-/* Magical Castlevania Card */
+/* Magical Card */
 .magical-card {
-  @apply relative border border-castlevania-gold/20 p-6 rounded-md bg-castle-stone overflow-hidden transition-all duration-300;
-  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.2);
+  @apply relative border border-wizardry-gold/20 p-6 rounded-md bg-mystical-card overflow-hidden transition-all duration-300 backdrop-blur-md;
+  box-shadow: 0 4px 15px rgba(155, 135, 245, 0.2);
 }
 
 .magical-card:before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-br from-castlevania-blood/5 to-transparent pointer-events-none opacity-50;
+  @apply absolute inset-0 bg-gradient-to-br from-magical-glowing-purple/5 to-transparent pointer-events-none opacity-50;
 }
 
 .magical-card:hover {
-  @apply border-castlevania-gold/40;
+  @apply border-wizardry-gold/40;
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(139, 0, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(155, 135, 245, 0.3);
 }
 
 /* Magical Button Style */
-.magical-button {
-  @apply relative bg-castlevania-blood text-castlevania-parchment overflow-hidden transition-all duration-300 border border-castlevania-gold/20;
-  box-shadow: 0 0 10px rgba(139, 0, 0, 0.4);
+.magical-btn {
+  @apply relative bg-gradient-to-r from-wizardry-purple to-magical-enchanted text-wizardry-parchment overflow-hidden transition-all duration-300 border border-wizardry-gold/20 rounded-md;
+  box-shadow: 0 0 10px rgba(155, 135, 245, 0.4);
 }
 
-.magical-button:hover, .magical-button:focus {
-  @apply bg-castlevania-blood/90 border-castlevania-gold/40;
-  box-shadow: 0 0 15px rgba(139, 0, 0, 0.6), 0 0 5px rgba(212, 175, 55, 0.3);
+.magical-btn:hover, .magical-btn:focus {
+  @apply border-wizardry-gold/40;
+  box-shadow: 0 0 15px rgba(155, 135, 245, 0.6), 0 0 5px rgba(212, 175, 55, 0.3);
 }
 
-.magical-button:active {
+.magical-btn:active {
   transform: translateY(1px);
 }
 
 /* Floating Orb */
-.floating-orb {
+.magical-orb {
   @apply absolute rounded-full animate-float;
-  background: radial-gradient(circle at center, rgba(139, 0, 0, 0.6) 0%, rgba(26, 31, 44, 0.4) 70%);
-  box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+  background: radial-gradient(circle at center, rgba(155, 135, 245, 0.6) 0%, rgba(26, 31, 60, 0.4) 70%);
+  box-shadow: 0 0 20px rgba(155, 135, 245, 0.3);
 }
 
-/* Blood Glow Effect */
-.blood-glow {
-  text-shadow: 0 0 10px rgba(139, 0, 0, 0.7);
-  animation: blood-pulse 4s infinite alternate;
+/* Magical Glow Effect */
+.magical-glow-text {
+  text-shadow: 0 0 10px rgba(155, 135, 245, 0.7);
+  animation: glow-pulse 4s infinite alternate;
 }
 
-@keyframes blood-pulse {
-  0%, 100% { text-shadow: 0 0 10px rgba(139, 0, 0, 0.7); }
-  50% { text-shadow: 0 0 20px rgba(139, 0, 0, 0.9); }
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(155, 135, 245, 0.7); }
+  50% { text-shadow: 0 0 20px rgba(155, 135, 245, 0.9); }
 }
 
-/* Flame Orbs */
-.flame-orb {
-  @apply rounded-full bg-gradient-to-br from-castlevania-flame to-castlevania-blood animate-float;
-  box-shadow: 0 0 15px rgba(139, 0, 0, 0.5), 0 0 30px rgba(139, 0, 0, 0.3);
+/* Star Orbs */
+.star-orb {
+  @apply rounded-full bg-gradient-to-br from-wizardry-gold to-wizardry-purple animate-float;
+  box-shadow: 0 0 15px rgba(155, 135, 245, 0.5), 0 0 30px rgba(155, 135, 245, 0.3);
 }
 
-/* Torch Animation */
-.torch {
-  @apply inline-block w-4 h-4 bg-castlevania-flame rounded-full animate-flicker mr-2;
-  box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+/* Sparkle Animation */
+.sparkle {
+  @apply inline-block w-4 h-4 bg-wizardry-gold rounded-full animate-pulse mr-2;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
 }

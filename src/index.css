@@ -7,84 +7,84 @@
 
 @layer base {
   :root {
-    /* Castlevania dark theme */
-    --background: 220 24% 14%;
-    --foreground: 60 33% 95%;
+    /* Magical theme variables */
+    --background: 225 30% 15%;
+    --foreground: 0 0% 98%;
 
-    --card: 220 20% 12%;
-    --card-foreground: 60 33% 95%;
+    --card: 230 35% 15%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 220 20% 12%;
-    --popover-foreground: 60 33% 95%;
+    --popover: 230 35% 15%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 0 68% 27%;
-    --primary-foreground: 60 33% 95%;
+    --primary: 260 50% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 25%;
-    --secondary-foreground: 60 33% 95%;
+    --secondary: 225 30% 25%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 15% 25%;
-    --muted-foreground: 60 10% 70%;
+    --muted: 225 25% 25%;
+    --muted-foreground: 240 5% 84.9%;
 
-    --accent: 43 74% 49%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 270 60% 75%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 68% 27%;
-    --destructive-foreground: 60 33% 95%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 43 74% 49%;
+    --border: 225 30% 25%;
+    --input: 225 30% 25%;
+    --ring: 260 50% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 220 20% 12%;
-    --sidebar-foreground: 60 33% 95%;
-    --sidebar-primary: 0 68% 27%;
-    --sidebar-primary-foreground: 60 33% 95%;
-    --sidebar-accent: 220 15% 25%;
-    --sidebar-accent-foreground: 60 33% 95%;
-    --sidebar-border: 220 15% 25%;
-    --sidebar-ring: 43 74% 49%;
+    --sidebar-background: 230 35% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 260 50% 60%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 225 30% 25%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 225 30% 25%;
+    --sidebar-ring: 260 50% 60%;
   }
 
   .dark {
-    --background: 220 24% 14%;
-    --foreground: 60 33% 95%;
+    --background: 225 30% 15%;
+    --foreground: 0 0% 98%;
 
-    --card: 220 20% 12%;
-    --card-foreground: 60 33% 95%;
+    --card: 230 35% 15%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 220 20% 12%;
-    --popover-foreground: 60 33% 95%;
+    --popover: 230 35% 15%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 0 68% 27%;
-    --primary-foreground: 60 33% 95%;
+    --primary: 260 50% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 25%;
-    --secondary-foreground: 60 33% 95%;
+    --secondary: 225 30% 25%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 15% 25%;
-    --muted-foreground: 60 10% 70%;
+    --muted: 225 25% 25%;
+    --muted-foreground: 240 5% 84.9%;
 
-    --accent: 43 74% 49%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 270 60% 75%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 68% 27%;
-    --destructive-foreground: 60 33% 95%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 43 74% 49%;
+    --border: 225 30% 25%;
+    --input: 225 30% 25%;
+    --ring: 260 50% 60%;
 
-    --sidebar-background: 220 20% 12%;
-    --sidebar-foreground: 60 33% 95%;
-    --sidebar-primary: 0 68% 27%;
-    --sidebar-primary-foreground: 60 33% 95%;
-    --sidebar-accent: 220 15% 25%;
-    --sidebar-accent-foreground: 60 33% 95%;
-    --sidebar-border: 220 15% 25%;
-    --sidebar-ring: 43 74% 49%;
+    --sidebar-background: 230 35% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 260 50% 60%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 225 30% 25%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 225 30% 25%;
+    --sidebar-ring: 260 50% 60%;
   }
 }
 
@@ -94,13 +94,13 @@
   }
 
   body {
-    @apply bg-castlevania-dark text-castlevania-parchment font-gothic;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23F5F5DC' fill-opacity='0.07' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-    background-color: #1A1F2C;
+    @apply bg-wizardry-deep-blue text-wizardry-parchment font-gothic;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23F8F4E3' fill-opacity='0.07' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    background-color: #1A1F3C;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-vampire text-castlevania-blood;
+    @apply font-cinzel text-wizardry-gold;
   }
 
   /* Add some custom scrollbar styling */
@@ -109,45 +109,49 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-castlevania-shadow;
+    @apply bg-wizardry-midnight;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-castlevania-blood rounded-full;
+    @apply bg-wizardry-purple rounded-full;
   }
 }
 
 @layer components {
-  .castlevania-card {
-    @apply relative bg-castle-stone border border-castlevania-gold/30 rounded-md shadow-lg overflow-hidden;
-    box-shadow: 0 4px 20px rgba(139, 0, 0, 0.2), inset 0 0 20px rgba(212, 175, 55, 0.1);
+  .wizardry-card {
+    @apply relative bg-mystical-card border border-wizardry-gold/30 rounded-md shadow-lg overflow-hidden backdrop-blur-sm;
+    box-shadow: 0 4px 20px rgba(155, 135, 245, 0.2), inset 0 0 20px rgba(212, 175, 55, 0.1);
   }
 
-  .castlevania-card::before {
+  .wizardry-card::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-castlevania-blood/10 to-castlevania-shadow/20 opacity-30 pointer-events-none;
+    @apply absolute inset-0 bg-gradient-to-br from-magical-glowing-purple/10 to-wizardry-navy/20 opacity-30 pointer-events-none;
   }
 
-  .castlevania-button {
-    @apply relative overflow-hidden px-6 py-3 bg-gradient-to-r from-castlevania-blood to-castlevania-shadow text-castlevania-parchment font-medium rounded-sm border border-castlevania-gold/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-castlevania-gold focus:ring-opacity-50;
+  .magical-button {
+    @apply relative overflow-hidden px-6 py-3 bg-gradient-to-r from-wizardry-purple to-magical-enchanted text-wizardry-parchment font-medium rounded-md border border-wizardry-gold/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(155,135,245,0.5)] focus:outline-none focus:ring-2 focus:ring-wizardry-gold focus:ring-opacity-50;
   }
 
-  .castlevania-button::before {
+  .magical-button::before {
     content: '';
-    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-r from-castlevania-gold/20 to-transparent opacity-0 transition-opacity duration-300;
+    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-r from-wizardry-gold/20 to-transparent opacity-0 transition-opacity duration-300;
   }
 
-  .castlevania-button:hover::before {
+  .magical-button:hover::before {
     @apply opacity-100;
   }
 
-  .blood-border {
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg;
+  }
+
+  .glow-border {
     @apply relative;
   }
 
-  .blood-border::after {
+  .glow-border::after {
     content: '';
-    @apply absolute inset-0 rounded-md p-[1px] bg-gradient-to-r from-castlevania-blood via-castlevania-gold to-castlevania-blood opacity-70;
+    @apply absolute inset-0 rounded-md p-[1px] bg-gradient-to-r from-magical-glowing-purple via-wizardry-gold to-magical-glowing-purple opacity-70;
     background-size: 200% 100%;
     animation: shimmer 2s linear infinite;
     z-index: -1;
@@ -157,34 +161,44 @@
     @apply pointer-events-none fixed z-50;
   }
 
-  .flame-orb {
-    @apply relative rounded-full bg-gradient-to-br from-castlevania-flame to-castlevania-blood animate-float;
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.5), 0 0 30px rgba(139, 0, 0, 0.3), 0 0 45px rgba(139, 0, 0, 0.1);
+  .magical-orb {
+    @apply relative rounded-full bg-gradient-to-br from-magical-glowing-purple to-magical-glowing-blue animate-float;
+    box-shadow: 0 0 15px rgba(155, 135, 245, 0.5), 0 0 30px rgba(155, 135, 245, 0.3), 0 0 45px rgba(155, 135, 245, 0.1);
   }
 
-  .mist-field {
-    @apply fixed inset-0 z-0 pointer-events-none animate-fog-drift opacity-20 bg-gradient-to-r from-castlevania-mist/10 via-transparent to-castlevania-mist/10;
+  .starry-field {
+    @apply fixed inset-0 z-0 pointer-events-none animate-fog-drift opacity-20 bg-gradient-to-r from-wizardry-mist/10 via-transparent to-wizardry-mist/10;
   }
 
-  .torch {
-    @apply inline-block w-4 h-4 bg-castlevania-flame rounded-full animate-flicker mr-2;
-    box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+  .sparkle {
+    @apply inline-block w-3 h-3 bg-wizardry-gold rounded-full animate-pulse mr-2;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
   }
 
-  .parchment-scroll {
-    @apply bg-castle-stone border border-castlevania-gold/20 rounded-md p-6;
-    box-shadow: 0 4px 20px rgba(139, 0, 0, 0.1), inset 0 0 20px rgba(212, 175, 55, 0.05);
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23F5F5DC' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+  .wizard-scroll {
+    @apply bg-mystical-card border border-wizardry-gold/20 rounded-lg p-6;
+    box-shadow: 0 4px 20px rgba(155, 135, 245, 0.1), inset 0 0 20px rgba(212, 175, 55, 0.05);
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23F8F4E3' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
   }
 
-  .blood-glow {
+  .magical-glow {
     @apply relative inline-block;
   }
 
-  .blood-glow::before {
+  .magical-glow::before {
     content: '';
-    @apply absolute -inset-1 bg-gradient-to-r from-castlevania-blood via-castlevania-shadow to-castlevania-blood rounded-full blur-md opacity-70 animate-blood-pulse;
+    @apply absolute -inset-1 bg-gradient-to-r from-magical-glowing-purple via-magical-glowing-blue to-magical-glowing-purple rounded-full blur-md opacity-70 animate-pulse;
     z-index: -1;
+  }
+  
+  .glassmorphism {
+    @apply backdrop-blur-md bg-wizardry-deep-blue/40 border border-white/10;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  }
+  
+  .floating-particle {
+    @apply absolute rounded-full bg-wizardry-gold/30 animate-particles-float;
+    filter: blur(1px);
   }
 }
 
@@ -192,7 +206,7 @@
 .magic-cursor-dot {
   width: 8px;
   height: 8px;
-  background-color: #8B0000;
+  background-color: #9b87f5;
   position: fixed;
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -204,7 +218,7 @@
 .magic-cursor-outline {
   width: 40px;
   height: 40px;
-  border: 2px solid rgba(139, 0, 0, 0.5);
+  border: 2px solid rgba(155, 135, 245, 0.5);
   position: fixed;
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -216,7 +230,7 @@
 .magic-trail-particle {
   position: absolute;
   border-radius: 50%;
-  background-color: rgba(139, 0, 0, 0.7);
+  background-color: rgba(155, 135, 245, 0.7);
   pointer-events: none;
   z-index: 9997;
   animation: fadeOut 1s forwards;
