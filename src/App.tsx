@@ -10,6 +10,7 @@ import RecruiterPage from "./pages/RecruiterPage";
 import DashboardPage from "./pages/DashboardPage";
 import NotFound from "./pages/NotFound";
 import MagicCursor from "./components/MagicCursor";
+import DemoPage from "./pages/DemoPage";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/job-seeker" element={<JobSeekerPage />} />
           <Route path="/recruiter" element={<RecruiterPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/demo" element={<DemoPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
