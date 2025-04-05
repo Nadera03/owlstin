@@ -11,6 +11,11 @@ import DashboardPage from "./pages/DashboardPage";
 import NotFound from "./pages/NotFound";
 import MagicCursor from "./components/MagicCursor";
 import DemoPage from "./pages/DemoPage";
+import PricingPage from "./pages/PricingPage";
+import AboutPage from "./pages/AboutPage";
+import TestimonialsPage from "./pages/TestimonialsPage";
+import FaqPage from "./pages/FaqPage";
+import SupportPage from "./pages/SupportPage";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +32,11 @@ const App = () => (
           <Route path="/recruiter" element={<RecruiterPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/demo" element={<DemoPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/support" element={<SupportPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
