@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,7 +15,7 @@
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 96%;
 
-    --primary: 16 100% 50%;
+    --primary: 0 100% 27%; /* Updated to blood red */
     --primary-foreground: 0 0% 96%;
 
     --secondary: 0 0% 16%;
@@ -25,7 +24,7 @@
     --muted: 0 0% 16%;
     --muted-foreground: 0 0% 46%;
 
-    --accent: 16 100% 50%;
+    --accent: 0 100% 27%; /* Updated to blood red */
     --accent-foreground: 0 0% 96%;
 
     --destructive: 0 68% 27%;
@@ -33,18 +32,18 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 16 100% 50%;
+    --ring: 0 100% 27%; /* Updated to blood red */
 
     --radius: 0.25rem;
 
     --sidebar-background: 0 0% 7%;
     --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 16 100% 50%;
+    --sidebar-primary: 0 100% 27%; /* Updated to blood red */
     --sidebar-primary-foreground: 0 0% 96%;
     --sidebar-accent: 0 0% 16%;
     --sidebar-accent-foreground: 0 0% 96%;
     --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 16 100% 50%;
+    --sidebar-ring: 0 100% 27%; /* Updated to blood red */
   }
   
   .dark {
@@ -57,7 +56,7 @@
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 96%;
 
-    --primary: 16 100% 50%;
+    --primary: 0 100% 27%; /* Updated to blood red */
     --primary-foreground: 0 0% 96%;
 
     --secondary: 0 0% 16%;
@@ -66,7 +65,7 @@
     --muted: 0 0% 16%;
     --muted-foreground: 0 0% 46%;
 
-    --accent: 16 100% 50%;
+    --accent: 0 100% 27%; /* Updated to blood red */
     --accent-foreground: 0 0% 96%;
 
     --destructive: 0 68% 27%;
@@ -74,16 +73,16 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 16 100% 50%;
+    --ring: 0 100% 27%; /* Updated to blood red */
 
     --sidebar-background: 0 0% 7%;
     --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 16 100% 50%;
+    --sidebar-primary: 0 100% 27%; /* Updated to blood red */
     --sidebar-primary-foreground: 0 0% 96%;
     --sidebar-accent: 0 0% 16%;
     --sidebar-accent-foreground: 0 0% 96%;
     --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 16 100% 50%;
+    --sidebar-ring: 0 100% 27%; /* Updated to blood red */
   }
 }
 

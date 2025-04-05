@@ -21,8 +21,8 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				display: ['"Montserrat"', 'sans-serif'],
-				headline: ['"Bebas Neue"', 'sans-serif'],
+				display: ['"UnifrakturMaguntia"', 'cursive'], // Updated display font
+				headline: ['"UnifrakturMaguntia"', 'cursive'], // Updated headline font
 				mono: ['"Space Mono"', 'monospace'],
 			},
 			colors: {
@@ -72,7 +72,7 @@ export default {
 				archive: {
 					'base': '#121212',
 					'text': '#F5F5F5',
-					'accent': '#FF4D00',
+					'accent': '#8B0000', // Changed from #FF4D00 to blood red #8B0000
 					'secondary': '#292929',
 					'border': '#333333',
 					'muted': '#757575',
