@@ -1,0 +1,55 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Owl Body -->
+  <circle cx="50" cy="50" r="40" fill="#2A1B3D" stroke="#44DDDD" stroke-width="2" />
+  
+  <!-- Eyes -->
+  <circle cx="35" cy="42" r="10" fill="#1D1135" stroke="#44DDDD" stroke-width="1.5" />
+  <circle cx="65" cy="42" r="10" fill="#1D1135" stroke="#44DDDD" stroke-width="1.5" />
+  
+  <!-- Eye Pupils -->
+  <circle cx="35" cy="42" r="5" fill="#44DDDD">
+    <animate attributeName="r" values="5;4;5" dur="4s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="65" cy="42" r="5" fill="#44DDDD">
+    <animate attributeName="r" values="5;4;5" dur="4s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Eyebrows -->
+  <path d="M25 34 Q35 28 45 34" stroke="#44DDDD" stroke-width="2" fill="none" />
+  <path d="M55 34 Q65 28 75 34" stroke="#44DDDD" stroke-width="2" fill="none" />
+  
+  <!-- Beak -->
+  <path d="M45 55 Q50 62 55 55" stroke="#44DDDD" stroke-width="2" fill="#2A1B3D" />
+  
+  <!-- Ears/Horns -->
+  <path d="M25 20 Q30 5 35 20" stroke="#44DDDD" stroke-width="2" fill="#5B247A" />
+  <path d="M65 20 Q70 5 75 20" stroke="#44DDDD" stroke-width="2" fill="#5B247A" />
+  
+  <!-- Wings -->
+  <path d="M15 40 Q5 50 15 60" stroke="#44DDDD" stroke-width="2" fill="none" />
+  <path d="M85 40 Q95 50 85 60" stroke="#44DDDD" stroke-width="2" fill="none" />
+  
+  <!-- Magical Sparkles -->
+  <circle cx="20" cy="30" r="1" fill="#44DDDD">
+    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="80" cy="30" r="1" fill="#44DDDD">
+    <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="50" cy="15" r="1" fill="#44DDDD">
+    <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="40" cy="70" r="1" fill="#44DDDD">
+    <animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="60" cy="70" r="1" fill="#44DDDD">
+    <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Magical Aura Glow -->
+  <circle cx="50" cy="50" r="45" stroke="#44DDDD" stroke-width="0.5" fill="none" opacity="0.5">
+    <animate attributeName="r" values="43;46;43" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite" />
+  </circle>
+</svg>
