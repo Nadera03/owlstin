@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
@@ -9,7 +8,6 @@ import Particles from "@/components/Particles";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Users, Award, Map, Calendar, CheckCircle, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-
 export default function Landing() {
   // Set dark mode and scroll to top on mount
   useEffect(() => {
@@ -19,9 +17,7 @@ export default function Landing() {
       document.documentElement.classList.remove("dark");
     };
   }, []);
-
-  return (
-    <div className="min-h-screen bg-wizardry-deep-blue text-wizardry-parchment overflow-hidden">
+  return <div className="min-h-screen bg-wizardry-deep-blue text-wizardry-parchment overflow-hidden">
       {/* Background magical elements */}
       <div className="fixed inset-0 bg-parchment opacity-5 pointer-events-none"></div>
       <Particles />
@@ -221,12 +217,10 @@ export default function Landing() {
           </p>
           
           <div className="space-y-6">
-            {faqItems.map((item, index) => (
-              <div key={index} className="wizard-scroll">
+            {faqItems.map((item, index) => <div key={index} className="wizard-scroll">
                 <h3 className="text-xl font-cinzel text-wizardry-gold mb-3">{item.question}</h3>
                 <p className="text-wizardry-parchment/90">{item.answer}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -263,20 +257,19 @@ export default function Landing() {
               {/* Floating Magical Orb */}
               <div className="w-40 h-40 md:w-60 md:h-60 relative">
                 <div className="w-full h-full rounded-full magical-orb flex items-center justify-center">
-                  <img 
-                    alt="Owlstin" 
-                    className="w-2/3 h-2/3" 
-                    onError={e => {
-                      e.currentTarget.onerror = null;
-                      e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOWI4N2Y1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtb3dsIj48cGF0aCBkPSJNNCA5DjwvcGF0aD48cGF0aCBkPSJNOCAxMTQ0Ijy8L3BhdGg+PHBhdGggZD0iTTE0IDExNiI+PC9wYXRoPjxjaXJjbGUgY3g9IjkiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PHBhdGggZD0iTTggNGM0LTMgOC0zIDEyIDAibXA9InRyYW5zZm9ybSI+PC9wYXRoPjwvc3ZnPg==";
-                    }} 
-                    src="/lovable-uploads/bbd45bae-a179-407f-98dd-47260870a75f.png" 
-                  />
+                  <img alt="Owlstin" className="w-2/3 h-2/3" onError={e => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOWI4N2Y1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtb3dsIj48cGF0aCBkPSJNNCA5DjwvcGF0aD48cGF0aCBkPSJNOCAxMTQ0Ijy8L3BhdGg+PHBhdGggZD0iTTE0IDExNiI+PC9wYXRoPjxjaXJjbGUgY3g9IjkiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PHBhdGggZD0iTTggNGM0LTMgOC0zIDEyIDAibXA9InRyYW5zZm9ybSI+PC9wYXRoPjwvc3ZnPg==";
+                }} src="/lovable-uploads/bbd45bae-a179-407f-98dd-47260870a75f.png" />
                 </div>
                 {/* Add floating sparkles */}
                 <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-wizardry-gold rounded-full animate-pulse"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-wizardry-gold rounded-full animate-pulse" style={{animationDelay: "1s"}}></div>
-                <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-wizardry-gold rounded-full animate-pulse" style={{animationDelay: "1.5s"}}></div>
+                <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-wizardry-gold rounded-full animate-pulse" style={{
+                animationDelay: "1s"
+              }}></div>
+                <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-wizardry-gold rounded-full animate-pulse" style={{
+                animationDelay: "1.5s"
+              }}></div>
               </div>
             </div>
           </div>
@@ -290,15 +283,10 @@ export default function Landing() {
             <div>
               <Link to="/" className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 relative">
-                  <img 
-                    src="/owlstin-logo.svg" 
-                    alt="Owlstin" 
-                    className="w-full h-full" 
-                    onError={e => {
-                      e.currentTarget.onerror = null;
-                      e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOWI4N2Y1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtb3dsIj48cGF0aCBkPSJNNCA5DjwvcGF0aD48cGF0aCBkPSJNOCAxMTQ0Ijy8L3BhdGg+PHBhdGggZD0iTTE0IDExNiI+PC9wYXRoPjxjaXJjbGUgY3g9IjkiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PHBhdGggZD0iTTggNGM0LTMgOC0zIDEyIDAibXA9InRyYW5zZm9ybSI+PC9wYXRoPjwvc3ZnPg==";
-                    }} 
-                  />
+                  <img alt="Owlstin" className="w-full h-full" onError={e => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOWI4N2Y1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtb3dsIj48cGF0aCBkPSJNNCA5DjwvcGF0aD48cGF0aCBkPSJNOCAxMTQ0Ijy8L3BhdGg+PHBhdGggZD0iTTE0IDExNiI+PC9wYXRoPjxjaXJjbGUgY3g9IjkiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PHBhdGggZD0iTTggNGM0LTMgOC0zIDEyIDAibXA9InRyYW5zZm9ybSI+PC9wYXRoPjwvc3ZnPg==";
+                }} src="/lovable-uploads/d3761d88-e647-4000-acfc-f5a546ace41e.png" />
                 </div>
                 <span className="font-cinzel text-xl font-bold text-wizardry-gold">
                   Owlstin
@@ -312,11 +300,7 @@ export default function Landing() {
               <div className="mt-6">
                 <h5 className="font-cinzel font-bold text-wizardry-gold mb-3">Join our circle</h5>
                 <div className="flex gap-2">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="bg-wizardry-midnight border border-wizardry-gold/30 text-wizardry-parchment p-2 text-sm rounded-md flex-1 focus:outline-none focus:border-wizardry-gold/60"
-                  />
+                  <input type="email" placeholder="Enter your email" className="bg-wizardry-midnight border border-wizardry-gold/30 text-wizardry-parchment p-2 text-sm rounded-md flex-1 focus:outline-none focus:border-wizardry-gold/60" />
                   <Button variant="outline" className="border-wizardry-gold/50 hover:border-wizardry-gold text-wizardry-parchment hover:bg-magical-glowing-purple/10">
                     <Sparkles className="h-4 w-4 mr-2" />
                     Subscribe
@@ -382,30 +366,23 @@ export default function Landing() {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 }
 
 // FAQ Data
-const faqItems = [
-  {
-    question: "How does Owlstin match me with jobs?",
-    answer: "Our advanced magical algorithms analyze your skills, experience, and preferences to find the perfect career matches in our vast job network. The AI compares your profile against thousands of job requirements to reveal your ideal path."
-  },
-  {
-    question: "What makes Owlstin different from other job platforms?",
-    answer: "Unlike conventional job boards, Owlstin's magic lies in its ability to identify skill gaps and provide personalized learning paths to help you qualify for your dream job, not just show you listings you're already qualified for."
-  },
-  {
-    question: "How often is the job database updated?",
-    answer: "Our mystical job database is continuously updated through our network of employer partnerships and automated web scraping enchantments, ensuring you always have access to the freshest opportunities."
-  },
-  {
-    question: "Can I use Owlstin if I'm not sure what career I want?",
-    answer: "Absolutely! Our career discovery ritual is designed to help uncertain seekers identify their natural talents and align them with fulfilling career paths they might never have considered."
-  },
-  {
-    question: "Do employers see my profile on Owlstin?",
-    answer: "Your profile remains hidden behind magical protection until you expressly permit visibility to specific employers or apply to positions. You maintain complete control over who sees your professional information."
-  }
-];
+const faqItems = [{
+  question: "How does Owlstin match me with jobs?",
+  answer: "Our advanced magical algorithms analyze your skills, experience, and preferences to find the perfect career matches in our vast job network. The AI compares your profile against thousands of job requirements to reveal your ideal path."
+}, {
+  question: "What makes Owlstin different from other job platforms?",
+  answer: "Unlike conventional job boards, Owlstin's magic lies in its ability to identify skill gaps and provide personalized learning paths to help you qualify for your dream job, not just show you listings you're already qualified for."
+}, {
+  question: "How often is the job database updated?",
+  answer: "Our mystical job database is continuously updated through our network of employer partnerships and automated web scraping enchantments, ensuring you always have access to the freshest opportunities."
+}, {
+  question: "Can I use Owlstin if I'm not sure what career I want?",
+  answer: "Absolutely! Our career discovery ritual is designed to help uncertain seekers identify their natural talents and align them with fulfilling career paths they might never have considered."
+}, {
+  question: "Do employers see my profile on Owlstin?",
+  answer: "Your profile remains hidden behind magical protection until you expressly permit visibility to specific employers or apply to positions. You maintain complete control over who sees your professional information."
+}];
