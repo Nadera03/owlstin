@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
@@ -10,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { UploadCloud, BookOpen, CheckCircle2, FileText, ArrowRight, Book, CheckCheck, Star, Palm, Mountain, Sprout, TreePine } from "lucide-react";
+import { UploadCloud, BookOpen, CheckCircle2, FileText, ArrowRight, Book, CheckCheck, Star, Palmtree, Mountain, Sprout, TreePine } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface Skill {
@@ -27,7 +26,6 @@ interface Recommendation {
 }
 
 export default function JobSeekerPage() {
-  // Set dark mode and scroll to top on mount
   useEffect(() => {
     document.documentElement.classList.add("dark");
     window.scrollTo(0, 0);
@@ -89,9 +87,7 @@ export default function JobSeekerPage() {
     setIsAnalyzing(true);
     setSpellbookOpen(true);
     
-    // Mock analysis process with magical animation
     setTimeout(() => {
-      // Mock data - in a real app this would come from the backend
       const mockMatchedSkills: Skill[] = [
         { name: "JavaScript", matched: true },
         { name: "React", matched: true },
@@ -154,12 +150,10 @@ export default function JobSeekerPage() {
       setMissingSkills(mockMissingSkills);
       setRecommendations(mockRecommendations);
       
-      // Calculate match percentage
       const totalSkills = mockMatchedSkills.length + mockMissingSkills.length;
       const matchedCount = mockMatchedSkills.length;
       const initialPercentage = Math.round((matchedCount / totalSkills) * 100);
       
-      // Animate the percentage
       let count = 0;
       const interval = setInterval(() => {
         count += 1;
@@ -188,7 +182,6 @@ export default function JobSeekerPage() {
       const updated = [...prev];
       updated[index].completed = !updated[index].completed;
       
-      // Recalculate match percentage
       const totalSkills = matchedSkills.length + missingSkills.length;
       const completedSkills = matchedSkills.length + updated.filter(r => r.completed).length;
       const newPercentage = Math.round((completedSkills / totalSkills) * 100);
@@ -203,7 +196,6 @@ export default function JobSeekerPage() {
     });
   };
   
-  // Spellbook animation effect
   useEffect(() => {
     if (spellbookOpen && spellbookRef.current) {
       spellbookRef.current.style.transform = "scale(1)";
@@ -214,7 +206,6 @@ export default function JobSeekerPage() {
   
   return (
     <div className="min-h-screen text-archive-text relative">
-      {/* Biome Background */}
       <BiomeBackground biomeType={currentBiome} />
       
       <Starfield />
@@ -222,11 +213,10 @@ export default function JobSeekerPage() {
       <Navbar />
       
       <main className="pt-20 pb-12 relative z-10">
-        {/* Page Header - Tropical Biome */}
         <section className="py-12 md:py-20 px-4 relative" onMouseEnter={() => setCurrentBiome('tropical')}>
           <div className="container mx-auto max-w-6xl">
             <div className="flex items-center mb-6">
-              <Palm className="text-biome-tropical mr-3 h-6 w-6" />
+              <Palmtree className="text-biome-tropical mr-3 h-6 w-6" />
               <VineHeading level={1} className="text-4xl md:text-5xl font-bold text-center" biomeType="tropical">
                 Your Magical Career Journey
               </VineHeading>
@@ -239,7 +229,6 @@ export default function JobSeekerPage() {
         
         <div className="container mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Upload Section - Desert Biome */}
             <div 
               className={`lg:col-span-1 ${analysisComplete ? 'lg:block' : ''}`}
               onMouseEnter={() => setCurrentBiome('desert')}
@@ -253,7 +242,6 @@ export default function JobSeekerPage() {
                 </div>
                 
                 <div className="space-y-6">
-                  {/* Resume Upload */}
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-archive-text/80">Your Resume</label>
                     <div className="border-2 border-dashed border-biome-desert/40 rounded-lg p-6 flex flex-col items-center justify-center hover:border-biome-desert/70 transition-colors bg-archive-base/30">
@@ -281,7 +269,6 @@ export default function JobSeekerPage() {
                     </div>
                   </div>
                   
-                  {/* Job Description Upload */}
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-archive-text/80">Job Description</label>
                     <div className="border-2 border-dashed border-biome-desert/40 rounded-lg p-6 flex flex-col items-center justify-center hover:border-biome-desert/70 transition-colors bg-archive-base/30">
@@ -309,7 +296,6 @@ export default function JobSeekerPage() {
                     </div>
                   </div>
                   
-                  {/* Text Input Alternative */}
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-archive-text/80">Or paste job description</label>
                     <textarea
@@ -320,7 +306,6 @@ export default function JobSeekerPage() {
                     ></textarea>
                   </div>
                   
-                  {/* Analyze Button */}
                   <JungleButton
                     className="w-full py-6 text-lg"
                     disabled={isAnalyzing}
@@ -333,27 +318,22 @@ export default function JobSeekerPage() {
               </div>
             </div>
             
-            {/* Spellbook Animation (conditional) */}
             {isAnalyzing && (
               <div className="fixed inset-0 bg-archive-base/90 flex items-center justify-center z-50">
                 <div 
                   ref={spellbookRef} 
                   className="relative w-80 h-96 transform scale-0 transition-transform duration-1000"
                 >
-                  {/* Spellbook */}
                   <div className="absolute inset-0 bg-biome-wood rounded-lg border-4 border-biome-soil flex flex-col items-center justify-center">
-                    {/* Wood grain texture */}
                     <div className="absolute inset-0 opacity-20 bg-repeat mix-blend-overlay pointer-events-none" 
-                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0c5 0 10 10 15 10s10-10 15-10 10 10 15 10 10-10 15-10 10 10 15 10 10-10 15-10 10 10 15 10' stroke='%23ffffff' stroke-width='2' fill='none' /%3E%3C/svg%3E\")" }}>
+                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0c5 0 10 10 15 10s10-10 15-10 10 10 15 10 10-10 15-10 10 10 15 10' stroke='%23ffffff' stroke-width='2' fill='none' /%3E%3C/svg%3E\")" }}>
                     </div>
                     
-                    {/* Content */}
                     <div className="text-center p-6 z-10">
                       <h3 className="font-headline text-2xl mb-4 text-biome-jungle-dark">Analyzing Skills</h3>
                       <div className="relative w-40 h-40 mx-auto mb-4">
                         <div className="absolute inset-0 bg-biome-jungle-dark/20 rounded-full animate-pulse"></div>
                         <div className="absolute inset-0 flex items-center justify-center">
-                          {/* Crystal ball with spinning particles */}
                           <div className="w-32 h-32 rounded-full bg-gradient-to-br from-biome-tropical/70 to-biome-jungle-dark/50 border border-biome-vine/30 relative overflow-hidden">
                             <div className="absolute inset-0 flex items-center justify-center">
                               <div className="w-24 h-24 rounded-full bg-archive-base/50 flex items-center justify-center">
@@ -363,7 +343,6 @@ export default function JobSeekerPage() {
                               </div>
                             </div>
                             
-                            {/* Particle effects */}
                             <div className="absolute inset-0">
                               {Array.from({ length: 10 }).map((_, i) => (
                                 <div 
@@ -390,10 +369,8 @@ export default function JobSeekerPage() {
               </div>
             )}
             
-            {/* Right Column - Analysis Results (conditional) - Various Biomes */}
             {analysisComplete && (
               <div className="lg:col-span-2 space-y-8">
-                {/* Match Percentage - Savanna Biome */}
                 <div 
                   className="bg-archive-secondary/70 backdrop-blur-sm rounded-md border border-archive-border p-6 shadow-lg"
                   onMouseEnter={() => setCurrentBiome('savanna')}
@@ -405,18 +382,15 @@ export default function JobSeekerPage() {
                     </VineHeading>
                   </div>
                   
-                  {/* Orb with percentage */}
                   <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
                     <div className="relative w-40 h-40">
                       <div className="absolute inset-0 bg-biome-savanna/20 rounded-full animate-pulse"></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        {/* Crystal ball with match percentage */}
                         <div className="w-36 h-36 rounded-full bg-gradient-to-br from-archive-secondary/90 to-biome-savanna/30 border border-biome-savanna/30 relative overflow-hidden flex items-center justify-center">
                           <div className="text-4xl font-bold text-archive-text">
                             {matchPercentage}%
                           </div>
                           
-                          {/* Particle effects */}
                           <div className="absolute inset-0">
                             {Array.from({ length: 6 }).map((_, i) => (
                               <div 
@@ -453,7 +427,6 @@ export default function JobSeekerPage() {
                   </div>
                 </div>
                 
-                {/* Skill Analysis - Tundra Biome */}
                 <div 
                   className="bg-archive-secondary/70 backdrop-blur-sm rounded-md border border-archive-border p-6 shadow-lg"
                   onMouseEnter={() => setCurrentBiome('tundra')}
@@ -466,7 +439,6 @@ export default function JobSeekerPage() {
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Matched Skills */}
                     <div className="bg-archive-base/30 p-4 rounded-md border border-biome-tundra/30">
                       <h3 className="text-xl font-headline mb-4 text-biome-tundra flex items-center">
                         <CheckCircle2 className="mr-2 h-5 w-5" />
@@ -482,7 +454,6 @@ export default function JobSeekerPage() {
                       </div>
                     </div>
                     
-                    {/* Missing Skills */}
                     <div className="bg-archive-base/30 p-4 rounded-md border border-biome-tundra/30">
                       <h3 className="text-xl font-headline mb-4 text-biome-tundra flex items-center">
                         <BookOpen className="mr-2 h-5 w-5" />
@@ -500,7 +471,6 @@ export default function JobSeekerPage() {
                   </div>
                 </div>
                 
-                {/* AI Orb Advice - Tropical Biome */}
                 <div 
                   className="bg-archive-secondary/70 backdrop-blur-sm rounded-md border border-archive-border p-6 shadow-lg relative overflow-hidden"
                   onMouseEnter={() => setCurrentBiome('tropical')}
@@ -508,22 +478,18 @@ export default function JobSeekerPage() {
                   <div className="absolute -right-20 -top-20 w-60 h-60 rounded-full bg-biome-tropical/5 filter blur-3xl"></div>
                   
                   <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
-                    {/* Floating orb */}
                     <div className="relative w-32 h-32 shrink-0">
                       <div className="absolute inset-0 bg-biome-tropical/20 rounded-full animate-pulse"></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        {/* AI orb */}
                         <div className="w-28 h-28 rounded-full bg-gradient-to-br from-archive-secondary to-biome-jungle-dark border border-biome-tropical/30 animate-float flex items-center justify-center">
                           <div className="text-biome-tropical text-3xl">AI</div>
                         </div>
                       </div>
                       
-                      {/* Vine decorations */}
                       <div className="absolute -top-4 -right-4 w-8 h-20 bg-biome-vine/30 rounded-full rotate-45"></div>
                       <div className="absolute -bottom-4 -left-4 w-6 h-16 bg-biome-vine/20 rounded-full -rotate-45"></div>
                     </div>
                     
-                    {/* Advice content */}
                     <div className="flex-1">
                       <VineHeading className="text-xl mb-3" biomeType="tropical">
                         Jungle Path Guidance
@@ -542,7 +508,6 @@ export default function JobSeekerPage() {
                   </div>
                 </div>
                 
-                {/* Learning Recommendations - Different biomes for each card */}
                 <div className="space-y-6">
                   <VineHeading className="text-2xl font-bold" biomeType="tropical">
                     Your Jungle Learning Path
@@ -573,7 +538,6 @@ export default function JobSeekerPage() {
                           {rec.description}
                         </p>
                         
-                        {/* Resources */}
                         <div className="mb-4">
                           <h4 className="font-headline text-biome-tropical mb-2 flex items-center">
                             <Book className="h-4 w-4 mr-2" />
@@ -591,7 +555,6 @@ export default function JobSeekerPage() {
                           </ul>
                         </div>
                         
-                        {/* Project Idea */}
                         <div>
                           <h4 className="font-headline text-biome-tropical mb-2">Project Idea</h4>
                           <p className="text-archive-text/80">
@@ -602,7 +565,6 @@ export default function JobSeekerPage() {
                     </Card>
                   ))}
                   
-                  {/* Call to Action */}
                   <div className="backdrop-blur-sm bg-archive-secondary/70 border border-archive-border rounded-md p-6 text-center shadow-lg">
                     <VineHeading className="text-xl mb-4" biomeType="tropical">
                       Ready to Explore Further?
