@@ -10,15 +10,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-r from-wizardry-crimson to-wizardry-deep-crimson text-wizardry-parchment hover:shadow-[0_0_15px_rgba(220,20,60,0.5)] border border-wizardry-gold/20",
+        default: "bg-gradient-to-r from-wizardry-crimson to-wizardry-deep-crimson text-wizardry-parchment hover:shadow-[0_0_15px_rgba(220,20,60,0.5),0_0_10px_rgba(212,175,55,0.3)] border border-wizardry-gold/20 relative overflow-hidden",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-wizardry-gold bg-background hover:bg-wizardry-crimson/10 hover:text-wizardry-gold",
+          "border border-wizardry-gold/50 bg-wizardry-deep-crimson/30 backdrop-blur-sm hover:bg-wizardry-crimson/20 hover:text-wizardry-gold hover:shadow-[0_0_15px_rgba(212,175,55,0.2)]",
         secondary:
-          "bg-wizardry-deep-crimson text-wizardry-parchment hover:bg-wizardry-crimson/80 border border-wizardry-gold/20",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-wizardry-deep-crimson text-wizardry-parchment hover:bg-wizardry-crimson/80 border border-wizardry-gold/30 hover:border-wizardry-gold/50 hover:shadow-[0_0_15px_rgba(139,0,0,0.5)]",
+        ghost: "hover:bg-wizardry-crimson/10 hover:text-wizardry-gold",
+        link: "text-wizardry-gold underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",
