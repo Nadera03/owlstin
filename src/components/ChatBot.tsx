@@ -23,6 +23,9 @@ type Message = {
   timestamp: Date;
 };
 
+// Default API key - this should be treated as an environment variable in production
+const DEFAULT_API_KEY = "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";
+
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -35,11 +38,6 @@ export default function ChatBot() {
   ]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [apiKey, setApiKey] = useState<string>(() => {
-    const savedKey = localStorage.getItem("openai-api-key");
-    return savedKey || "";
-  });
-  const [showApiKeyInput, setShowApiKeyInput] = useState(!localStorage.getItem("openai-api-key"));
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -58,48 +56,9 @@ export default function ChatBot() {
     }
   }, [open]);
 
-  const saveApiKey = () => {
-    if (apiKey.trim()) {
-      localStorage.setItem("openai-api-key", apiKey.trim());
-      setShowApiKeyInput(false);
-      toast({
-        title: "API Key Saved",
-        description: "Your OpenAI API key has been saved to local storage.",
-      });
-    } else {
-      toast({
-        title: "Error",
-        description: "Please enter a valid API key",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const clearApiKey = () => {
-    localStorage.removeItem("openai-api-key");
-    setApiKey("");
-    setShowApiKeyInput(true);
-    toast({
-      title: "API Key Removed",
-      description: "Your OpenAI API key has been removed from local storage.",
-    });
-  };
-
   const handleSubmit = async (e?: React.FormEvent) => {
     e?.preventDefault();
     if (!inputValue.trim() || isLoading) return;
-    
-    // Check if API key is configured
-    const storedApiKey = localStorage.getItem("openai-api-key");
-    if (!storedApiKey) {
-      setShowApiKeyInput(true);
-      toast({
-        title: "API Key Required",
-        description: "Please set your OpenAI API key to chat with AI",
-        variant: "destructive",
-      });
-      return;
-    }
     
     // Add user message
     const userMessage: Message = {
@@ -114,12 +73,12 @@ export default function ChatBot() {
     setIsLoading(true);
     
     try {
-      // Make API call to OpenAI
+      // Make API call to OpenAI using the default API key
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${storedApiKey}`,
+          "Authorization": `Bearer ${DEFAULT_API_KEY}`,
         },
         body: JSON.stringify({
           model: "gpt-4o-mini",
@@ -159,14 +118,14 @@ export default function ChatBot() {
       console.error("Error calling OpenAI API:", error);
       toast({
         title: "Error",
-        description: "Failed to get a response from the AI. Please check your API key and try again.",
+        description: "Failed to get a response from the AI. Please try again later.",
         variant: "destructive",
       });
       
       // Add error message
       const errorMessage: Message = {
         id: Date.now().toString(),
-        content: "Sorry, I encountered an error. Please check your API key or try again later.",
+        content: "Sorry, I encountered an error. Please try again later.",
         role: "assistant",
         timestamp: new Date(),
       };
@@ -200,39 +159,6 @@ export default function ChatBot() {
           </DrawerHeader>
           
           <div className="flex flex-col h-full p-4">
-            {showApiKeyInput ? (
-              <div className="mb-4 p-4 bg-muted/50 rounded-lg">
-                <h3 className="font-medium mb-2">Enter your OpenAI API Key</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Your API key is stored locally in your browser and never sent to our servers.
-                </p>
-                <div className="flex gap-2 mb-2">
-                  <Input
-                    type="password"
-                    value={apiKey}
-                    onChange={(e) => setApiKey(e.target.value)}
-                    placeholder="sk-..."
-                    className="flex-1"
-                  />
-                  <Button onClick={saveApiKey}>Save</Button>
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  You can get an API key at <a href="https://platform.openai.com/api-keys" target="_blank" rel="noreferrer" className="underline">platform.openai.com</a>
-                </p>
-              </div>
-            ) : (
-              <div className="flex justify-end mb-2">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={clearApiKey}
-                  className="text-xs"
-                >
-                  Change API Key
-                </Button>
-              </div>
-            )}
-          
             <ScrollArea className="flex-1 pr-4">
               <div className="flex flex-col space-y-4">
                 {messages.map((message) => (
@@ -271,13 +197,13 @@ export default function ChatBot() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Type your message..."
-                  disabled={isLoading || showApiKeyInput}
+                  disabled={isLoading}
                   className="flex-1"
                 />
                 <Button 
                   type="submit" 
                   size="icon" 
-                  disabled={!inputValue.trim() || isLoading || showApiKeyInput}
+                  disabled={!inputValue.trim() || isLoading}
                 >
                   <Send size={18} />
                   <span className="sr-only">Send</span>
