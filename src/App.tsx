@@ -16,13 +16,13 @@ import AboutPage from "./pages/AboutPage";
 import TestimonialsPage from "./pages/TestimonialsPage";
 import FaqPage from "./pages/FaqPage";
 import SupportPage from "./pages/SupportPage";
-import { BiomeProvider } from "./contexts/BiomeContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <BiomeProvider>
+    <ThemeProvider>
       <TooltipProvider>
         <MagicCursor />
         <Toaster />
@@ -43,7 +43,7 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
-    </BiomeProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
