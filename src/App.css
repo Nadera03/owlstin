@@ -78,3 +78,65 @@
   20% { opacity: 1; }
   100% { height: 100px; opacity: 0; transform: translateY(100%); }
 }
+
+/* Magical Castlevania Card */
+.magical-card {
+  @apply relative border border-castlevania-gold/20 p-6 rounded-md bg-castle-stone overflow-hidden transition-all duration-300;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.2);
+}
+
+.magical-card:before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-castlevania-blood/5 to-transparent pointer-events-none opacity-50;
+}
+
+.magical-card:hover {
+  @apply border-castlevania-gold/40;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(139, 0, 0, 0.3);
+}
+
+/* Magical Button Style */
+.magical-button {
+  @apply relative bg-castlevania-blood text-castlevania-parchment overflow-hidden transition-all duration-300 border border-castlevania-gold/20;
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.4);
+}
+
+.magical-button:hover, .magical-button:focus {
+  @apply bg-castlevania-blood/90 border-castlevania-gold/40;
+  box-shadow: 0 0 15px rgba(139, 0, 0, 0.6), 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+.magical-button:active {
+  transform: translateY(1px);
+}
+
+/* Floating Orb */
+.floating-orb {
+  @apply absolute rounded-full animate-float;
+  background: radial-gradient(circle at center, rgba(139, 0, 0, 0.6) 0%, rgba(26, 31, 44, 0.4) 70%);
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+}
+
+/* Blood Glow Effect */
+.blood-glow {
+  text-shadow: 0 0 10px rgba(139, 0, 0, 0.7);
+  animation: blood-pulse 4s infinite alternate;
+}
+
+@keyframes blood-pulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(139, 0, 0, 0.7); }
+  50% { text-shadow: 0 0 20px rgba(139, 0, 0, 0.9); }
+}
+
+/* Flame Orbs */
+.flame-orb {
+  @apply rounded-full bg-gradient-to-br from-castlevania-flame to-castlevania-blood animate-float;
+  box-shadow: 0 0 15px rgba(139, 0, 0, 0.5), 0 0 30px rgba(139, 0, 0, 0.3);
+}
+
+/* Torch Animation */
+.torch {
+  @apply inline-block w-4 h-4 bg-castlevania-flame rounded-full animate-flicker mr-2;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+}
