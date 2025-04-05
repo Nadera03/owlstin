@@ -47,7 +47,7 @@ export default function AboutPage() {
             The Team Behind Owlstin
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rounded">
             <div className="magical-card p-6 rounded-xl text-center">
               <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-3xl">👩‍💻</span>
