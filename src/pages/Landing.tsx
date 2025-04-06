@@ -161,9 +161,8 @@ Recruiters get ranked talent, JD analysis, and deep-fit reasoning — all in one
                   Owlstin
                 </span>
               </Link>
-              <p className="text-magical-starlight/60 text-sm mb-4">
-                Unlocking career potential with magical AI-powered guidance.
-              </p>
+              <p className="text-magical-starlight/60 text-sm mb-4 font-extrabold">Owlstin is a student-built AI platform that bridges the gap between fresh talent and modern recruiters. With explainable AI, live resume updates, and hiring intelligence, we aim to redefine early-career hiring.
+            </p>
             </div>
             
             <div>
