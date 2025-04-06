@@ -39,11 +39,11 @@ export default function Hero() {
           </div>
           
           {/* Hero Title */}
-          <h1 className="font-cinzel text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">Your AI-Powered Career Copilot</h1>
+          <h1 className="font-cinzel text-5xl font-bold mb-6 bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto] md:text-6xl">AI-Driven Career Intelligence for Seekers &amp; Recruiters </h1>
           
           {/* Subtitle */}
           <p className="text-magical-starlight/80 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            <span className="text-magical-glowing-teal">Owlstin</span> harnesses the power of AI to match your skills with job requirements, revealing your path to professional enchantment.
+            <span className="text-magical-glowing-teal">Owlstin connects top talent to the right opportunities through intelligent skill-matching, resume enhancement, instant job applications, and real-time hiring insights,</span> harnesses the power of AI to match your skills with job requirements, revealing your path to professional enchantment.
           </p>
           
           {/* CTA Buttons */}
