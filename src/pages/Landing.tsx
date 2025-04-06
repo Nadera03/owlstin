@@ -113,9 +113,7 @@ Recruiters get ranked talent, JD analysis, and deep-fit reasoning — all in one
             {/* Content */}
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="max-w-xl">
-                <h2 className="text-3xl md:text-4xl font-cinzel font-bold mb-4 bg-gradient-to-r from-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent">
-                  Begin Your Magical Career Journey Today
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-cinzel font-bold mb-4 bg-gradient-to-r from-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent">Trusted by campuses. Loved by recruiters. Powered by Gen AI.</h2>
                 <p className="text-magical-starlight/80 mb-6">
                   Join thousands of enchanted professionals who have transformed their careers with Owlstin's magical guidance.
                 </p>
