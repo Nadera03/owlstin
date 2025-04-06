@@ -39,9 +39,7 @@ export default function Hero() {
           </div>
           
           {/* Hero Title */}
-          <h1 className="font-cinzel text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
-            Unlock Your Career Magic
-          </h1>
+          <h1 className="font-cinzel text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">Your AI-Powered Career Copilot</h1>
           
           {/* Subtitle */}
           <p className="text-magical-starlight/80 text-lg md:text-xl max-w-2xl mx-auto mb-10">
