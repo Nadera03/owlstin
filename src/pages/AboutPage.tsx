@@ -1,8 +1,6 @@
-
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
-
 export default function AboutPage() {
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -11,7 +9,6 @@ export default function AboutPage() {
       document.documentElement.classList.remove("dark");
     };
   }, []);
-  
   return <div className="min-h-screen bg-magical-midnight text-magical-starlight">
       <Starfield />
       <Navbar />
@@ -23,9 +20,7 @@ export default function AboutPage() {
           </h1>
           
           <div className="magical-card p-8 rounded-xl mb-12">
-            <p className="text-lg mb-6">
-              Owlstin was founded in 2023 with a singular vision: to bridge the gap between job seekers' skills and employers' needs through the power of AI and data science.
-            </p>
+            <p className="text-lg mb-6">Owlstin was founded in 2025 with a singular vision: to bridge the gap between job seekers' skills and employers' needs through the power of AI and data science.</p>
             
             <p className="text-lg mb-6">
               Our team of AI specialists, career coaches, and recruitment experts came together to create a platform that not only identifies skill gaps but provides actionable pathways to close those gaps.
