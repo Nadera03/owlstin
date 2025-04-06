@@ -55,7 +55,7 @@ export default function Hero() {
               </Button>
             </Link>
             <Link to="/recruiter">
-              <Button variant="outline" size="lg" className="border-magical-glowing-teal/50 hover:border-magical-glowing-teal/80 text-magical-starlight hover:bg-magical-glowing-teal/5 text-lg">
+              <Button variant="outline" size="lg" className="border-magical-glowing-teal/50 hover:border-magical-glowing-teal/80 text-magical-starlight hover:bg-magical-glowing-teal/5 text-lg bg-gray-950 hover:bg-gray-800 bg-[magical-deep-purple]">
                 For Recruiters
               </Button>
             </Link>
