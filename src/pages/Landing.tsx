@@ -96,9 +96,7 @@ export default function Landing() {
                 <CheckCircle className="text-magical-glowing-teal" />
               </div>
               <h3 className="text-xl font-cinzel font-bold mb-2 text-magical-starlight">AI Recommendations</h3>
-              <p className="text-magical-starlight/70">
-                Receive enchanted advice from our AI to help you stand out in the competitive job market.
-              </p>
+              <p className="text-magical-starlight/70">Receive advice from our AI to help you stand out in the competitive job market.</p>
             </div>
           </div>
         </div>
