@@ -1,7 +1,7 @@
 
-# JD Buddy - Resume Skill Gap Analyzer
+# Owlstin - Resume Skill Gap Analyzer
 
-JD Buddy is a Streamlit application that helps job seekers identify missing skills by comparing their resume to job descriptions. It uses LLM technology to extract skills and provide personalized recommendations.
+Owlstin is a Streamlit application that helps job seekers identify missing skills by comparing their resume to job descriptions. It uses LLM technology to extract skills and provide personalized recommendations.
 
 ## Features
 
