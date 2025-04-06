@@ -28,9 +28,9 @@ export default function Landing() {
       <section id="features-section" className="py-20 px-4 relative">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl md:text-5xl font-cinzel font-bold text-center mb-4 bg-gradient-to-r from-magical-starlight via-magical-glowing-teal to-magical-starlight bg-clip-text text-transparent">Build. Apply. Win. — With AI by Your Side.</h2>
-          <p className="text-magical-starlight/70 text-center max-w-2xl mx-auto mb-16">
-            Our enchanted AI analyzes your skills and matches them with job requirements, revealing the perfect path to your dream career.
-          </p>
+          <p className="text-magical-starlight/70 text-center max-w-2xl mx-auto mb-16">Owlstin is your intelligent career assistant, designed for both students and recruiters.
+Students get resume upgrades, job-fit scoring, direct applications &amp; personalized learning.
+Recruiters get ranked talent, JD analysis, and deep-fit reasoning — all in one click.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature 1 */}
