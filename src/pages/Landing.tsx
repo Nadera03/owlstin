@@ -155,10 +155,7 @@ Recruiters get ranked talent, JD analysis, and deep-fit reasoning — all in one
             <div>
               <Link to="/" className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 relative">
-                  <img src="/owlstin-logo.svg" alt="Owlstin" className="w-full h-full" onError={e => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDREREREIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtb3dsIj48cGF0aCBkPSJNNCA5DjwvcGF0aD48cGF0aCBkPSJNOCAxMTQ0Ijy8L3BhdGg+PHBhdGggZD0iTTE0IDExNiI+PC9wYXRoPjxjaXJjbGUgY3g9IjkiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMiIgcj0iMSI+PC9jaXJjbGU+PHBhdGggZD0iTTggNGM0LTMgOC0zIDEyIDAibXA9InRyYW5zZm9ybSI+PC9wYXRoPjwvc3ZnPg==";
-                }} />
+                  
                 </div>
                 <span className="font-cinzel text-xl font-bold bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
                   Owlstin
@@ -194,7 +191,7 @@ Recruiters get ranked talent, JD analysis, and deep-fit reasoning — all in one
               <ul className="space-y-2">
                 <li><a href="mailto:hello@owlstin.io" className="text-magical-starlight/60 hover:text-magical-glowing-teal transition-colors">hello@owlstin.io</a></li>
                 <li><Link to="/support" className="text-magical-starlight/60 hover:text-magical-glowing-teal transition-colors">Support</Link></li>
-                <li><Link to="/blog" className="text-magical-starlight/60 hover:text-magical-glowing-teal transition-colors">Blog</Link></li>
+                
               </ul>
             </div>
           </div>
