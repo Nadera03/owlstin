@@ -58,14 +58,14 @@ export default function AboutPage() {
             The Team Behind Owlstin
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rounded">
-            <div className="magical-card p-6 rounded-xl text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rounded-full">
+            <div className="magical-card p-6 text-center rounded-full">
               <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-3xl">👩‍💻</span>
               </div>
               <h3 className="font-cinzel font-bold text-xl mb-2">Nadera. AI</h3>
               <p className="text-magical-starlight/70">Founder & CEO</p>
-              <p className="text-magical-starlight/70 mt-3">
+              <p className="text-magical-starlight/70 mt-3 text-sm text-center">
                 Former AI lead at LinkedIn with a passion for career development
               </p>
             </div>
