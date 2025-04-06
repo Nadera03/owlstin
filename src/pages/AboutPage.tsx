@@ -65,9 +65,7 @@ export default function AboutPage() {
               </div>
               <h3 className="font-cinzel font-bold text-xl mb-2">Nadera. AI</h3>
               <p className="text-magical-starlight/70">Founder & CEO</p>
-              <p className="text-magical-starlight/70 mt-3">
-                Former AI lead at LinkedIn with a passion for career development
-              </p>
+              
             </div>
             
             <div className="magical-card p-6 rounded-xl text-center">
@@ -76,9 +74,7 @@ export default function AboutPage() {
               </div>
               <h3 className="font-cinzel font-bold text-xl mb-2">Dr. Morgan Lee</h3>
               <p className="text-magical-starlight/70">Chief Data Scientist</p>
-              <p className="text-magical-starlight/70 mt-3">
-                PhD in Machine Learning with expertise in skill-matching algorithms
-              </p>
+              
             </div>
             
             <div className="magical-card p-6 rounded-xl text-center">
