@@ -177,9 +177,7 @@ export default function SupportPage() {
                   <Clock className="h-5 w-5 text-magical-glowing-teal mr-3" />
                   <div>
                     <div className="font-medium">LinkedIn</div>
-                    <div className="text-magical-starlight/70">
-                      Monday - Friday: 9AM - 6PM EST
-                    </div>
+                    <div className="text-magical-starlight/70">Nadera.AI</div>
                   </div>
                 </div>
               </div>
