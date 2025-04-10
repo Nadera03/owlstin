@@ -59,7 +59,7 @@ export default function AboutPage() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rounded-full">
-            <div className="magical-card p-6 text-center rounded-lg">
+            <div className="magical-card p-6 text-center rounded-full">
               <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-3xl">👩‍💻</span>
               </div>
