@@ -1,20 +1,12 @@
-
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { HeartHandshake, MessageSquare, Mail, Phone, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 export default function SupportPage() {
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -23,55 +15,54 @@ export default function SupportPage() {
       document.documentElement.classList.remove("dark");
     };
   }, []);
-
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     category: "",
-    message: "",
+    message: ""
   });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value,
+      [name]: value
     }));
   };
-
   const handleSelectChange = (value: string) => {
     setFormData(prev => ({
       ...prev,
-      category: value,
+      category: value
     }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setSubmitting(false);
       toast({
         title: "Support request submitted",
-        description: "We'll get back to you as soon as possible.",
+        description: "We'll get back to you as soon as possible."
       });
       setFormData({
         name: "",
         email: "",
         subject: "",
         category: "",
-        message: "",
+        message: ""
       });
     }, 1500);
   };
-
-  return (
-    <div className="min-h-screen bg-magical-midnight text-magical-starlight">
+  return <div className="min-h-screen bg-magical-midnight text-magical-starlight">
       <Starfield />
       <Navbar />
       
@@ -98,39 +89,21 @@ export default function SupportPage() {
                 <label htmlFor="name" className="block text-sm font-medium mb-1">
                   Your Name
                 </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70"
-                />
+                <Input id="name" name="name" value={formData.name} onChange={handleChange} required className="bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70" />
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-1">
                   Email Address
                 </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70"
-                />
+                <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required className="bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70" />
               </div>
               
               <div>
                 <label htmlFor="category" className="block text-sm font-medium mb-1">
                   Issue Category
                 </label>
-                <Select
-                  value={formData.category}
-                  onValueChange={handleSelectChange}
-                >
+                <Select value={formData.category} onValueChange={handleSelectChange}>
                   <SelectTrigger className="bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70">
                     <SelectValue placeholder="Select category" />
                   </SelectTrigger>
@@ -148,36 +121,17 @@ export default function SupportPage() {
                 <label htmlFor="subject" className="block text-sm font-medium mb-1">
                   Subject
                 </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70"
-                />
+                <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} required className="bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70" />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-1">
                   Your Message
                 </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70"
-                />
+                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="bg-magical-midnight/50 border-magical-glowing-teal/30 focus:border-magical-glowing-teal/70" />
               </div>
               
-              <Button 
-                type="submit" 
-                className="magical-button w-full" 
-                disabled={submitting}
-              >
+              <Button type="submit" className="magical-button w-full" disabled={submitting}>
                 {submitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
@@ -207,9 +161,7 @@ export default function SupportPage() {
                   <Mail className="h-5 w-5 text-magical-glowing-teal mr-3" />
                   <div>
                     <div className="font-medium">Email Support</div>
-                    <a href="mailto:support@owlstin.io" className="text-magical-glowing-teal hover:underline">
-                      support@owlstin.io
-                    </a>
+                    <a href="mailto:support@owlstin.io" className="text-magical-glowing-teal hover:underline">nadera.aibusiness@gmail.com</a>
                   </div>
                 </div>
                 
@@ -217,16 +169,14 @@ export default function SupportPage() {
                   <Phone className="h-5 w-5 text-magical-glowing-teal mr-3" />
                   <div>
                     <div className="font-medium">Phone Support</div>
-                    <div className="text-magical-starlight/70">
-                      +1 (555) 123-4567
-                    </div>
+                    <div className="text-magical-starlight/70">+91 1234056789</div>
                   </div>
                 </div>
                 
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-magical-glowing-teal mr-3" />
                   <div>
-                    <div className="font-medium">Support Hours</div>
+                    <div className="font-medium">LinkedIn</div>
                     <div className="text-magical-starlight/70">
                       Monday - Friday: 9AM - 6PM EST
                     </div>
@@ -247,6 +197,5 @@ export default function SupportPage() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
