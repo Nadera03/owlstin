@@ -264,9 +264,7 @@ export default function JobSeekerPage() {
             {/* Left Column - Upload Section */}
             <div className={`lg:col-span-1 ${analysisComplete ? 'lg:block' : ''}`}>
               <div className="magical-card p-6 sticky top-24">
-                <h2 className="font-cinzel text-2xl font-bold mb-6 text-center bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
-                  Enchant Your Resume
-                </h2>
+                <h2 className="font-cinzel text-2xl font-bold mb-6 text-center bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">Upload Your Resume</h2>
                 
                 <div className="space-y-6">
                   {/* Resume Upload */}
