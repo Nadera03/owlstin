@@ -59,7 +59,7 @@ export default function AboutPage() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rounded-full">
-            <div className="magical-card p-6 text-center rounded-full">
+            <div className="magical-card p-6 text-center rounded-lg">
               <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-3xl">👩‍💻</span>
               </div>
@@ -70,27 +70,9 @@ export default function AboutPage() {
               </p>
             </div>
             
-            <div className="magical-card p-6 rounded-xl text-center">
-              <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-3xl">🧠</span>
-              </div>
-              <h3 className="font-cinzel font-bold text-xl mb-2">Dr. Morgan Lee</h3>
-              <p className="text-magical-starlight/70">Chief Data Scientist</p>
-              <p className="text-magical-starlight/70 mt-3">
-                PhD in Machine Learning with expertise in skill-matching algorithms
-              </p>
-            </div>
             
-            <div className="magical-card p-6 rounded-xl text-center">
-              <div className="w-24 h-24 bg-magical-glowing-teal/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-3xl">👨‍🎓</span>
-              </div>
-              <h3 className="font-cinzel font-bold text-xl mb-2">Jamie Rivera</h3>
-              <p className="text-magical-starlight/70">Career Development Lead</p>
-              <p className="text-magical-starlight/70 mt-3">
-                15+ years experience in career coaching and recruitment
-              </p>
-            </div>
+            
+            
           </div>
         </div>
       </div>
