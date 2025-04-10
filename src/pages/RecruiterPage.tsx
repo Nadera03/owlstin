@@ -416,9 +416,7 @@ export default function RecruiterPage() {
                   {/* AI Insights */}
                   <Card className="magical-card">
                     <CardHeader className="pb-3">
-                      <CardTitle className="font-cinzel text-xl bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
-                        Magical AI Insights
-                      </CardTitle>
+                      <CardTitle className="font-cinzel text-xl bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">Real Time AI Insights</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-0">
                       <div className="space-y-4">
@@ -441,32 +439,8 @@ export default function RecruiterPage() {
                   
                   {/* Candidate Constellation */}
                   <Card className="magical-card">
-                    <CardHeader className="pb-3">
-                      <CardTitle className="font-cinzel text-xl bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
-                        Skill Constellation
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-0">
-                      {/* Skill graph visualization */}
-                      <div className="relative h-64 bg-magical-deep-purple/20 rounded-lg border border-magical-glowing-teal/20 overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-magical-starlight/50 italic">
-                            Constellation visualization would appear here
-                          </div>
-                        </div>
-                        
-                        {/* Mock stars and connections */}
-                        {selectedCandidate.resumeSkills.map((skill, index) => {
-                    const x = 10 + index * 15 % 80;
-                    const y = 20 + index * 23 % 60;
-                    return <div key={index} className="absolute w-2 h-2 bg-magical-glowing-teal rounded-full animate-pulse" style={{
-                      left: `${x}%`,
-                      top: `${y}%`,
-                      animationDelay: `${index * 0.2}s`
-                    }} />;
-                  })}
-                      </div>
-                    </CardContent>
+                    
+                    
                   </Card>
                   
                   {/* Leadership Board */}
