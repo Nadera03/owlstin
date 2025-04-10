@@ -260,7 +260,7 @@ export default function JobSeekerPage() {
         </section>
         
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 rounded-full">
             {/* Left Column - Upload Section */}
             <div className={`lg:col-span-1 ${analysisComplete ? 'lg:block' : ''}`}>
               <div className="magical-card p-6 sticky top-24">
