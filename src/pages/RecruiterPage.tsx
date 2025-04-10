@@ -187,9 +187,7 @@ export default function RecruiterPage() {
           {!analysisComplete ? (/* Upload Section */
         <Card className="magical-card max-w-2xl mx-auto">
               <CardHeader>
-                <CardTitle className="font-cinzel text-2xl text-center bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">
-                  Summon Your Perfect Candidates
-                </CardTitle>
+                <CardTitle className="font-cinzel text-2xl text-center bg-gradient-to-r from-magical-starlight to-magical-glowing-teal bg-clip-text text-transparent">Find Your Perfect Candidates</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Job Description Upload */}
